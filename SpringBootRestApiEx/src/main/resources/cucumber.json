@@ -1,0 +1,162 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 14,
+        "name": "To get the details of an interested visitor who does not have quotes associated",
+        "description": "",
+        "id": "get-user-profile-by-memberid;to-get-the-details-of-an-interested-visitor-who-does-not-have-quotes-associated",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 782273503,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "a member exists with memberId of 44420",
+            "match": {
+              "arguments": [
+                {
+                  "val": "44420",
+                  "offset": 33
+                }
+              ],
+              "location": "TestSteps.a_member_exists_with_memberId_of(int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3202267,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the request url is \"https://localhost:1500/v1/user-profile/44420\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://localhost:1500/v1/user-profile/44420",
+                  "offset": 20
+                }
+              ],
+              "location": "TestSteps.the_request_url_is(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 170589,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "the header parameters Device-Advertising-ID, Device-Notification-ID, Device-Type, Client-Id and Pure-Tracking-Id as \"dai\",\"dni\",\"Android\",\"App\",\"UserProfile\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "dai",
+                  "offset": 117
+                },
+                {
+                  "val": "dni",
+                  "offset": 123
+                },
+                {
+                  "val": "Android",
+                  "offset": 129
+                },
+                {
+                  "val": "App",
+                  "offset": 139
+                },
+                {
+                  "val": "UserProfile",
+                  "offset": 145
+                }
+              ],
+              "location": "TestSteps.the_header_parameters_Device_Advertising_ID_Device_Notification_ID_Device_Type_Client_Id_and_Pure_Tracking_Id_as(String,String,String,String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1324014,
+              "error_message": "java.io.FileNotFoundException: D:\\Apoorva\\Pure Energy\\RRL\\Cucumber\\User Profile\\User Profile_14-05-2018_44420.txt (The system cannot find the path specified)\r\n\tat java.io.FileOutputStream.open(Native Method)\r\n\tat java.io.FileOutputStream.\u003cinit\u003e(FileOutputStream.java:206)\r\n\tat java.io.FileOutputStream.\u003cinit\u003e(FileOutputStream.java:95)\r\n\tat stepDefinition.TestSteps.the_API_to_be_executed_is(TestSteps.java:94)\r\n\tat ✽.And the API to be executed is \"User Profile\"(src/test/resources/feature/Dev/UserProfile.feature:18)\r\n",
+              "status": "failed"
+            },
+            "line": 18,
+            "name": "the API to be executed is \"User Profile\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "User Profile",
+                  "offset": 27
+                }
+              ],
+              "location": "TestSteps.the_API_to_be_executed_is(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 19,
+            "name": "a member retrieves the details by memberId",
+            "match": {
+              "location": "TestSteps.a_member_retrieves_the_details_by_memberId()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "the status code should be 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "TestSteps.the_status_code_should_be(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "response parameters of \"UserProfile\" should be verified",
+            "match": {
+              "arguments": [
+                {
+                  "val": "UserProfile",
+                  "offset": 24
+                }
+              ],
+              "location": "TestSteps.response_parameters_of_should_be_verified(String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 13,
+            "name": "@Execute"
+          }
+        ]
+      }
+    ],
+    "name": "Get user profile by memberId",
+    "description": "",
+    "id": "get-user-profile-by-memberid",
+    "keyword": "Feature",
+    "uri": "src/test/resources/feature/Dev/UserProfile.feature"
+  }
+]
