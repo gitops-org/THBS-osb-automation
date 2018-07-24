@@ -9,7 +9,7 @@ pipeline {
             steps {
                
                withEnv(["JAVA_HOME=${ tool 'jdk8' }", "PATH+MAVEN=${tool 'Maven 3.3.9'}/bin:${env.JAVA_HOME}/bin"]) {
-    sh 'mvn -Dmaven.test.failure.ignore=true install'
+    cmd 'mvn -Dmaven.test.failure.ignore=true install'
 }
 
             }
@@ -17,7 +17,7 @@ pipeline {
 
         stage ("Build") {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+                cmd 'mvn -Dmaven.test.failure.ignore=true install' 
             }
            
         }
