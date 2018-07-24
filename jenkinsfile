@@ -7,10 +7,11 @@ pipeline {
     stages {
         stage ("Initialize") {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
+               
+               withEnv(["JAVA_HOME=${ tool 'jdk' }", "PATH+MAVEN=${tool 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
+    sh "mvn --batch-mode -V -U -e clean install"
+}
+
             }
         }
 
