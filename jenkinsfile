@@ -8,7 +8,7 @@ pipeline {
         stage ("Initialize") {
             steps {
                
-               withEnv(["JAVA_HOME=${ tool 'jdk' }", "PATH+MAVEN=${tool 'maven'}/bin:${env.JAVA_HOME}/bin"]) {
+               withEnv(["JAVA_HOME=${ tool 'jdk8' }", "PATH+MAVEN=${tool 'Maven 3.3.9'}/bin:${env.JAVA_HOME}/bin"]) {
     sh "mvn --batch-mode -V -U -e clean install"
 }
 
