@@ -126,6 +126,13 @@
             <name>Spring Releases</name>
             <url>http://repo.spring.io/libs-release</url>
         </repository>
+	 
+	 <repository>
+      <id>central</id>
+      <layout>default</layout>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+	 
         <repository>
             <id>org.jboss.repository.releases</id>
             <name>JBoss Maven Release Repository</name>
@@ -133,11 +140,7 @@
         </repository>
     </repositories>
 	
- <repository>
-      <id>central</id>
-      <layout>default</layout>
-      <url>http://repo1.maven.org/maven2</url>
-    </repository>
+ 
 
     <pluginRepositories>
         <pluginRepository>
