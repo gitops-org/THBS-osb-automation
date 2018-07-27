@@ -36,6 +36,15 @@
     <version>0.2.7</version>
     <scope>test</scope>
 </dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/sonar-maven-plugin -->
+<dependency>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.2</version>
+    <type>pom</type>
+</dependency>
+
 
 <dependency>
     <groupId>net.masterthought</groupId>
@@ -152,26 +161,18 @@
 	
 	
 	
-	<settings>
-    <pluginGroups>
-        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-    </pluginGroups>
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                  http://172.30.64.60:9000
-                </sonar.host.url>
-            </properties>
-        </profile>
-     </profiles>
-</settings>
+	<profiles>
+	<profile>
+	<id>sonar</id>
+	<activation>
+	<activeByDefault>true</activeByDefault>
+	</activation>
+	<properties>
+	<sonar.host.url>
+	http://172.30.64.60:9000
+	</sonar.host.url>
+	</properties>
+	</profile>
+	</profiles>
     
-    
-  
 </project>
