@@ -183,7 +183,7 @@
 	</activation>
 	<properties>
 	<sonar.host.url>
-	http://172.30.64.60:3002/sonar
+	http://localhost
 	</sonar.host.url>
 	</properties>
 	</profile>
