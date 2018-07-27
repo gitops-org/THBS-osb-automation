@@ -37,14 +37,6 @@
     <scope>test</scope>
 </dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.codehaus.mojo/sonar-maven-plugin -->
-<dependency>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>sonar-maven-plugin</artifactId>
-    <version>3.2</version>
-    <type>pom</type>
-</dependency>
-
 
 <dependency>
     <groupId>net.masterthought</groupId>
