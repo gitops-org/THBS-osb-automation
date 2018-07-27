@@ -176,7 +176,7 @@
 	</activation>
 	<properties>
 	<sonar.host.url>
-	http://172.30.64.60:9000/sonar
+	http://172.30.64.60:3002/sonar
 	</sonar.host.url>
 	</properties>
 	</profile>
