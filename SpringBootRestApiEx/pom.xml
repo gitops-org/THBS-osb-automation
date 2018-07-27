@@ -184,7 +184,7 @@
 	</activation>
 	<properties>
 	<sonar.host.url>
-	http://172.30.64.60:9000
+	http://172.30.64.60:9000/sonar
 	</sonar.host.url>
 	</properties>
 	</profile>
