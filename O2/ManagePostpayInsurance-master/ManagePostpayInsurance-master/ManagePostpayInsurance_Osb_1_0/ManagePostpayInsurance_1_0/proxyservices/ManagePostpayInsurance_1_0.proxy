@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:description>This proxy service is an implementation of ManagePostpayInsurance_1_0 service for operation getInsuranceDetails. ManagePostpayInsurance Business service provides the capability to retrieve customer’s insurance policy details and the device that's been insured for.</ser:description>
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="NorthBoundInterfaces/managepostpayinsuranceservice_1_0"/>
+      <con:binding>
+        <con:name>ManagePostpayInsuranceBinding</con:name>
+        <con:namespace>http://soa.o2.co.uk/managepostpayinsuranceservice_1</con:namespace>
+      </con:binding>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/services/ManagePostpayInsurance_1_0</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+      <http:dispatch-policy>ProxyWorkManager</http:dispatch-policy>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-4361589446041595939--3b429a3c.159c98f76e7.-7a28">
+    <con:pipeline type="request" name="Common_Logging_Gateway_request">
+      <con:stage name="Logging_ManagePostpayInsurancer_request" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+        <con:comment>Logs the header and body details of request using java callout method log entry.</con:comment>
+        <con:context/>
+        <con:actions>
+          <con1:javaCallout varName="header">
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7dd1</con4:id>
+            <con1:archive ref="Utility/o2framework/o2framework"/>
+            <con1:className>uk.co.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+            <con1:method>public static org.apache.xmlbeans.XmlObject logEntry(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$inbound</con4:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$header</con4:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$body</con4:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Receive_Config_data" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+        <con:comment>Receiving data, parsing it to xml and storing in variable configXML</con:comment>
+        <con:context/>
+        <con:actions>
+          <con1:javaCallout varName="configData">
+            <con4:comment xmlns:con4="http://www.bea.com/wli/sb/stages/config">Receive Service config data.</con4:comment>
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7dd0</con4:id>
+            <con1:archive ref="Utility/configdatamanagement/configdatamanagement"/>
+            <con1:className>uk.co.o2.soa.sf.xmldata.parsing.impl.ConfigFileManager</con1:className>
+            <con1:method>public static java.lang.String retreiveServiceData(org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$inbound</con4:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+          <con1:assign varName="configXML">
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7dcf</con4:id>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">fn-bea:inlinedXML($configData)/service-config-data/ManagePostpayInsurance_1_0</con4:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="CaptureHeader" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+        <con:comment>Capturing the header and storing it into variable incomingHeader.</con:comment>
+        <con:context xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config"/>
+        <con:actions xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
+          <con1:assign varName="incomingHeader">
+            <con5:comment xmlns:con5="http://www.bea.com/wli/sb/stages/config">Capturing the header and storing it into variable incomingHeader.</con5:comment>
+            <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7dce</con5:id>
+            <con1:expr>
+              <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">$header</con5:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="Common_Logging_Gateway_response">
+      <con:stage name="Logging_ManagePostpayInsurance_response" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+        <con:comment>Logging out the response</con:comment>
+        <con:context/>
+        <con:actions>
+          <con1:javaCallout varName="header">
+            <con4:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7dcd</con4:id>
+            <con1:archive ref="Utility/o2framework/o2framework"/>
+            <con1:className>uk.co.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+            <con1:method>public static org.apache.xmlbeans.XmlObject logExit(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$inbound</con4:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$header</con4:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con4:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">$body</con4:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="request" name="getInsuranceDetails_Gateway_request">
+      <con:stage name="Validate getInsuranceDetails Request">
+        <con:comment>Validating the request against the northbound XSD</con:comment>
+        <con:context>
+          <con1:varNsDecl namespace="http://soa.o2.co.uk/managepostpayinsurancedata_1" prefix="man"/>
+        </con:context>
+        <con:actions>
+          <con2:validate>
+            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7d6f</con1:id>
+            <con2:schema ref="NorthBoundInterfaces/managepostpayinsurancedata_1_0"/>
+            <con2:schemaElement xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">man:getInsuranceDetails_1</con2:schemaElement>
+            <con2:varName>body</con2:varName>
+            <con2:location>
+              <con1:xpathText>./man:getInsuranceDetails_1</con1:xpathText>
+            </con2:location>
+          </con2:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="getInsuranceDetails_Gateway_response"/>
+    <con:pipeline type="error" name="_onErrorHandler-4361589446041595939--3b429a3c.159c98f76e7.-7a28">
+      <con:stage name="Generic_Error_Handler">
+        <con:comment>This error handler handles OSB and CUK errorcodes.</con:comment>
+        <con:context>
+          <con1:userNsDecl namespace="http://WMQIServices.eai.o2c.ibm.com" prefix="wmqi"/>
+          <con1:userNsDecl namespace="http://companion.eai.o2c.ibm.com" prefix="cs"/>
+          <con1:userNsDecl namespace="http://soa.o2.co.uk/coredata_1" prefix="xcore"/>
+          <con1:userNsDecl namespace="http://schemas.xmlsoap.org/soap/envelope/" prefix="soapenv"/>
+          <con1:userNsDecl namespace="http://soa.o2.co.uk/coredata_1" prefix="cor"/>
+        </con:context>
+        <con:actions>
+          <con2:ifThenElse>
+            <con1:comment>If then condition to check for CUK or backend errors.</con1:comment>
+            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7a12</con1:id>
+            <con2:case>
+              <con2:condition>
+                <con1:xqueryText>$body/wmqi:companionMessage/cs:errorReport</con1:xqueryText>
+              </con2:condition>
+              <con2:actions>
+                <con2:javaCallout varName="errorMap">
+                  <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-79f6</con1:id>
+                  <con2:archive ref="Utility/errormaphandling/errormaphandling"/>
+                  <con2:className>uk.co.o2.soa.sf.errormap.impl.FaultManagement</con2:className>
+                  <con2:method>public static java.lang.String retreiveDestErrorMessage(org.apache.xmlbeans.XmlObject, java.lang.String)</con2:method>
+                  <con2:expr>
+                    <con1:xqueryText>$inbound</con1:xqueryText>
+                  </con2:expr>
+                  <con2:expr>
+                    <con1:xqueryText>data($body/wmqi:companionMessage/cs:errorReport/cs:errorCode)</con1:xqueryText>
+                  </con2:expr>
+                </con2:javaCallout>
+              </con2:actions>
+            </con2:case>
+            <con2:default>
+              <con2:javaCallout varName="errorMap">
+                <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-79da</con1:id>
+                <con2:archive ref="Utility/errormaphandling/errormaphandling"/>
+                <con2:className>uk.co.o2.soa.sf.errormap.impl.FaultManagement</con2:className>
+                <con2:method>public static java.lang.String retreiveDestErrorMessage(org.apache.xmlbeans.XmlObject, java.lang.String)</con2:method>
+                <con2:expr>
+                  <con1:xqueryText>$inbound</con1:xqueryText>
+                </con2:expr>
+                <con2:expr>
+                  <con1:xqueryText>data($fault/ctx:errorCode)</con1:xqueryText>
+                </con2:expr>
+              </con2:javaCallout>
+            </con2:default>
+          </con2:ifThenElse>
+          <con2:replace varName="body" contents-only="true">
+            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-79c1</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="CommonResources/transformations/ConstructGenericServiceFault"/>
+                <con1:param name="faultTrace">
+                  <con1:path>if(data($body/wmqi:companionMessage/*/cs:errorCode)) then
+if(data($body/wmqi:companionMessage/*/cs:errorText) ) then
+fn:concat(data($body/wmqi:companionMessage/*/cs:errorCode),":",'',data($body/wmqi:companionMessage/*/cs:errorText))
+else
+data($body/wmqi:companionMessage/*/cs:errorCode)
+else if(data($body/soap-env:Fault/detail/*/xcore:faultTrace))then
+data($body/soap-env:Fault/detail/*/xcore:faultTrace)
+else if(data($body/soap-env:Fault/detail/*/Details/ExtraInfo))then
+data($body/soap-env:Fault/detail/*/Details/ExtraInfo)
+else if(data($body/soap-env:Fault/detail/*/Errors/Error[1]/ExtraInfo))then
+data($body/soap-env:Fault/detail/*/Errors/Error[1]/ExtraInfo)
+else if($fault) then
+if(data($fault/ctx:errorCode) and data($fault/ctx:reason))
+then fn:concat(data($fault/ctx:errorCode),":",data($fault/ctx:reason))
+else if(data($fault/ctx:errorCode)) then
+data($fault/ctx:errorCode)
+else ''
+else ''</con1:path>
+                </con1:param>
+                <con1:param name="errorMap">
+                  <con1:path>fn-bea:inlinedXML($errorMap)</con1:path>
+                </con1:param>
+                <con1:param name="namespace">
+                  <con1:path>"http://soa.o2.co.uk/managepostpayinsuranceservice_1"</con1:path>
+                </con1:param>
+                <con1:param name="faultOriginator">
+                  <con1:path>if(data($body/wmqi:companionMessage/cs:errorReport)) then
+data($configXML/backendName)
+else if(data($body/soap-env:Fault/detail/*/xcore:SOAFaultOriginator))then
+data($body/soap-env:Fault/detail/*/xcore:SOAFaultOriginator)
+else if($fault/ctx:location/ctx:stage)then
+data($configXML/OSB_Error)
+else if($fault/ctx:location/ctx:node)then
+data($configXML/OSB_Error)
+else ''</con1:path>
+                </con1:param>
+                <con1:param name="transactionId">
+                  <con1:path>if(data($header/xcore:SOATransactionID))then
+data($header/xcore:SOATransactionID)
+else if(data($incomingHeader/xcore:SOATransactionID))then
+data($incomingHeader/xcore:SOATransactionID)
+else ''</con1:path>
+                </con1:param>
+                <con1:param name="operationName">
+                  <con1:path>$operation</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:replace>
+          <con2:javaCallout varName="header">
+            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-79a9</con1:id>
+            <con2:archive ref="Utility/o2framework/o2framework"/>
+            <con2:className>uk.co.o2.soa.sf.o2fwk.impl.O2Framework</con2:className>
+            <con2:method>public static org.apache.xmlbeans.XmlObject logFault(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, java.lang.String)</con2:method>
+            <con2:expr>
+              <con1:xqueryText>$inbound</con1:xqueryText>
+            </con2:expr>
+            <con2:expr>
+              <con1:xqueryText>$incomingHeader</con1:xqueryText>
+            </con2:expr>
+            <con2:expr>
+              <con1:xqueryText>$body</con1:xqueryText>
+            </con2:expr>
+            <con2:expr>
+              <con1:xqueryText>data($body/soapenv:Fault/detail/*/cor:SOAFaultCode)</con1:xqueryText>
+            </con2:expr>
+          </con2:javaCallout>
+          <con1:reply isError="true">
+            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7993</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="Common_Logging_Gateway">
+        <con:comment>Handles the request to getInsuranceDetails to the user</con:comment>
+        <con:request>Common_Logging_Gateway_request</con:request>
+        <con:response>Common_Logging_Gateway_response</con:response>
+      </con:pipeline-node>
+      <con:branch-node type="operation" name="ManagePostpayInsurance_Branch">
+        <con:comment>Operational branch for ManagePostpayInsurance.
+This operational branch branches to the 
+required operation,corresponding to the 
+incoming SOAP message.</con:comment>
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="getInsuranceDetails_1">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="getInsuranceDetails_Gateway">
+                <con:comment>It is gateWay for the operation getInsuranceDetails, has request response pipeline pair. The Operation getInsuranceDetails gets the Insurance details for provided MSISDN.</con:comment>
+                <con:request>getInsuranceDetails_Gateway_request</con:request>
+                <con:response>getInsuranceDetails_Gateway_response</con:response>
+              </con:pipeline-node>
+              <con:route-node name="Route_to_cuk.getInsuranceDetails">
+                <con:comment>Routing to CUK backend.</con:comment>
+                <con:context>
+                  <con1:userNsDecl namespace="http://WMQIServices.eai.o2c.ibm.com" prefix="ns0"/>
+                  <con1:userNsDecl namespace="http://WMQIServices.eai.o2c.ibm.com" prefix="wmqi"/>
+                  <con1:userNsDecl namespace="http://companion.eai.o2c.ibm.com" prefix="cs"/>
+                  <con1:userNsDecl namespace="http://soa.o2.co.uk/coredata_1" prefix="cor"/>
+                  <con1:varNsDecl namespace="http://soa.o2.co.uk/managepostpayinsurancedata_1" prefix="man"/>
+                </con:context>
+                <con:actions>
+                  <con3:route>
+                    <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7d55</con1:id>
+                    <con3:service ref="CukMqRouter/proxyservices/CukMqRouter_1_0" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con3:outboundTransform>
+                      <con2:replace varName="body" contents-only="true">
+                        <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7ce1</con1:id>
+                        <con2:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con1:xqueryTransform>
+                            <con1:resource ref="ManagePostpayInsurance_1_0/transformations/getInsuranceDetails_1_request_NBtoSB"/>
+                            <con1:param name="getInsuranceDetails_1">
+                              <con1:path>$body/man:getInsuranceDetails_1</con1:path>
+                            </con1:param>
+                            <con1:param name="incomingHeader">
+                              <con1:path>$incomingHeader</con1:path>
+                            </con1:param>
+                            <con1:param name="configXML">
+                              <con1:path>$configXML</con1:path>
+                            </con1:param>
+                          </con1:xqueryTransform>
+                        </con2:expr>
+                      </con2:replace>
+                      <con2:transport-headers>
+                        <con1:id>_ActionId-309945574629290729-7f41f7d.15a1c393dbf.-7ff9</con1:id>
+                        <con2:header-set>outbound-request</con2:header-set>
+                        <con2:header name="applicationID" value="expression">
+                          <con1:xqueryText>data($header/cor:applicationID)</con1:xqueryText>
+                        </con2:header>
+                      </con2:transport-headers>
+                      <con2:javaCallout varName="">
+                        <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7d2b</con1:id>
+                        <con2:archive ref="Utility/o2framework/o2framework"/>
+                        <con2:className>uk.co.o2.soa.sf.o2fwk.impl.O2Framework</con2:className>
+                        <con2:method>public static void logOutbound(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con2:method>
+                        <con2:expr>
+                          <con1:xqueryText>$inbound</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$outbound</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$header</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$body</con1:xqueryText>
+                        </con2:expr>
+                      </con2:javaCallout>
+                    </con3:outboundTransform>
+                    <con3:responseTransform>
+                      <con2:replace varName="header">
+                        <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7cb9</con1:id>
+                        <con2:location>
+                          <con1:xpathText>.</con1:xpathText>
+                        </con2:location>
+                        <con2:expr>
+                          <con1:xqueryText>$incomingHeader</con1:xqueryText>
+                        </con2:expr>
+                      </con2:replace>
+                      <con2:javaCallout varName="">
+                        <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7d0d</con1:id>
+                        <con2:archive ref="Utility/o2framework/o2framework"/>
+                        <con2:className>uk.co.o2.soa.sf.o2fwk.impl.O2Framework</con2:className>
+                        <con2:method>public static void logInbound(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con2:method>
+                        <con2:expr>
+                          <con1:xqueryText>$inbound</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$outbound</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$incomingHeader</con1:xqueryText>
+                        </con2:expr>
+                        <con2:expr>
+                          <con1:xqueryText>$body</con1:xqueryText>
+                        </con2:expr>
+                      </con2:javaCallout>
+                      <con2:ifThenElse>
+                        <con1:comment>Condition to check for success response from backend.</con1:comment>
+                        <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7a47</con1:id>
+                        <con2:case>
+                          <con2:condition>
+                            <con1:xqueryText>$body/ns0:companionMessage/ns0:utilGetInsuranceStatusResp</con1:xqueryText>
+                          </con2:condition>
+                          <con2:actions>
+                            <con2:replace varName="body" contents-only="true">
+                              <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-796a</con1:id>
+                              <con2:location>
+                                <con1:xpathText>.</con1:xpathText>
+                              </con2:location>
+                              <con2:expr>
+                                <con1:xqueryTransform>
+                                  <con1:resource ref="ManagePostpayInsurance_1_0/transformations/getInsuranceDetails_1_response_SBtoNB"/>
+                                  <con1:param name="companionMessage">
+                                    <con1:path>$body/ns0:companionMessage</con1:path>
+                                  </con1:param>
+                                </con1:xqueryTransform>
+                              </con2:expr>
+                            </con2:replace>
+                          </con2:actions>
+                        </con2:case>
+                        <con2:default>
+                          <con2:Error>
+                            <con1:id>_ActionId-4361589446041595939--3b429a3c.159c98f76e7.-7968</con1:id>
+                            <con2:errCode>CUK error</con2:errCode>
+                            <con2:message>Error from CUK</con2:message>
+                          </con2:Error>
+                        </con2:default>
+                      </con2:ifThenElse>
+                    </con3:responseTransform>
+                  </con3:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

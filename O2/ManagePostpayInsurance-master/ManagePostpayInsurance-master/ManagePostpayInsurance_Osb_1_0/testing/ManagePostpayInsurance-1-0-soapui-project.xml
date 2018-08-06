@@ -1,0 +1,4037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="ManagePostpayInsurance_1_0" resourceRoot="" soapui-version="3.5" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ManagePostpayInsuranceBinding" type="wsdl" bindingName="{http://soa.o2.co.uk/managepostpayinsuranceservice_1}ManagePostpayInsuranceBinding" soapVersion="1_1" anonymous="optional" definition="file:/D:/projects/NorthBoundInterfaces/managepostpayinsuranceservice_1_0.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/D:/projects/NorthBoundInterfaces/managepostpayinsuranceservice_1_0.wsdl"><con:part><con:url>file:/D:/projects/NorthBoundInterfaces/managepostpayinsuranceservice_1_0.wsdl</con:url><con:content><![CDATA[<!---->
+<!--Date Change# Author Change Description-->
+<!--16/01/2016 1.0.0 Subramanyam Initial Version introduced as part of O2 Insure Self Serve-->
+<wsdl:definitions name="ManagePostpayInsurance" targetNamespace="http://soa.o2.co.uk/managepostpayinsuranceservice_1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mis="http://soa.o2.co.uk/managepostpayinsuranceservice_1" xmlns:mid="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://soa.o2.co.uk/managepostpayinsurancedata_1" schemaLocation="managepostpayinsurancedata_1_0.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getInsuranceDetails_1">
+    <wsdl:part name="getInsuranceDetails_1" element="mid:getInsuranceDetails_1"/>
+  </wsdl:message>
+  <wsdl:message name="getInsuranceDetails_1Response">
+    <wsdl:part name="getInsuranceDetails_1Response" element="mid:getInsuranceDetails_1Response"/>
+  </wsdl:message>
+  <wsdl:message name="getInsuranceDetails_1Fault">
+    <wsdl:part name="getInsuranceDetails_1Fault" element="mid:getInsuranceDetails_1Fault"/>
+  </wsdl:message>
+  <wsdl:portType name="ManagePostpayInsurancePortType">
+    <wsdl:operation name="getInsuranceDetails_1">
+      <wsdl:input name="getInsuranceDetails_1" message="mis:getInsuranceDetails_1"/>
+      <wsdl:output name="getInsuranceDetails_1Response" message="mis:getInsuranceDetails_1Response"/>
+      <wsdl:fault name="getInsuranceDetails_1Fault" message="mis:getInsuranceDetails_1Fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManagePostpayInsuranceBinding" type="mis:ManagePostpayInsurancePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getInsuranceDetails_1">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getInsuranceDetails_1">
+        <soap:body parts="getInsuranceDetails_1" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getInsuranceDetails_1Response">
+        <soap:body parts="getInsuranceDetails_1Response" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getInsuranceDetails_1Fault">
+        <soap:fault name="getInsuranceDetails_1Fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManagePostpayInsuranceService">
+    <wsdl:port name="ManagePostpayInsurancePort" binding="mis:ManagePostpayInsuranceBinding">
+      <soap:address location="https://sdpapi.o2.co.uk/services/ManagePostpayInsurance_1_0"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\D:\projects\NorthBoundInterfaces\managepostpayinsurancedata_1_0.xsd</con:url><con:content><![CDATA[<!--Date            Change#		Author			Change Description-->
+<!--16/01/2016 		1.0.0 		Subramanyam 	Initial Version introduced as part of O2 Insure Self Serve-->
+<xsd:schema targetNamespace="http://soa.o2.co.uk/managepostpayinsurancedata_1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mid="http://soa.o2.co.uk/managepostpayinsurancedata_1" xmlns:xcore="http://soa.o2.co.uk/coredata_1" xmlns:ccp="http://soa.o2.co.uk/postpay/pscommoncompanion_1">
+  <xsd:import namespace="http://soa.o2.co.uk/coredata_1" schemaLocation="coredata_1_1.xsd"/>
+  <xsd:import namespace="http://soa.o2.co.uk/postpay/pscommoncompanion_1" schemaLocation="pscommoncompanion_1_0.xsd"/>
+  <xsd:element name="getInsuranceDetails_1" type="mid:getInsuranceDetails_1">
+    <xsd:annotation>
+      <xsd:documentation>Request to obtain Insurance Status for a given MSISDN.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="getInsuranceDetails_1Response" type="mid:getInsuranceDetails_1Response">
+    <xsd:annotation>
+      <xsd:documentation>Response indicating the status of message delivery.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="getInsuranceDetails_1Fault" type="xcore:SOAFaultType">
+    <xsd:annotation>
+      <xsd:documentation>Return Insurance Status details for a specified MSISDN. If no insuranceStatus exists then an errorReport message is returned.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="getInsuranceDetails_1">
+    <xsd:annotation>
+      <xsd:documentation>Request structure to obtain Insurance Status for a given MSISDN.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="msisdn" type="xcore:msisdnType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getInsuranceDetails_1Response">
+    <xsd:annotation>
+      <xsd:documentation>Response structure with Insurance details for a specified MSISDN.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="insuranceDetails" type="mid:insuranceDetailsType" maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="insuranceDetailsType">
+    <xsd:annotation>
+      <xsd:documentation>Container with insurance details.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="insuranceDetail" type="mid:insuranceDetailType" maxOccurs="unbounded" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="insuranceDetailType">
+    <xsd:annotation>
+      <xsd:documentation>Container with insurance details.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="productID" type="xsd:string"/>
+      <xsd:element name="accountNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="insuranceCategory" type="xsd:string"/>
+      <xsd:element name="imei" type="xcore:imeiType"/>
+      <xsd:element name="handsetMake" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="handsetModel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="insurancePolicyName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="insuranceStartTimestamp" type="xsd:dateTime"/>
+      <xsd:element name="insuranceEndTimestamp" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="insuranceCancelRequestTimestamp" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\D:\projects\NorthBoundInterfaces\coredata_1_1.xsd</con:url><con:content><![CDATA[<!--Date            Version       Author				Change Description
+	14/09/2016		1.1.5		  Pronisa Baruah		Added a simple type for email address with restriction.
+	16/08/2016		1.1.4		  Devender Kumar		Added a simple typeYesOrNo to be used for flag purposes
+	09/09/2011		1.1.3		  Raghu Ugare			Added addressType
+	02/09/2011		1.1.2		  Raghu Ugare			Added cardTokenType	
+	11/07/2011      1.1.1         Manasa Prasad         Added async element to support async services
+	26/05/2011		1.1.0		  Raghu Ugare			Added identityUIDType and identityUsernameType & also updated the documentation for portalIDType
+	11/03/2011		1.0.9		  Subramanyam			Added genderType	
+	14/10/2010		1.0.8		  Prasanna SV			Added landlineNumberType
+	11/08/2010		1.0.7		  Prasanna SV			Added ipAddressType
+	19/05/2010		1.0.6		  Venkata Karhtik      	Added ssnType,userIdType
+	03/05/2010		1.0.5		  Venkata Karhtik      	Added maskedCardNumberType,maskedBankAccountNumberType
+	13/04/2010		1.0.4		  Shiby Varghese		Added spidType
+	18/08/2009  	1.0.3         Karthikeyan R D       Added types for bank account number, sort code and account holder name.
+	25/06/2009  	1.0.2         Venkata Karhtik      	Added types for credit/debit card related elements, customerTier,emailAddressType and postcode
+	12/04/2008  	1.0.1         Kapil Gosian       	Initial version-->
+<xsd:schema targetNamespace="http://soa.o2.co.uk/coredata_1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xcore="http://soa.o2.co.uk/coredata_1">
+  <xsd:complexType name="SOAFaultType">
+    <xsd:annotation>
+      <xsd:documentation>The type of the response sent to the calling
+				application, if something goes wrong.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref="xcore:SOAFaultOriginator"/>
+      <xsd:element ref="xcore:SOAFaultCode"/>
+      <xsd:element name="faultDescription" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>A human readable description of the error.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="faultTrace" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>A computer generated dump of the fault (may help
+						in debugging problems).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref="xcore:SOATransactionID" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SOAFault" type="xcore:SOAFaultType">
+    <xsd:annotation>
+      <xsd:documentation>The response sent to the calling application, if
+				something goes wrong.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SOAFaultCode" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A numeric representation of a fault (should be included
+				in errors.xml).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SOAFaultOriginator" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A representation of where a fault originates (should be
+				included in errors.xml).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SOATransactionID" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>The transaction ID generated by the ESB.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SOAConsumerTransactionID" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>A transaction ID supplied by the calling aplication. It
+				will not be processed but is passed through and logged
+				by all underlying services (aids in debugging problems).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="msisdnType">
+    <xsd:annotation>
+      <xsd:documentation>Mobile Phone numbers (MSISDNs) should always be defined
+				as strings, including country codes i.e. "447734123456";
+				and translated into localised formats on the
+				presentation and backend layers.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingAccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>A billing account, as it appears in the back end billing
+				system (Companion).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="6"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="portalIDType">
+    <xsd:annotation>
+      <xsd:documentation>The portal account username (i.e., Portal ID). 
+				A portal account is normally of the form “john.smith@o2.co.uk". 
+				The Portal ID in this example is "john.smith" and the domain is "o2.co.uk".</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType name="accountType">
+    <xsd:annotation>
+      <xsd:documentation>Data type to define a customers account. This could be
+				either a portal account, msisdn, or a companion account
+				and msisdn. Or a Bank Account program ID and account ID
+				(initially for Timberlake)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="portalID" type="xcore:portalIDType"/>
+      <xsd:element name="msisdn" type="xcore:msisdnType">
+        <xsd:annotation>
+          <xsd:documentation>A msisdn, in international format i.e.,"447712345678"</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="accountDetail" type="xcore:accountDetail">
+        <xsd:annotation>
+          <xsd:documentation>Account Details</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="accountDetail">
+    <xsd:annotation>
+      <xsd:documentation>Account Details</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="billingAccountType">
+        <xsd:annotation>
+          <xsd:documentation>The type of account as it is defined in the
+						billing system (only "MOBILE" currently
+						defined).</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MOBILE"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="accountNumber" type="xcore:billingAccountNumberType">
+        <xsd:annotation>
+          <xsd:documentation>The companion account.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="msisdn" type="xcore:msisdnType">
+        <xsd:annotation>
+          <xsd:documentation>The msisdn within the above account.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="customerIDType">
+    <xsd:annotation>
+      <xsd:documentation>Main customerID for online services - this is the o2BFid
+				in CPDS at the moment</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType name="cashCardAccountType">
+    <xsd:annotation>
+      <xsd:documentation>Uniquely identifies the account in the Prepaid Banking
+				system that is being referred to.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:annotation>
+        <xsd:documentation>Financial accounts need a programID and accountID
+					(Ref: Timberlake)</xsd:documentation>
+      </xsd:annotation>
+      <xsd:element name="programID" type="xsd:long">
+        <xsd:annotation>
+          <xsd:documentation>Identifies program. Translates into "Smart" or
+						"Freedom" with various limits</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="accountID" type="xsd:long">
+        <xsd:annotation>
+          <xsd:documentation>Unique internal account ID on the TSYS platform.
+						Probably can be applied to other banking systems
+						as well.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="userID" type="xsd:long" minOccurs="0"/>
+      <xsd:element name="cardID" type="xsd:long" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="productIDType">
+    <xsd:annotation>
+      <xsd:documentation>Identifies a product - temporarily the same as o2BFID
+				(and hence customer ID)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="customerRoleType">
+    <xsd:annotation>
+      <xsd:documentation>The role concept from registration DB or A and R</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="admin"/>
+      <xsd:enumeration value="user"/>
+      <xsd:enumeration value="chooser"/>
+      <xsd:enumeration value="superuser"/>
+      <xsd:enumeration value="unknown"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="imsiType">
+    <xsd:annotation>
+      <xsd:documentation>IMSI Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="imeiType">
+    <xsd:annotation>
+      <xsd:documentation>IMEI Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:element name="subscriberProfile" type="xcore:SubscriberProfileType">
+    <xsd:annotation>
+      <xsd:documentation>Subscriber Profile Element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="SubscriberProfileType">
+    <xsd:annotation>
+      <xsd:documentation>Complex Type that defines Subscriber Profile</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref="xcore:SubscriberID">
+        <xsd:annotation>
+          <xsd:documentation>This refers to the MSISDN for Mobile subscribers</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref="xcore:Operator" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Operator ID for the particular subscriber</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref="xcore:PaymentCategory" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Type of payment, Prepay of Postpay</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref="xcore:Segment" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Segment of Subscriber, corporate, consumer, ISP
+						etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceProviderID" type="xsd:long" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>SPID which is a unique value for the type of O2
+						Service Provider like Tesco, CPW etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Status" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Operator" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>O2 UK, Tesco or Other normally</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Segment" type="xcore:SegmentType">
+    <xsd:annotation>
+      <xsd:documentation>The P and L definition of Consumer/SME/Corp</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="SegmentType">
+    <xsd:annotation>
+      <xsd:documentation>main ones listed - could be others</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Consumer"/>
+      <xsd:enumeration value="SME"/>
+      <xsd:enumeration value="Corporate"/>
+      <xsd:enumeration value="ISP"/>
+      <xsd:enumeration value="Unknown"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="Channel" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>The sales channel that owns the subscriber</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="SubscriberID" type="xcore:msisdnType">
+    <xsd:annotation>
+      <xsd:documentation>Subscriber ID that is unique identifier of the
+				subscriber eg: MSISDN no is subscriberID for Mobile
+				users</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="PaymentCategory" type="xcore:PaymentCategoryType">
+    <xsd:annotation>
+      <xsd:documentation>Divides between pay and go/pay monthly</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="PaymentCategoryType">
+    <xsd:annotation>
+      <xsd:documentation>two values postpay or prepay</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Prepay"/>
+      <xsd:enumeration value="Postpay"/>
+      <xsd:enumeration value="Unknown"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ServiceResultType">
+    <xsd:annotation>
+      <xsd:documentation>This data type represents the status recieved from a
+				service for a task that might be earlier assigned to
+				that service.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="statusCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A unique code assigned to the status from the
+						service. A set of status codes can be defined
+						for services based on the context. A stausCode
+						will be suffixed with "S" for success, "F" for
+						failure and "E" for Error and "P" for Pending to
+						describe the type of status recieved from
+						service.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="externalDescription" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A description of status in human-readble form
+						that has to be sent to the end-user.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="internalDescription" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>This is an optional description of the status
+						which is meant for logging purpose. This may
+						contain the java stack trace or Database error
+						trace based on the context.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MapItem">
+    <xsd:annotation>
+      <xsd:documentation>An individual Item that carries key-value pair for
+				extensible properties</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string"/>
+      <xsd:choice>
+        <xsd:annotation>
+          <xsd:documentation>Only the relevant elemt is populated based on
+						the type of the parameter.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:element name="intValue" type="xsd:integer"/>
+        <xsd:element name="strValue" type="xsd:string"/>
+        <xsd:element name="boolValue" type="xsd:boolean"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MapType">
+    <xsd:annotation>
+      <xsd:documentation>A generic extensible complex type that can be used to
+				send multiple name-value pairs</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="mapItem" type="xcore:MapItem" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="StatusCodeType">
+    <xsd:annotation>
+      <xsd:documentation>This is borrowed from SPML definition of a status code -
+				the pending status is a bit debatable</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="success"/>
+      <xsd:enumeration value="failure"/>
+      <xsd:enumeration value="error"/>
+      <xsd:enumeration value="pending"/>
+      <xsd:enumeration value="expired"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="applicationID" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>applicationID is part of request identifier handled by
+				SOA Access Gateway. Application ID uniquely identifies
+				the name of consuming application. Example - DASHB, IVR,
+				WAP, etc</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="providerID" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>providerID is also part of request identifier handled by
+				SOA Access Gateway. Provider ID identifies the company
+				that provides a functionality to end customers by
+				invoking this specific service. Example - O2, Tesco, Car
+				Phone Warehouse</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="originatorIP" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>This parameter indicates the IP address of the
+				originating system. This parameter will be added by the
+				SOA Access Gateway</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="mobileAccessIdType">
+    <xsd:annotation>
+      <xsd:documentation>Mobile Access Id is Hash id which is same as the UID
+				generated by Wap Gateway</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:element name="debugFlag" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>This parameter indicates whether we should log or not,
+				Used for debugging perspective from a Support
+				Perspective.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="cardHolderNameType">
+    <xsd:annotation>
+      <xsd:documentation>The customer name on the Credit or Debit Card</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardIssueDateType">
+    <xsd:annotation>
+      <xsd:documentation>The date when the card was issued. In MM/YY format. It
+				is important that the month comes first followed by the
+				year.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+      <xsd:pattern value="\d{2}/\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardExpiryDateType">
+    <xsd:annotation>
+      <xsd:documentation>The card expiry date. In MM/YY format. It is important
+				that the month comes first followed by the year.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+      <xsd:pattern value="\d{2}/\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The Credit/Debit Card Number(without spaces)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{12,20}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardCV2Type">
+    <xsd:annotation>
+      <xsd:documentation>The verification number printed on the back of the
+				credit/debit card. The CardCV2 usually a 3 or 4 digit
+				code on the back of card.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardIssueNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The Credit or Debit Card Issue Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardIssuerType">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Card Issuer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MAESTRO"/>
+      <xsd:enumeration value="SOLO"/>
+      <xsd:enumeration value="VISA"/>
+      <xsd:enumeration value="MASTERCARD"/>
+      <xsd:enumeration value="DELTA"/>
+      <xsd:enumeration value="AMEX"/>
+      <xsd:enumeration value="ELECTRON"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="customerTierType">
+    <xsd:annotation>
+      <xsd:documentation>Customer friendly description for various segmentation
+				keys. Allowed values are Platinum, Gold, Silver, Bronze,
+				Blue, Unknown
+
+				Segmentation Key Customer Tier value Platinum Platinum
+				Gold Gold Silver Silver Bronze Bronze Select Gold none
+				Blue Sel_Inv Silver Sel_Few Platinum</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Platinum"/>
+      <xsd:enumeration value="Gold"/>
+      <xsd:enumeration value="Silver"/>
+      <xsd:enumeration value="Bronze"/>
+      <xsd:enumeration value="Blue"/>
+      <xsd:enumeration value="Unknown"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="emailAddressType">
+    <xsd:annotation>
+      <xsd:documentation>The email address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="emailAddressRestrictionType">
+    <xsd:annotation>
+      <xsd:documentation>The restriction for an email address format</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="([\.a-zA-Z0-9_!#$&amp;%'*+/=?^`{|}~\-])+@([a-zA-Z0-9_\-])+(([a-zA-Z0-9_\-])*\.([a-zA-Z0-9_\-])+)+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcodeType">
+    <xsd:annotation>
+      <xsd:documentation>The Postcode.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <!--v1.0.3: Adding bank related information-->
+  <xsd:simpleType name="bankAccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Account number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="bankSortCodeType">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Sort code.(Ex:40-42-08)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="8"/>
+      <xsd:maxLength value="8"/>
+      <xsd:pattern value="\d{2}(-)\d{2}(-)\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bankAccountHolderNameType">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Account holder name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <!--v1.0.3: Ends-->
+  <xsd:simpleType name="spidType">
+    <xsd:annotation>
+      <xsd:documentation>The service provider identifier.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="maskedCardNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The Credit/Debit Card Number(without spaces).This
+				element is used to represent the masked data. Ex: If the
+				card number value is 5683387298913746 and it needs to be
+				represented as ************3746, then this data type is
+				used.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="maskedBankAccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>This type should be used to render a masked
+				representation of the bank account number. Ex: If the
+				bank account number value is 5683387298913746 and it
+				needs to be represented as ************3746, then this
+				data type is used.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="ssnType">
+    <xsd:annotation>
+      <xsd:documentation>Sim Serial Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="userIdType">
+    <xsd:annotation>
+      <xsd:documentation>Unique customer identifier, an example would be the Id
+				of a CSA who initiated an activity.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ipAddressType">
+    <xsd:annotation>
+      <xsd:documentation>This can be an IPv4 address in dotted decimal format,
+				(i.e. DDD.DDD.DDD.DDD, where D represents a digit). OR
+				It can be an IPv6 address in hexadecimal format,
+				(i.e. xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx, where x represents a hex value).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="landlineNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Landline number should always be defined as string, including
+				country codes i.e. "442088702821"; and translated into
+				localised format on the presentation and backend layers.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="genderType">
+    <xsd:annotation>
+      <xsd:documentation>Gender type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="F"/>
+      <xsd:enumeration value="U"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="identityUIDType">
+    <xsd:annotation>
+      <xsd:documentation>The A&amp;R Unique ID. The UID remains static accross userName changes. 
+				It is deleted if the Identity becomes merged into another Identity. 
+				(A broadcast message will inform systems of this change.)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9A-Za-z]*"/>
+      <xsd:maxLength value="40"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="identityUsernameType">
+    <xsd:annotation>
+      <xsd:documentation>The full A&amp;R username (eg., user@domain or user@o2.co.uk)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xcore:emailAddressType">
+      <xsd:maxLength value="320"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="async" type="xsd:boolean">
+    <xsd:annotation>
+      <xsd:documentation>This element indicates whether or not the operation supports an async mode of processing.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:simpleType name="cardTokenType">
+    <xsd:annotation>
+      <xsd:documentation>The standard token which corresponds to the details of a payment card.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="addressType">
+    <xsd:annotation>
+      <xsd:documentation>The standard address format in line with the latest PAF standards.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="addressKey" type="xcore:addressKeyType" minOccurs="0"/>
+      <xsd:element name="organisationName" type="xcore:organisationNameType" minOccurs="0"/>
+      <xsd:element name="departmentName" type="xcore:departmentNameType" minOccurs="0"/>
+      <xsd:element name="subBuildingName" type="xcore:subBuildingNameType" minOccurs="0"/>
+      <xsd:element name="buildingName" type="xcore:buildingNameType" minOccurs="0"/>
+      <xsd:element name="buildingNumber" type="xcore:buildingNumberType" minOccurs="0"/>
+      <xsd:element name="dependentThoroughfareNameAndDescriptor" type="xcore:thoroughfareNameAndDescriptorType" minOccurs="0"/>
+      <xsd:element name="thoroughfareNameAndDescriptor" type="xcore:thoroughfareNameAndDescriptorType" minOccurs="0"/>
+      <xsd:element name="doubleDependentLocality" type="xcore:dependentLocalityType" minOccurs="0"/>
+      <xsd:element name="dependentLocality" type="xcore:dependentLocalityType" minOccurs="0"/>
+      <xsd:element name="postTown" type="xcore:postTownType" minOccurs="0"/>
+      <xsd:element name="county" type="xcore:countyType" minOccurs="0"/>
+      <xsd:element name="postCode" type="xcore:postcodeType" minOccurs="0"/>
+      <xsd:element name="poBoxNumber" type="xcore:poBoxNumberType" minOccurs="0"/>
+      <xsd:element name="countryCode" type="xcore:countryCodeType" minOccurs="0"/>
+      <xsd:element name="addressMetaData" type="xcore:addressMetaDataType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="addressKeyType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing address key information, which indicates whether the address has been validated.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="organisationNameType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing organisation name information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="60"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="departmentNameType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing department name information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="60"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="subBuildingNameType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing sub building information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="buildingNameType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing building information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="buildingNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing building number information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="thoroughfareNameAndDescriptorType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing thoroughfare name and descriptor information.
+      		As per PAF standards, the max length for Thoroughfare name is 60 chars,
+      		and the max length for Thoroughfare descriptor is 20 chars.
+      		E.g.,in "Buckingham avenue", "Buckingham" is the thoroughfare-name and "avenue" is the descriptor.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="81"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dependentLocalityType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing locality information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postTownType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing town or city name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="countyType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing county information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="poBoxNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing PO Box number information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="countryCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing country-code information.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="addressMetaDataType">
+    <xsd:annotation>
+      <xsd:documentation>Type for storing any additional address meta-data.
+      		This is useful to hold any additional address related fields like addressValidationStatus,etc., as key-value pairs.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string"/>
+      <xsd:element name="value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="typeYesOrNo">
+    <xsd:annotation>
+      <xsd:documentation>A type that only allows the value Y or N.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:\D:\projects\NorthBoundInterfaces\pscommoncompanion_1_0.xsd</con:url><con:content><![CDATA[<!--Date     Change#       	Author             			Change Description
+	08/12/2014  1.0.11      Shravan B U             Updated to add 2 new type  paymentReferenceNumberType and externalPaymentIdType as part of ARShop project
+	24/05/2012	1.0.10      Shivaji Rao JS			Added storeName and storeNumber for submitInstallOrder TS for click and collect project
+	07/09/2011  1.0.9       Shwetha A N             Updated the annotation for typeSourceAddress (UtilReadAccountDetails service - OATC project changes)
+	04/03/2011  1.0.8       Venkatesh N             Added earlyUpgradeFeeType,earlyUpgradeReferenceType,eligibleForUpgradeType,upgradeRejectionDescriptionType,upgradeRejectionCodeType as part of Modular Tariff. 	
+	17/03/2010	1.0.7		Shiby Varghese			Added loyaltyPointsBalanceType, upgradeMatrixIdType, upgradeTenureType, tenureAdjustmentType, numberOfDaysOffStandardUpgradeType, contractDurationType  contractStartDateType, contractEndDateType, upgradeEligibilityDateType as part of IVR project
+	25/02/2010  1.0.6       Manasa Prasad         	Added newCardIssuerType, currencyType
+	24/02/2010	1.0.5		Shiby Varghese			Added callContactIDType, paymentAuthStatusType, authorisationRespCodeType, authorisationRespMessageType, authorisationCodeType, authMessageType, buynetIdType, cv2AvsCodeType, cv2AvsActionType, threeDSecureType, browserType, deviceCategoryType, acceptHeadersType, userAgentType, orderProductPriceType, pacType, orderProductChargeType, contractTermType, billingAccountNameType, accountBillingContactReferenceType, accountAdditionalChooserReferenceType, accountLegalEntityReferenceType, continuousChequePaymentsType, userBankAccountNumberType, preferredContactMethodType, passwordType, partyTitleType, partyForenameType, partyMiddleNameType, partySurnameType, partyMaritalStatusType, customerTypeTextType, addressHouseNameType, addressHouseNumberType, address1stLineType, address2ndLineType, address3rdLineType, address4thLineType, addressDistrictType, addressTownType, addressCountyType, companyRegNoType, companyPhoneNumberType, typeYes, orderPlacedByPartyReferenceType, orderPlacedByPartyReferenceType, legalEntityPartyReferenceType, orderCreditCheckStatusType, creditVetNumberType, depositKindType, depositReferenceType, creditScoreType, referralReasonType, creditCheckResultCodeType, totalMonthlyChargeType, creditLimitType, ruleValidateCheckType, ruleValidationStringType, outcomeType, chargeToCrossChargeAccountReferenceType, creditClassIdType, companyNameType, partySetReferenceType, addressValidationStatusType as part of HOPS Decomm Project.
+	25/08/2009	1.0.4		Shiby Varghese			length of creditCheckStatusType is changed to 1-99.
+	12/08/2009  1.0.3       Venkata Karthik   		Removed pattern in vatRateType
+	15/07/2009  1.0.2		Venkata Karthik			Partner field now takes partner values and not 3 character partner code restricted partner field to 1 to 20 characters.
+	06/07/2009  1.0.1   	Venkata Karthik         Updated as per cuk ICD v1.3
+	20/10/2008	1.0.0		Venkata Karthik 		Initial version-->
+<xsd:schema targetNamespace="http://soa.o2.co.uk/postpay/pscommoncompanion_1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccp="http://soa.o2.co.uk/postpay/pscommoncompanion_1">
+  <xsd:simpleType name="typeYesOrNo">
+    <xsd:annotation>
+      <xsd:documentation>A type that only allows the value Y or N.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeTariffProductId">
+    <xsd:annotation>
+      <xsd:documentation>the hub tariff product id</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="itemIdType">
+    <xsd:annotation>
+      <xsd:documentation>Representaion of an item id. From item_id on order line
+				table.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="msisdnStatus">
+    <xsd:annotation>
+      <xsd:documentation>Denotes whether a MSISDN is currently active, inactive,
+				deallocated, or assigned.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ACTIVE"/>
+      <xsd:enumeration value="INACTIVE"/>
+      <xsd:enumeration value="DEALLOCATED"/>
+      <xsd:enumeration value="ASSIGNED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="csaIdType">
+    <xsd:annotation>
+      <xsd:documentation>Unique identifier for the CSA - Webseal username.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="genevaCustomerNumType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeOwningBusinessDivision">
+    <xsd:annotation>
+      <xsd:documentation>O2 Business that owns the order.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="O2UK"/>
+      <xsd:enumeration value="O2ONLINE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MSISDNType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a MSISDN (mobile phone number).
+				Between10 and 11 numeric digits.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{10,11}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="migId">
+    <xsd:annotation>
+      <xsd:documentation>The migration id number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHandsetMake">
+    <xsd:annotation>
+      <xsd:documentation>Different handset makes: NOKIA, ERICSSON etc..</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHandsetModel">
+    <xsd:annotation>
+      <xsd:documentation>Handset models</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="makeType">
+    <xsd:annotation>
+      <xsd:documentation>Make of the a generic piece of Hardware, may be an Accessory or SIM for example</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="modelType">
+    <xsd:annotation>
+      <xsd:documentation>Model of the a generic piece of Hardware, may be an Accessory or SIM for example</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeNetwork">
+    <xsd:annotation>
+      <xsd:documentation>network abbreviations, HM- Orange, VF -Vodafone,
+				ME-One2One, TG - Hutchinson 3G, BT - BT, MC - Mapesbury
+				Communications, CW - Cable and Wireles. NOTE new
+				operators may be added. Therefore clients should code
+				for additional 'unknown' operators. Only if the client
+				is directly affected (there is business logic based on
+				the value) will they be notified.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentCurrencyType">
+    <xsd:annotation>
+      <xsd:documentation>Currency code e.g. GBP, EUR etc.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"/>
+      <xsd:maxLength value="3"/>
+      <xsd:enumeration value="GBP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHorizonCustomerNumber">
+    <xsd:annotation>
+      <xsd:documentation>The unique internal identifier for the customer that is
+				legally responsible for this account. May be either an
+				individual or a company (should exist in
+				CUST_MAP.CUSTNUM). One of the extenal ids that this
+				internal identifier maps to is "Horizon Customer Number"
+				mastered in com Registration. Refers to
+				LEGAL_ENT_CUSTNUM in ORDER_ACCOUNT table.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="18"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typePosBusinessUnit">
+    <xsd:annotation>
+      <xsd:documentation>Point of Sale business unit</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeSalesPerson">
+    <xsd:annotation>
+      <xsd:documentation>The Sales Person</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeSourceOfSale">
+    <xsd:annotation>
+      <xsd:documentation>The sales channel that sold this order.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="9"/>
+      <xsd:enumeration value="online"/>
+      <xsd:enumeration value="RFE"/>
+      <xsd:enumeration value="DISE"/>
+      <xsd:enumeration value="ESME"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="channelType">
+    <xsd:annotation>
+      <xsd:documentation>ORDER METHOD
+				TS - Telesales,
+				RT - Retail,
+				OL - Online,
+				IA - Insurance Administrator.
+				Defaults to OL</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2"/>
+      <xsd:minLength value="2"/>
+      <xsd:enumeration value="TS"/>
+      <xsd:enumeration value="RT"/>
+      <xsd:enumeration value="OL"/>
+      <xsd:enumeration value="IA"/>
+      <xsd:enumeration value="IT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderType">
+    <xsd:annotation>
+      <xsd:documentation>NE - New, RE - Replacement, UG - Upgrade , ES - ESME, EC
+				- ESME Change Request</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2"/>
+      <xsd:minLength value="2"/>
+      <xsd:enumeration value="NE"/>
+      <xsd:enumeration value="RE"/>
+      <xsd:enumeration value="UG"/>
+      <xsd:enumeration value="ES"/>
+      <xsd:enumeration value="EC"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCustomerTypeText">
+    <xsd:annotation>
+      <xsd:documentation>The type of customer. CON - Consumer SOL - Sole Trader,
+				PAR - Partnership, LTD - Limited Comany, CHA -Charity</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+      <xsd:enumeration value="CON"/>
+      <xsd:enumeration value="SOL"/>
+      <xsd:enumeration value="PAR"/>
+      <xsd:enumeration value="LTD"/>
+      <xsd:enumeration value="CHA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHorizonId">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHorizonDomain">
+    <xsd:annotation>
+      <xsd:documentation>This is the common registry domain name for the user.
+				Maps to EAI OIP DB ORDER_PARTY.PORTAL_ID_DOMAIN</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="longTimestampType">
+    <xsd:annotation>
+      <xsd:documentation>The date and time when the service request was requested
+				to run Format (example) 2002-07-12T10:32:00.000000 Note
+				includes microseconds</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{6}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="telNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a phone number.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="25"/>
+      <xsd:minLength value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeTitle">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a title.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeForename">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a forename. Valid characters
+				(A-Z,a-z,0-9,".",",","-")and
+				must not begin with "."</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="100"/>
+      <xsd:pattern value="[A-Z,a-z,0-9,\-,\s][A-Z,a-z,0-9,\-,.,\s,']*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeSurname">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a surname. Valid characters
+				(A-Z,a-z,0-9,".",",","-")and
+				must not begin with "."</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="100"/>
+      <xsd:pattern value="[A-Z,a-z,0-9,\-,\s][A-Z,a-z,0-9,\-,.,\s,']*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="itemCategoryType">
+    <xsd:annotation>
+      <xsd:documentation>Category of the item.
+				ACC = ACCESSORY
+				CDO = CHARGEABLE DELIVERY OPTION
+				CON = CONSULTANCY
+				HAN = HANDSET
+				L2M = BULK LAND TO MOBILE
+				LIT = LITERATURE
+				POL = POSTPAY LOGICAL PRODUCT
+				POI = POSTPAY INSURANCE
+				POS = POSTPAY SIM
+				POT = POSTPAY TARIFF
+				PRI = PREPAY INSURANCE
+				PRL = PREPAY LOGICAL PRODUCT
+				PRS = PREPAY SIM
+				PRT = PREPAY TARIFF
+				PTM = PREMIER TEXT MESSAGING
+				REV = SOFTWARE REVALIDATION
+				SAD = SOURCE ADDRESS
+				SDC = Standard Delivery Charge
+				TAM = Tariff Modifier</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ACC"/>
+      <xsd:enumeration value="CDO"/>
+      <xsd:enumeration value="CON"/>
+      <xsd:enumeration value="HAN"/>
+      <xsd:enumeration value="L2M"/>
+      <xsd:enumeration value="LIT"/>
+      <xsd:enumeration value="POI"/>
+      <xsd:enumeration value="POL"/>
+      <xsd:enumeration value="POS"/>
+      <xsd:enumeration value="POT"/>
+      <xsd:enumeration value="PRI"/>
+      <xsd:enumeration value="PRL"/>
+      <xsd:enumeration value="PRS"/>
+      <xsd:enumeration value="PRT"/>
+      <xsd:enumeration value="PTM"/>
+      <xsd:enumeration value="REV"/>
+      <xsd:enumeration value="SAD"/>
+      <xsd:enumeration value="SDC"/>
+      <xsd:enumeration value="TAM"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeRecurringPaymentType">
+    <xsd:annotation>
+      <xsd:documentation>Valid recurring payment types (in integer form)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+      <xsd:enumeration value="4"/>
+      <xsd:enumeration value="5"/>
+      <xsd:enumeration value="6"/>
+      <xsd:enumeration value="7"/>
+      <xsd:enumeration value="8"/>
+      <xsd:enumeration value="9"/>
+      <xsd:enumeration value="10"/>
+      <xsd:enumeration value="11"/>
+      <xsd:enumeration value="12"/>
+      <xsd:enumeration value="13"/>
+      <xsd:enumeration value="14"/>
+      <xsd:enumeration value="10001"/>
+      <xsd:enumeration value="10002"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCardDate">
+    <xsd:annotation>
+      <xsd:documentation>In format MM/YY</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+      <xsd:pattern value="\d{2}/\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeDescriptionSize255">
+    <xsd:annotation>
+      <xsd:documentation>Generic type that can be used for an string field, max
+				length 255.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="sourceSystem">
+    <xsd:annotation>
+      <xsd:documentation>Used to identify the non companion system from which the
+				data is sourced</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeOutcome">
+    <xsd:annotation>
+      <xsd:documentation>SUCCESSFUL/FAILURE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SUCCESSFUL"/>
+      <xsd:enumeration value="FAILURE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productDescription">
+    <xsd:annotation>
+      <xsd:documentation>The description of the the product such as both way bar,
+				daily 50 text messages etc</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="inclusiveProductType">
+    <xsd:annotation>
+      <xsd:documentation>Used to differentiate between types of inclusive
+				products, such as seconds, messages and kbs</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SECONDS"/>
+      <xsd:enumeration value="MESSAGES"/>
+      <xsd:enumeration value="KBS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="lastPaymentOrigin">
+    <xsd:annotation>
+      <xsd:documentation>Field indicating the originof the payment. Can be:
+				PHYSICAL PAYMENT, WRITE OFF MANUAL,WRITE OFF AUTOMATIC,
+				BALANCE TRANSFER, DEPOSIT APPLIED</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PHYSICAL PAYMENT"/>
+      <xsd:enumeration value="WRITE OFF MANUAL"/>
+      <xsd:enumeration value="WRITE OFF AUTOMATIC"/>
+      <xsd:enumeration value="BALANCE TRANSFER"/>
+      <xsd:enumeration value="DEPOSIT APPLIED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="lastPaymentStatus">
+    <xsd:annotation>
+      <xsd:documentation>The status of the last payment Successful, Cancelled,
+				Failed.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SUCCESSFUL"/>
+      <xsd:enumeration value="CANCELLED"/>
+      <xsd:enumeration value="FAILED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="lastPaymentMethod">
+    <xsd:annotation>
+      <xsd:documentation>The payment method last associated with the entity</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DIRECT DEBIT"/>
+      <xsd:enumeration value="CCA"/>
+      <xsd:enumeration value="ONLINE CARD PAYMENT FROM EBPP"/>
+      <xsd:enumeration value="CASH OR CHEQUE"/>
+      <xsd:enumeration value="O2 TRANSFER"/>
+      <xsd:enumeration value="AD HOC BANK TRANSFER PAYMENT"/>
+      <xsd:enumeration value="AD HOC CASH"/>
+      <xsd:enumeration value="AD HOC CHEQUE PAYMENT"/>
+      <xsd:enumeration value="AD HOC CREDIT CARD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tariffName">
+    <xsd:annotation>
+      <xsd:documentation>The tariff name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productExtendedDescription">
+    <xsd:annotation>
+      <xsd:documentation>Additional descriptive text for a tariff or service,
+				where defined</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productPartner">
+    <xsd:annotation>
+      <xsd:documentation>For base tariffs, indicates the channel through which
+				the tariff is available. By default, only tariffs with
+				the same partner as their current tariff are offered to
+				customers within Care.For services, indicates the
+				channel through which the service is offered</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="assignedProductBillingFrequency">
+    <xsd:annotation>
+      <xsd:documentation>The billing frequency used when billing for an assigned
+				product. Currently only used for insurance products. O -
+				One Off M - Monthly Recurring</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="O"/>
+      <xsd:enumeration value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingTariffName">
+    <xsd:annotation>
+      <xsd:documentation>The name given to the billing product.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingProductLabel">
+    <xsd:annotation>
+      <xsd:documentation>The text used to represent the billing product on the
+				customers bill.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingOptionType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates whether the billing product is a main
+				recurring charge for the tariff or ancillary billing
+				product (option) such as Free International Traveller
+				Service. Values are: M: Main billing product O: Option
+				product</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productClassification">
+    <xsd:annotation>
+      <xsd:documentation>Used to clasify products into related groups, e.g.
+				International bolt-ons, Text bundles</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tariffHandsetSim">
+    <xsd:annotation>
+      <xsd:documentation>Base tariffs only: indicates whether the tariff is a
+				Handset or SIM-only tariff.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productExclusiveGroup">
+    <xsd:annotation>
+      <xsd:documentation>Non-base tariffs only: identifies an exclusive group to
+				which the product belongs. No more than one member of an
+				exclusive group may be used by an account or phone at
+				any one time. A product may be belong to more than one
+				exclusive group.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productChannel">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the channel(s) through which the product is
+				available, e.g. 'CARE'</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tariffOnlineOffline">
+    <xsd:annotation>
+      <xsd:documentation>Base tariffs only: indicates whether the tariff is for
+				use with customers acquired via the Online or Offline
+				channels.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="7"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tariffFamily">
+    <xsd:annotation>
+      <xsd:documentation>Base tariffs only: classification of tariff into related
+				families, e.g. SIMO, 1M, 12M, 18M, 24M</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productRequestDateAlignment">
+    <xsd:annotation>
+      <xsd:documentation>Indicates whether tariff transfer to the base tariff, or
+				addition or removal of a bolt-on or other service, must
+				be (or may be) requested to take place on a future date.
+				Values are: NONE: future dating not allowed BILLDATE:
+				must be aligned to billing date BILLDATE-1: must be
+				aligned to the day before the billing date ANY: may be
+				future dated to any date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="maxDelayedServiceRequestsToReturn">
+    <xsd:annotation>
+      <xsd:documentation>The maximum number of delayed service requests to return
+				in a single call (between 1 and 100)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="requestType">
+    <xsd:annotation>
+      <xsd:documentation>The type of service request, C - Change, D - Disconnect
+				I - Install M - ODM migration, O - Port Out Q - Migrate
+				Out R - Reconnect S - SIM Swap T - Transfer X - Migrate
+				In Y - Change MSISDN Z - Port In</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+      <xsd:enumeration value="C"/>
+      <xsd:enumeration value="D"/>
+      <xsd:enumeration value="I"/>
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="O"/>
+      <xsd:enumeration value="Q"/>
+      <xsd:enumeration value="R"/>
+      <xsd:enumeration value="S"/>
+      <xsd:enumeration value="T"/>
+      <xsd:enumeration value="X"/>
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="Z"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="requester">
+    <xsd:annotation>
+      <xsd:documentation>The requester of the service request. See ICD for
+				values. New requester may be added without notice
+				therefore the client should allow for other requester
+				values to be returned if this element is in a response
+				message</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="serviceRequestState">
+    <xsd:annotation>
+      <xsd:documentation>Describes the state of a Service Request NEW - the
+				Service request initial state ACCEPTED - the Service
+				Request has been created, DELAYED - the Service request
+				is specified run at some point in the future, FAILED -
+				the Service Request has failed, CANCELLED - the Service
+				Request has been Cancelled prior to any provisioning,
+				COMPLETE - the Service Request is Complete, REJECTED -
+				the Service Request has been rejected at validation PLAN
+				PREPARATION REQUESTED - the Service Request is sent to
+				coordinate the creation of the provisioning plan PLAN
+				EXECUTION REQUESTED - the Service Request has completed
+				the plan preparation service WAIT RETRY - the Service
+				Request needs to be retried MANUALLY TERMINATED - the
+				Service Request is manually terminated</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NEW"/>
+      <xsd:enumeration value="CANCELLED"/>
+      <xsd:enumeration value="COMPLETE"/>
+      <xsd:enumeration value="DELAYED"/>
+      <xsd:enumeration value="FAILED"/>
+      <xsd:enumeration value="ACCEPTED"/>
+      <xsd:enumeration value="REJECTED"/>
+      <xsd:enumeration value="PLAN PREPARATION REQUESTED"/>
+      <xsd:enumeration value="PLAN EXECUTION REQUESTED"/>
+      <xsd:enumeration value="WAIT RETRY"/>
+      <xsd:enumeration value="MANUALLY TERMINATED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productAction">
+    <xsd:annotation>
+      <xsd:documentation>The action that was performed on the product A- added R
+				- removed</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="R"/>
+      <xsd:enumeration value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productAdditionRequester">
+    <xsd:annotation>
+      <xsd:documentation>The id for a system that added the product / tariff. See
+				ICD for values. New requester may be added without
+				notice therefore the client should allow for other
+				requester values to be returned if this element is in a
+				response message</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productAdditionUserName">
+    <xsd:annotation>
+      <xsd:documentation>The username for a person that requested the addition of
+				the product / tariff. This may be set SYSTEM.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productAdditionReasonDescription">
+    <xsd:annotation>
+      <xsd:documentation>The description of a reason given for the service
+				request that added the product / tariff.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productAdditionReasonId">
+    <xsd:annotation>
+      <xsd:documentation>The Id for a reason given for the service request that
+				added the product / tariff.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="4"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ssn">
+    <xsd:annotation>
+      <xsd:documentation>Sim Serial Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="treatmentActionCode">
+    <xsd:annotation>
+      <xsd:documentation>The treatment code that is stored in geneva. This is
+				relates to the debt escalation attribute of the account.
+				For example 3114 Service Deny (CON10A)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="treatmentStatus">
+    <xsd:annotation>
+      <xsd:documentation>The treatment status</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+      <xsd:enumeration value="INTREATMENT"/>
+      <xsd:enumeration value="NOTINTREATMENT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountSubtype">
+    <xsd:annotation>
+      <xsd:documentation>A categorisation of the account for ESME.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="L2M"/>
+      <xsd:enumeration value="RS"/>
+      <xsd:enumeration value="CON"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeGenevaResponseCode">
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeGenevaResponseDescription">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="averageMonthlySpend">
+    <xsd:annotation>
+      <xsd:documentation>This is optional as it is not provided for ESME
+				originated accounts.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="threeMonths" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>Average monthly spend over 3 months in pence.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="sixMonths" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>Average monthly spend over 6 months in pence.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="nineMonths" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>Average monthly spend over 9 months in pence.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="twelveMonths" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>Average monthly spend over 12 months in pence.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="replyKey">
+    <xsd:annotation>
+      <xsd:documentation>The key specified by the requestor. This enables replies
+				to be matched against requests.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="300"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="imei">
+    <xsd:annotation>
+      <xsd:documentation>Each phone is identified by an International Mobile
+				Equipment Identity number (IMEI) that is permanently
+				stored in the phone. On request, the phone sends this
+				number over the signalling channel to the mobile
+				switching centre (MSC). The IMEI can be used to identify
+				phones that are reported stolen or are faulty.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractAction">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the activity to be performed on the contract
+				E= Existing The current contract for the existing tariff
+				will be kept A=Append. The contract duration for the new
+				tariff will be appened to the existing one O=Overwrite.
+				The contract will be set to the duration of the new
+				tariff regardless of what duartion remains on the
+				existing tariff Note: this is derived in Geneva
+				Provision Plan processing if not supplied.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="E"/>
+      <xsd:enumeration value="O"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeYesNoBlank">
+    <xsd:annotation>
+      <xsd:documentation>Either Y (Yes) N (No) or blank</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+      <xsd:enumeration value=""/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tariffAction">
+    <xsd:annotation>
+      <xsd:documentation>The action for the product A or R or M for Add or Remove
+				or Modify</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="R"/>
+      <xsd:enumeration value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="callTypeIndicator">
+    <xsd:annotation>
+      <xsd:documentation>Indicates if an order is a (OUTBOUND=pro-active or
+				INBOUND=reactive) order, used for commisions/retention</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="INBOUND"/>
+      <xsd:enumeration value="OUTBOUND"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderNumber">
+    <xsd:annotation>
+      <xsd:documentation>The External Order Number.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="preferredContactMethod">
+    <xsd:annotation>
+      <xsd:documentation>The preferred contact method: EMAIL, SMS, PHONE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5"/>
+      <xsd:enumeration value="SMS"/>
+      <xsd:enumeration value="EMAIL"/>
+      <xsd:enumeration value="PHONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="segmentation">
+    <xsd:annotation>
+      <xsd:documentation>The marketing segment that the customer belongs to based
+				on their spend. Possible values are Platinum, Gold,
+				Silver, Bronze, Select, Sel_Inv, Sel_Few, none and
+				Unknown. Maps to CUST_SEGMENT constraint on ORDER_PARTY
+				table.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Platinum"/>
+      <xsd:enumeration value="Gold"/>
+      <xsd:enumeration value="Silver"/>
+      <xsd:enumeration value="Bronze"/>
+      <xsd:enumeration value="Select"/>
+      <xsd:enumeration value="Sel_Inv"/>
+      <xsd:enumeration value="Sel_Few"/>
+      <xsd:enumeration value="Unknown"/>
+      <xsd:enumeration value="none"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="companyName">
+    <xsd:annotation>
+      <xsd:documentation>For SME's, the Trading Name of the Company. Maps to EAI
+				OIP DB ORDER_PARTY.COMPANY_NAME</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="email">
+    <xsd:annotation>
+      <xsd:documentation>The Customer or Contacts e-mail address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="smeJobTitle">
+    <xsd:annotation>
+      <xsd:documentation>For SMEs, the Job Title of the contact</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="smeJobFunction">
+    <xsd:annotation>
+      <xsd:documentation>For SMEs, the job function of the Contact</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="houseNameOrNumber">
+    <xsd:annotation>
+      <xsd:documentation>The house name or number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postalStreet">
+    <xsd:annotation>
+      <xsd:documentation>The street name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postalCity">
+    <xsd:annotation>
+      <xsd:documentation>City</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postalCounty">
+    <xsd:annotation>
+      <xsd:documentation>the UK County</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="25"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postalCountry">
+    <xsd:annotation>
+      <xsd:documentation>Country. Only allowed value is UK</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UK"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="alpha2CountryCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Postal Coutry should follows alpha 2 ISO standard.
+				Only allowed value is GB</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="GB"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="postcode">
+    <xsd:annotation>
+      <xsd:documentation>Address postcode in format AANN NNN or ANN NNN or AN NNN
+				or AAN NNN where A is replaced by an alphabetic
+				character and N is an integer between 0 and 9.Note that
+				an embedded space is required. This is as expressed by
+				the XML pattern \w+\p{Zs}\w+.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="25"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingAccountName">
+    <xsd:annotation>
+      <xsd:documentation>A descriptive name for the billing account</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="assignedProductBillingFreq">
+    <xsd:annotation>
+      <xsd:documentation>The billing frequency used when billing for an assigned
+				product. Currently only used for insurance products.
+				O - One Off
+				M - Monthly Recurring</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="O"/>
+      <xsd:enumeration value="M"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billDay">
+    <xsd:annotation>
+      <xsd:documentation>The day of the month on which billing occurs.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="2"/>
+      <xsd:pattern value="\d{1,2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentFrequency">
+    <xsd:annotation>
+      <xsd:documentation>Usuallyequals O or R. Maps to EAI DB
+				VR_ORDER_PAYMENT:PAYMENT_FREQ</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentMethod">
+    <xsd:annotation>
+      <xsd:documentation>CC= Card, DD= Direct Debit, GE = Geneva, MT= MTBILLING,
+				CH = Cheque. Maps to EAI OIP DB
+				ORDER_PAYMENT.PAYMENT_METHOD.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CC"/>
+      <xsd:enumeration value="DD"/>
+      <xsd:enumeration value="GE"/>
+      <xsd:enumeration value="MT"/>
+      <xsd:enumeration value="CH"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardHolderName">
+    <xsd:annotation>
+      <xsd:documentation>The customer name on the Credit or Debit Card</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardNumber">
+    <xsd:annotation>
+      <xsd:documentation>Credit Card Number (without spaces).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{12,20}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardCV2Type">
+    <xsd:annotation>
+      <xsd:documentation>The verification number printed on the back of the card.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardIssueNumber">
+    <xsd:annotation>
+      <xsd:documentation>The Credit or Debit Card Issue Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bankAccountName">
+    <xsd:annotation>
+      <xsd:documentation>The customer name defined on the Bank Account</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bankAccountNumber">
+    <xsd:annotation>
+      <xsd:documentation>The transcribed bank account number in BACS format, i.e.
+				this value is returned by the Mod Check in Barron
+				McCann. Stored in encrypted format.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="124"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="bankSortCode">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Account sort code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="9"/>
+      <xsd:minLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend1">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 6 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend2">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 5 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend3">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 4 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend4">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 3 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend5">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 2 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billSpend6">
+    <xsd:annotation>
+      <xsd:documentation>monthly spend 1 months prior to migration</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="maxCompatibleProductsToReturn">
+    <xsd:annotation>
+      <xsd:documentation>The maximum number of compatible products to return in a
+				single call (between 1 and 100)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replyRequired">
+    <xsd:annotation>
+      <xsd:documentation>Y or N flag indicating whether a reply is required or
+				not.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replyToQ">
+    <xsd:annotation>
+      <xsd:documentation>The Queue to which reply messages are to be sent.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
+      <xsd:maxLength value="48"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replyToQMgr">
+    <xsd:annotation>
+      <xsd:documentation>The Queue Manager to which reply messages are to be
+				sent. An empty element indicates the Cluster definition
+				of a queue is to be used.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0"/>
+      <xsd:maxLength value="48"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCreditClass">
+    <xsd:annotation>
+      <xsd:documentation>The credit class to which this account belongs for the
+				purpose of debt escalation [collections]. It must be a
+				valid credit class supported by the database.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="status">
+    <xsd:annotation>
+      <xsd:documentation>The status of a request.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="errorCode">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier of the error, often the AMS error
+				code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="15"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeEmailAddress">
+    <xsd:annotation>
+      <xsd:documentation>Representation of an email address. Limited to 100 as
+				this is the maximum length that Kana Response can hold
+				for email addresses (KC_EMAILADDRESS.EMAILADDRESS).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeInitials">
+    <xsd:annotation>
+      <xsd:documentation>Representation of initials. Valid characters
+				(A-Z,a-z,0-9,".",",","-")and
+				must not begin with "."</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+      <xsd:pattern value="[A-Z,a-z, ,\.]*"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typePostcode">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a postcode, only allow alpha-numerics
+				and spaces. Max length 25 as this is limit in Response
+				(KC_ADDRESS.POSTALCODE).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="25"/>
+      <xsd:pattern value="[A-Z,a-z,0-9,\s]+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeSourceAddress">
+    <xsd:annotation>
+      <xsd:documentation>Representing any of alphatag (3-11) and shortcode 4-8.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"/>
+      <xsd:maxLength value="11"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardType">
+    <xsd:annotation>
+      <xsd:documentation>The type of the card used (Debit or Credit)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="credit"/>
+      <xsd:enumeration value="debit"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCreditCardNumber">
+    <xsd:annotation>
+      <xsd:documentation>Representation of a credit card number.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="12"/>
+      <xsd:maxLength value="20"/>
+      <xsd:pattern value="\d{12,20}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCardExpiryDate">
+    <xsd:annotation>
+      <xsd:documentation>In format MM/YY</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+      <xsd:pattern value="\d{2}/\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCardIssueNumber">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="3"/>
+      <xsd:pattern value="\d{1,3}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeAccountNo">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{8,9}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeSortCode">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="8"/>
+      <xsd:maxLength value="8"/>
+      <xsd:pattern value="\d{2}(-)\d{2}(-)\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeDescriptionSize50">
+    <xsd:annotation>
+      <xsd:documentation>Generic type that can be used for an string field, max
+				length 50.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentMoneyType">
+    <xsd:annotation>
+      <xsd:documentation>The value of a payment, specified in pence with no
+				punctuation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountStatus">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the current state of the account e.g. billed,
+				active, inactive etc Read Only, cannot be updated by
+				CARE. Takes the following values (assuming using the 5.0
+				version of Geneva being used): TX - Terminated TA -
+				Awaiting Termination PE - Pending OK - Live IN -
+				Internal Account, this is not billed</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TX"/>
+      <xsd:enumeration value="TA"/>
+      <xsd:enumeration value="PE"/>
+      <xsd:enumeration value="OK"/>
+      <xsd:enumeration value="IN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeServiceProviderId">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="6"/>
+      <xsd:minLength value="1"/>
+      <xsd:pattern value="\d{3}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeMsisdnStatus">
+    <xsd:annotation>
+      <xsd:documentation>The status of an MSISDN. May either be Active (A) or
+				Disconnected (D).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typePrepayOrPostpay">
+    <xsd:annotation>
+      <xsd:documentation>A type that allows only the values of prepay or postpay
+				or a catch all in the form of unknown.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="7"/>
+      <xsd:enumeration value="PREPAY"/>
+      <xsd:enumeration value="POSTPAY"/>
+      <xsd:enumeration value="UNKNOWN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="productParamType">
+    <xsd:annotation>
+      <xsd:documentation>Type of product parameter.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="paramName" type="ccp:paramNameType">
+        <xsd:annotation>
+          <xsd:documentation>Product name type e.g. CALLINGCIRCLE.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="paramValue" type="ccp:paramValueType">
+        <xsd:annotation>
+          <xsd:documentation>Product parameter value, e.g. 07709123456</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="paramNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="15"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paramValueType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeTrueOrFalse">
+    <xsd:annotation>
+      <xsd:documentation>A type that only allows the value TRUE or FALSE.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TRUE"/>
+      <xsd:enumeration value="FALSE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeCreditOrDebit">
+    <xsd:annotation>
+      <xsd:documentation>Inidcates if this is a credit or a debit.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CREDIT"/>
+      <xsd:enumeration value="DEBIT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeHorizonPostCode">
+    <xsd:annotation>
+      <xsd:documentation>Post code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeDescriptionSize80">
+    <xsd:annotation>
+      <xsd:documentation>Generic type that can be used for an string field, max
+				length 80.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeDescriptionSize20">
+    <xsd:annotation>
+      <xsd:documentation>Generic type that can be used for an string field, max
+				length 20.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="billStyleId">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the style of the bill 1= Online with
+				itemisation 2= Offline with no itemisation 3= Offline
+				with itemisation 3001= Wholesale 5502 = Summary.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+      <xsd:enumeration value="3001"/>
+      <xsd:enumeration value="5502"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderStatusType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the order status.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="61"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="idType">
+    <xsd:annotation>
+      <xsd:documentation>Allowed values are:
+         	CHEQUE
+         	FULL DRIVING LICENCE
+         	NI DRIVING LICENCE
+         	PASSPORT
+         	BANK/STORE CARD
+         	FIREARMS LICENSE
+         	PURCHASE ORDER
+         	BUSINESS HEADED LETTER
+         	PROVISIONAL DRIVING LICENCE
+			ARMED FORCES ID</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+      <xsd:enumeration value="CHEQUE"/>
+      <xsd:enumeration value="FULL DRIVING LICENCE"/>
+      <xsd:enumeration value="NI DRIVING LICENCE"/>
+      <xsd:enumeration value="PASSPORT"/>
+      <xsd:enumeration value="BANK/STORE CARD"/>
+      <xsd:enumeration value="FIREARMS LICENSE"/>
+      <xsd:enumeration value="PURCHASE ORDER"/>
+      <xsd:enumeration value="BUSINESS HEADED LETTER"/>
+      <xsd:enumeration value="PROVISIONAL DRIVING LICENCE"/>
+      <xsd:enumeration value="ARMED FORCES ID"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="idValueType">
+    <xsd:annotation>
+      <xsd:documentation>Holds the actual identifing number id. For example a
+				passport or credit card number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="residenceType">
+    <xsd:annotation>
+      <xsd:documentation>FULL DRIVING LICENCE,NI DRIVING LICENCE,UTILITY
+				BILL,BANK STATEMENT, BUILDING SOCIETY STATEMENT,CREDIT
+				CARD STATEMENT,INSURANCE POLICY,MAIL ORDER STATEMENT,
+				FAMILY ALLOWANCE BOOK,MORTGAGE REPAYMENT
+				STATEMENT,COUNCIL TAX STATEMENT,SORT CODE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+      <xsd:enumeration value="FULL DRIVING LICENCE"/>
+      <xsd:enumeration value="NI DRIVING LICENCE"/>
+      <xsd:enumeration value="UTILITY BILL"/>
+      <xsd:enumeration value="BANK STATEMENT"/>
+      <xsd:enumeration value="BUILDING SOCIETY STATEMENT"/>
+      <xsd:enumeration value="CREDIT CARD STATEMENT"/>
+      <xsd:enumeration value="INSURANCE POLICY"/>
+      <xsd:enumeration value="MAIL ORDER STATEMENT"/>
+      <xsd:enumeration value="FAMILY ALLOWANCE BOOK"/>
+      <xsd:enumeration value="MORTGAGE REPAYMENT STATEMENT"/>
+      <xsd:enumeration value="COUNCIL TAX STATEMENT"/>
+      <xsd:enumeration value="SORT CODE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="workflowIndicatorType">
+    <xsd:annotation>
+      <xsd:documentation>workflow where UK for United Kingdom order and NL for
+				Netherlands order with the exention of one of the
+				following; - NE - New, RE - Replacement, DC -
+				Datacentric, ES - ESME, EC - ESME Change UG - Upgrade,
+				IF - Inkfish, TS - Telesales, RT - Retail.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UKNE"/>
+      <xsd:enumeration value="UKRE"/>
+      <xsd:enumeration value="UKDC"/>
+      <xsd:enumeration value="UKEC"/>
+      <xsd:enumeration value="UKES"/>
+      <xsd:enumeration value="UKUG"/>
+      <xsd:enumeration value="UKIF"/>
+      <xsd:enumeration value="UKTS"/>
+      <xsd:enumeration value="UKRT"/>
+      <xsd:enumeration value="NLNE"/>
+      <xsd:enumeration value="NLRE"/>
+      <xsd:enumeration value="NLDC"/>
+      <xsd:enumeration value="NLUG"/>
+      <xsd:enumeration value="NLIF"/>
+      <xsd:enumeration value="NLTS"/>
+      <xsd:enumeration value="NLRT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderIdType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of an OID (order ID). It can also be used
+				in conjunction with a line_number to identify a
+				particular package or item within an order.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="10"/>
+      <xsd:pattern value="\d{1,10}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="lineNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Used in conjunction with oid to identify a particular
+				order line.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="10"/>
+      <xsd:pattern value="\d{1,10}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="vatAmountType">
+    <xsd:annotation>
+      <xsd:documentation>The VAT rate to calculate the VAT amount on the price.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base="ccp:paymentMoneyType">
+        <xsd:attribute name="vatRate" type="xsd:double" use="required">
+          <xsd:annotation>
+            <xsd:documentation>The VAT rate to calculate the VAT amount on
+							the price.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:simpleType name="vatReversalReceiptStatusType">
+    <xsd:annotation>
+      <xsd:documentation>The status of the VAT reversal.Values: 'R' - Ready for
+				production 'P' - Receipt produced 'N' - Not Applicable
+				'X' - Receipt not required.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="R"/>
+      <xsd:enumeration value="P"/>
+      <xsd:enumeration value="N"/>
+      <xsd:enumeration value="X"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="assignNumType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of ORDER_ASSIGN_PROD.ASSIGN_NUMBER</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="10"/>
+      <xsd:pattern value="\d{1,10}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="changeType">
+    <xsd:annotation>
+      <xsd:documentation>The type of change to apply to an assigned product
+				Change of A - add, U - update or R - remove. For example
+				a class 9 bar 'product' can be added or removed. The
+				default is A add.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="U"/>
+      <xsd:enumeration value="R"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ssnType">
+    <xsd:annotation>
+      <xsd:documentation>SIM serial number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+      <xsd:pattern value="\d{11}|\d{19}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="handsetRiskType">
+    <xsd:annotation>
+      <xsd:documentation>e.g. 0 = Sim Only, 1 = Normal Handset, 2 = High Risk
+				Handset, 3 = Not a Handset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="3"/>
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="handsetReplacementGradeType">
+    <xsd:annotation>
+      <xsd:documentation>NEW, GRADEA, REFURB.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NEW"/>
+      <xsd:enumeration value="GRADEA"/>
+      <xsd:enumeration value="REFURB"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="skuType">
+    <xsd:annotation>
+      <xsd:documentation>SKU Type. e.g. 044-01-01-002-0005-0001-0001-003.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentCardType">
+    <xsd:annotation>
+      <xsd:documentation>0,MAESTRO,CC 1,SOLO,CC 2,VISA,CC 3,MASTERCARD,CC
+				4,DELTA,CC 5,AMEX,CC 6,RABOBANKBETALEN,CC
+				7,EENMALIGEMACHTIGING,CC 8,CASHONDELIVERY,CC
+				9,BANKOVERBOEKING,CC 10,VALUESTORE,CC
+				11,MTBILLINGPORTAL,MT 12,MTBILLINGSHOP,MT 13,BANK,DD
+				16,ELECTRON,CC 10001,MRINDIVIDUALPO,CC
+				10002,MRSTANDINGPO,CC</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+      <xsd:enumeration value="4"/>
+      <xsd:enumeration value="5"/>
+      <xsd:enumeration value="6"/>
+      <xsd:enumeration value="7"/>
+      <xsd:enumeration value="8"/>
+      <xsd:enumeration value="9"/>
+      <xsd:enumeration value="10"/>
+      <xsd:enumeration value="11"/>
+      <xsd:enumeration value="12"/>
+      <xsd:enumeration value="13"/>
+      <xsd:enumeration value="16"/>
+      <xsd:enumeration value="10001"/>
+      <xsd:enumeration value="10002"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="horizonHouseNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The house number is restricted to 20 chars.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The Order Number.Representation of an order number, in
+				the form ab-12345678 or ab-123456789.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="organisationType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountSetReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier for account details.
+				This is used to allow the same account details to be associated
+				with multiple products without having to repeat the account details.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditCheckStatusType">
+    <xsd:annotation>
+      <xsd:documentation>Credit check status values.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="99"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditCheckVetNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="11"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditCheckScoreType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="5"/>
+      <xsd:pattern value="\-?\d{1,5}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--Added for R&R-->
+  <xsd:simpleType name="orderNumberBeingReturnedType">
+    <xsd:annotation>
+      <xsd:documentation>This order number relates to the previous order that
+				needs a replacement performed for. i.e. number of the
+				order in which the customer received the hardware that
+				they are now returning.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partnerType">
+    <xsd:annotation>
+      <xsd:documentation>The Partner Types.
+				agent				Agent Shop (Replacement)
+				consumer			Online Customer
+				CPW					Carphone Warehouse
+				esme				ESME (not consumer)
+				LBM2_in				Telesales - Customer Initiated
+				LBM2_out			Telesales - O2 Initiated
+				Mass_Distribution	Mass Distribution Shop (sim bundles)
+				PHONES4U			Phones 4 U
+				retail_shop			O2 Retail Stores
+				TESCO				Tesco
+				upgrade_consumer	Upgrade via Online Shop
+				upgrade_csa			Upgrade via Agent</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cardIssuerType">
+    <xsd:annotation>
+      <xsd:documentation>The Card Issuer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MAESTRO"/>
+      <xsd:enumeration value="SOLO"/>
+      <xsd:enumeration value="VISA"/>
+      <xsd:enumeration value="MASTERCARD"/>
+      <xsd:enumeration value="DELTA"/>
+      <xsd:enumeration value="AMEX"/>
+      <xsd:enumeration value="ELECTRON"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="vatCodeDescriptionType">
+    <xsd:annotation>
+      <xsd:documentation>The sort of vat rate that should be applied.
+				STANDARD RATE
+				ZERO RATE
+				EXEMPT
+				OUTSIDE SCOPE
+				REDUCED RATE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:enumeration value="STANDARD RATE"/>
+      <xsd:enumeration value="ZERO RATE"/>
+      <xsd:enumeration value="EXEMPT"/>
+      <xsd:enumeration value="OUTSIDE SCOPE"/>
+      <xsd:enumeration value="REDUCED RATE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="productNameType">
+    <xsd:annotation>
+      <xsd:documentation>The assigned product name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="skuIDType">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier of the SKU (Stock Keeping
+				Unit).Where the SKU cannot be identified this
+				value will be set to UNKNOWN. Element will be empty if
+				the Empty Bag Indicator is set</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="skuNameType">
+    <xsd:annotation>
+      <xsd:documentation>The name of the Stock Keeping Unit (SKU)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="serialNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Serial number of item.Type of serial number is indicated
+				in serial number type field but will contain the IMEI
+				for handset order lines and SSNs for SIM card order
+				lines. The serial numbe will be left justified and
+				padded with spaces.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="timeSlotType">
+    <xsd:annotation>
+      <xsd:documentation>Delivery option code that is valid for a given delivery
+				date. The value returned in this field will be one of
+				the following:
+				NEXT DAY DELIVERY
+				NEXT DAY BEFORE 10:00
+				NEXT DAY BEFORE 12:00
+				SATURDAY AM DELIVERY
+				SWAP IT 10
+				SWAP IT SATURDAY</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NEXT DAY DELIVERY"/>
+      <xsd:enumeration value="NEXT DAY BEFORE 10:00"/>
+      <xsd:enumeration value="NEXT DAY BEFORE 12:00"/>
+      <xsd:enumeration value="SATURDAY AM DELIVERY"/>
+      <xsd:enumeration value="SWAP IT 10"/>
+      <xsd:enumeration value="SWAP IT SATURDAY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="destinationNameType">
+    <xsd:annotation>
+      <xsd:documentation>Delivery destination, name of person. Default is the
+				user name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="deliveryDateType">
+    <xsd:annotation>
+      <xsd:documentation>Valid delivery date for the requested by the customer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="requestedDispatchDateType">
+    <xsd:annotation>
+      <xsd:documentation>For a future dated delivery. Date the order will need to
+				be sent to the logistics warehouse to achieve the
+				requested delivery date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="houseNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The House Name or Number used for Equifax address
+				checks. This may include letters eg 122B</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="80"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="streetType">
+    <xsd:annotation>
+      <xsd:documentation>The street name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="localityType">
+    <xsd:annotation>
+      <xsd:documentation>The area of a town or city that the street is in.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cityType">
+    <xsd:annotation>
+      <xsd:documentation>The town or city</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="countyType">
+    <xsd:annotation>
+      <xsd:documentation>The County</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="countryType">
+    <xsd:annotation>
+      <xsd:documentation>Country. Only allowed value is UK.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UK"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="saleableProductLineNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Generated by the client to differentiate each saleable
+				product in an order.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="saleableProductNameType">
+    <xsd:annotation>
+      <xsd:documentation>Saleable product name. It will be a concatenation of all
+				assigned product names that this saleable product
+				consists of.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="512"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnSaleableProductLineNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The line number from the original order of the item that
+				is being returned</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnAssignedProductNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The assign number from the original order of the item
+				that is being returned</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="overridePriceDescriptionType">
+    <xsd:annotation>
+      <xsd:documentation>A description of the reason for manually overriding a
+				price if the price is not the same as the standard
+				catalogue price. This free text description is supplied
+				by an O2 employee such as an account manager not the end
+				customer.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="40"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="vatRateType">
+    <xsd:annotation>
+      <xsd:documentation>The Value Added Tax (VAT) rate</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:double"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="replacementAcceptStatusType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates whether the replacement order request was
+				accepted</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnReasonCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Code representing the reason for return.
+			This is the high level return reason for example the 103 representing "0 to 14 day Faulty Cancel"</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnReasonSubCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Code representing the sub-reason for return.
+				This is the low level return reason, for example 3 representing a backlight fault.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnConditionType">
+    <xsd:annotation>
+      <xsd:documentation>The code for the return condition of an item.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NOT RETURNED"/>
+      <xsd:enumeration value="DAMAGED"/>
+      <xsd:enumeration value="FAULTY"/>
+      <xsd:enumeration value="INCOMPLETE"/>
+      <xsd:enumeration value="MISSING"/>
+      <xsd:enumeration value="GOOD"/>
+      <xsd:enumeration value="USED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnReasonOutOfPolicyUserNameType">
+    <xsd:annotation>
+      <xsd:documentation>The userId that has confirmed that the replacement may
+				be out of policy</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="returnAuthorisationNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The number given to a customer who wishes to return a
+				device</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="commentsType">
+    <xsd:annotation>
+      <xsd:documentation>Used for free-text comment fields</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="32700"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replacementPolicyIdType">
+    <xsd:annotation>
+      <xsd:documentation>A 3-digit code that will indicate the policy decision regarding the replacement of customer's hardware item.
+			Also this will be used while submitting a replacement order for the customer's hardware item.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="3"/>
+      <xsd:maxLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replacementPolicyCodeType">
+    <xsd:annotation>
+      <xsd:documentation>The replacement policy code that determines whether customer is eligible to return the replacement.
+         	Possible Values:
+			I- Within Policy
+			O – Not within Policy (but exchange or return can continue, and will be logged as such)
+			D – Declined (the return or exchange must not take place)
+			Z – a policy ruling cannot be applied and local discretion applies (so exchange or return can continue, and will be logged as such)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:pattern value="[A-Za-z]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="assignedProductNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Differentiates each assigned product under a saleable
+				product. Must be unique under each saleable product</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="dispatchStatusType">
+    <xsd:annotation>
+      <xsd:documentation>The status of the assigned product on an order.
+
+				0 = Dispatch Requested
+				1 = Cancelled
+				2 = Cancelling
+				3 = Dispatch Not Cancelled
+				4 = Allocate Not Cancelled
+				5 = Dispatch Required
+				10 = Dispatched
+				11 = Allocated
+				12 = Deallocated
+				13 = Out Of Stock
+				99 = Dispatch Not Required</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+      <xsd:enumeration value="4"/>
+      <xsd:enumeration value="5"/>
+      <xsd:enumeration value="10"/>
+      <xsd:enumeration value="11"/>
+      <xsd:enumeration value="12"/>
+      <xsd:enumeration value="13"/>
+      <xsd:enumeration value="99"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="dispatchMethodType">
+    <xsd:annotation>
+      <xsd:documentation>The method used to dispatch the product. Allowed values
+				are:
+				IMMD = Immediate Dispatch
+				EXCH = Wait On Exchange
+				RETL = Pick Up In Retail
+				INFO = Information only. No Dispatch Required
+				DSEX = Doorstep Exchange</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IMMD"/>
+      <xsd:enumeration value="EXCH"/>
+      <xsd:enumeration value="RETL"/>
+      <xsd:enumeration value="INFO"/>
+      <xsd:enumeration value="DSEX"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="riskType">
+    <xsd:annotation>
+      <xsd:documentation>Perceived risk for handsets (category = HAN):
+				0 – Sim only
+				1 – Normal Handset Risk
+				2 – High Handset Risk
+				3 – Not a Handset
+
+				Perceived risk for accessories (category = ACC):
+				0 – Low Risk
+				1 – Normal Handset Risk
+				2 – High Handset Risk</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:short">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="replacementMethodType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates whether the a replacement order is an active
+				replacement. An active replacement involves the delivery
+				agency going to the customer and exchanging the product.
+				If a replacement is not active then the customer returns
+				the product by post.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ACTIVE"/>
+      <xsd:enumeration value="POST"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--End for R&R-->
+  <xsd:complexType name="inclusiveAllowancesType">
+    <xsd:annotation>
+      <xsd:documentation>The amount of product that is available at the start of
+				this billing period.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="productDescription" type="ccp:productDescription">
+        <xsd:annotation>
+          <xsd:documentation>The description of the the product.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inclusiveProductType" type="ccp:inclusiveProductType">
+        <xsd:annotation>
+          <xsd:documentation>Used to differentiate between types of inclusive
+						products, such as seconds, messages and kbs.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inclusiveAllowanceInitialTotal" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>The total for the amount of this product that
+						was available at the start of this billing
+						period.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inclusiveAllowanceUsedTotal" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>The total for the amount of this product that
+						has been used during this billing period.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="inclusiveAllowanceRemainingTotal" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>The total for the amount of this product that it
+						remaining for this billing period.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="callContactIDType">
+    <xsd:annotation>
+      <xsd:documentation>Identifier to associate a customer contact message (within the customer Contact system) with actions taken in other systems such as placing new orders. It can be used to tie upsell items to an order. Also used for to calculate commissions for retention CSA's.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentAuthStatusType">
+    <xsd:annotation>
+      <xsd:documentation>The Payment Authorisation Status. Possible values are:
+				REFERRED, OK or NOT DONE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="REFERRED"/>
+      <xsd:enumeration value="OK"/>
+      <xsd:enumeration value="NOT DONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="authorisationRespCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Code from the payment system to indicate authorisation
+				success/failure</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:short"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="authorisationRespMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Text explanation of authorisation response code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="authorisationCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Authorisation Code returned by the Merchant Acquirer for
+				successful authorisations</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="authMessageType">
+    <xsd:annotation>
+      <xsd:documentation>A textual message returned by the acquirer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="buynetIdType">
+    <xsd:annotation>
+      <xsd:documentation>This will be the Transaction ID</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cv2AvsCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Response code from Buynet indicating validity of cv2 and
+				avs details. Three digit code. If the buynetResponseCode
+				is 625, then it is set to failed.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="6"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="cv2AvsActionType">
+    <xsd:annotation>
+      <xsd:documentation>Pass/fail derived from the buynet response code, set to
+				FAIL if response code is 625</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PASS"/>
+      <xsd:enumeration value="FAIL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="threeDSecureType">
+    <xsd:annotation>
+      <xsd:documentation>Contains the information required for 3D Secure processing</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="verify" type="ccp:typeYesOrNo"/>
+      <xsd:element name="browser" minOccurs="0" type="ccp:browserType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="browserType">
+    <xsd:annotation>
+      <xsd:documentation>Information about the access medium needed to complete the 3D payment</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="deviceCategory" type="ccp:deviceCategoryType"/>
+      <xsd:element name="acceptHeaders" type="ccp:acceptHeadersType"/>
+      <xsd:element name="userAgent" type="ccp:userAgentType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="deviceCategoryType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates the type of device or channel being used.
+		0 = The client environment is such that the full size messages (PAReq/PARes) will be used and the core protocol specification governs. For example, PC
+		1 = The client is a constrained device, such
+		as WAP phone, where the condensed messages (CPRQ/CPRS) will be used and the Extension for Mobile Internet Devices must be followed.
+		2 = The client uses two-way messaging (SMS or USSD) and the Extension for Voice and Messaging Channels must be followed.
+		3 = The client uses the voice channel and the Extension for Voice and Messaging Channels must be followed.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:enumeration value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="acceptHeadersType">
+    <xsd:annotation>
+      <xsd:documentation>The exact content of the accept attribute of the HTTP header as sent to the merchant from the card holders browser</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="userAgentType">
+    <xsd:annotation>
+      <xsd:documentation>The exact content of the user-agent attribute of the HTTP header as sent to the merchant from the card holders browser</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderProductPriceType">
+    <xsd:annotation>
+      <xsd:documentation>The products one off charge in pence.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,14}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="pacType">
+    <xsd:annotation>
+      <xsd:documentation>The porting authorisation code allowing a temporary MSISDN to be replaced with a permanent number.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderProductChargeType">
+    <xsd:annotation>
+      <xsd:documentation>The products recurring payment's in pence, eg: monthly charges</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,14}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractTermType">
+    <xsd:annotation>
+      <xsd:documentation>The length of a contract in months</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="billingAccountNameType">
+    <xsd:annotation>
+      <xsd:documentation>A descriptive name for the billing account</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountBillingContactReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique internal identifier for the customer, as assigned by the requester,  that is the billing contact for this account. It will map to a partySetReference element. May be either an individual or a company.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountAdditionalChooserReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique internal identifier for the customer, as assigned by the requester, that is the an additional Chooser this account. It will map to a partySetReference element. May be either an individual or a company.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="accountLegalEntityReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique internal identifier for the customer, as assigned by the requester,  that is legally responsible for this account. It will map to a partySetReference element. May be either an individual or a company.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="chequePaymentsType">
+    <xsd:annotation>
+      <xsd:documentation>A single 'Y' character identifying that the customer is going to make recurring payments by cheque</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="userBankAccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>The raw user-entered bank account number, i.e. this is their bank account number as far as the customer is concerned. Stored in encrypted format.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="124"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="preferredContactMethodType">
+    <xsd:annotation>
+      <xsd:documentation>The preferred contact method:EMAIL, SMS, PHONE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5"/>
+      <xsd:enumeration value="SMS"/>
+      <xsd:enumeration value="EMAIL"/>
+      <xsd:enumeration value="PHONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="passwordType">
+    <xsd:annotation>
+      <xsd:documentation>User password</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="16"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partyTitleType">
+    <xsd:annotation>
+      <xsd:documentation>The title used by the customer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partyForenameType">
+    <xsd:annotation>
+      <xsd:documentation>The customers Forname</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partyMiddleNameType">
+    <xsd:annotation>
+      <xsd:documentation>The customers MiddleName</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partySurnameType">
+    <xsd:annotation>
+      <xsd:documentation>The customers Surname</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partyMaritalStatusType">
+    <xsd:annotation>
+      <xsd:documentation>A single uppercased character Indicating the customers Marital Status, the up to date list of values can be found in the ICD in the service definition.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="customerTypeTextType">
+    <xsd:annotation>
+      <xsd:documentation>The type of customer.
+				CON - Consumer
+				SOL - Sole Trader
+				PAR - Partnership
+				LTD - Limited Comany
+				CHA - Charity</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3"/>
+      <xsd:enumeration value="CON"/>
+      <xsd:enumeration value="SOL"/>
+      <xsd:enumeration value="PAR"/>
+      <xsd:enumeration value="LTD"/>
+      <xsd:enumeration value="CHA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressHouseNameType">
+    <xsd:annotation>
+      <xsd:documentation>Postal House Name</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressHouseNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Postal HouseNumber</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="address1stLineType">
+    <xsd:annotation>
+      <xsd:documentation>First line of the postal address normally street</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="address2ndLineType">
+    <xsd:annotation>
+      <xsd:documentation>Optional second line of the postal address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="address3rdLineType">
+    <xsd:annotation>
+      <xsd:documentation>Optional third line of the postal address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="address4thLineType">
+    <xsd:annotation>
+      <xsd:documentation>Optional fourth line of the postal address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressDistrictType">
+    <xsd:annotation>
+      <xsd:documentation>Postal District</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressTownType">
+    <xsd:annotation>
+      <xsd:documentation>Postal Town</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressCountyType">
+    <xsd:annotation>
+      <xsd:documentation>Postal County</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="35"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressPostCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Postal PostCode</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="5"/>
+      <xsd:maxLength value="8"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="equifaxPTCABSIDType">
+    <xsd:annotation>
+      <xsd:documentation>Result Code return by Equifax for AdressCheck against this Address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="11"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="proofOfIdentityType">
+    <xsd:annotation>
+      <xsd:documentation>One or two digit code that represents a type of a proof of identity, the up to date list of values can be found in the Service Specification document</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="proofOfAddressType">
+    <xsd:annotation>
+      <xsd:documentation>One or two digit code that represents a type of a proof of address, the up to date list of values can be found in the Service Specification document</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="proofOfIdentityReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>Serial number that idintifies uniquely the Identity proof</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="jobTitleType">
+    <xsd:annotation>
+      <xsd:documentation>Job Title of company contact</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="jobFunctionType">
+    <xsd:annotation>
+      <xsd:documentation>Job Function of company contact</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="companyRegistrationNoType">
+    <xsd:annotation>
+      <xsd:documentation>For SMEs, the Company Registration Number</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="companyPhoneNumberType">
+    <xsd:annotation>
+      <xsd:documentation>For SMEs, the MSISDN or phone number of the Company</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="13"/>
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="typeYes">
+    <xsd:annotation>
+      <xsd:documentation>Used in xsd:choice to indicate one among the choice should be selected
+				ex. in a choice of Standard Delivery Option and Chargeable Delivery Option this type can used for Standard Delivery Option</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="1"/>
+      <xsd:enumeration value="Y"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderPlacedByPartyReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier for customer details as assigned by the requester. This is used to allow the same customer details to be associated with multiple products without having to repeat the cutsomer details</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="legalEntityPartyReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier for customer details as generated by the requester. This is used to allow the same customer details to be associated with multiple products without having to repeat the cutsomer details.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="orderCreditCheckStatusType">
+    <xsd:annotation>
+      <xsd:documentation>The Status code is a number varying from 1 to 99, the up to date list of values can be found in the service specification document</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditVetNumberType">
+    <xsd:annotation>
+      <xsd:documentation>This is the internal Id used by the credit bureau to track the application, Mandatory If credit Vet was done</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,11}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="depositKindType">
+    <xsd:annotation>
+      <xsd:documentation>The type of deposit SERVICE Deposit for basic phone service/handset VAS Deposit for Value Added Services such as International Roaming</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="VAS"/>
+      <xsd:enumeration value="SERVICE"/>
+      <xsd:enumeration value="ESMEBOND"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="depositReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The reference number for the deposit generated by the entity where the deposit was billed</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditScoreType">
+    <xsd:annotation>
+      <xsd:documentation>The creditVet Score returned from the Credit Bureau</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="-?\d{1,6}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="referralReasonType">
+    <xsd:annotation>
+      <xsd:documentation>The reason that the credit check was referred. Mandatory if creditCheckStatus is "REFERRED".
+				Possible values
+					VETTING_REFERRED: The credit checking agency returned a status of 'Refer' and Back Office checking is required.
+					DEPOSIT_MORE_DETAILS_REQ</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="30"/>
+      <xsd:enumeration value="VETTING_REFERRED"/>
+      <xsd:enumeration value="DEPOSIT_MORE_DETAILS_REQ"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditCheckResultCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Single uppercased Letter identifying the Credit Decision returned by Transact
+					A - Accept
+					D - Declined
+					E - Error
+					R - Refer
+					Z - Additional Information Required
+					C - Continue</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="D"/>
+      <xsd:enumeration value="E"/>
+      <xsd:enumeration value="R"/>
+      <xsd:enumeration value="Z"/>
+      <xsd:enumeration value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="totalMonthlyChargeType">
+    <xsd:annotation>
+      <xsd:documentation>Total Monthly Charge for the Given Order</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,14}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditLimitType">
+    <xsd:annotation>
+      <xsd:documentation>maximum amount of credit that allowed for the current order.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{1,14}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ruleValidateCheckType">
+    <xsd:annotation>
+      <xsd:documentation>The result of the validation Rules
+				0 - PASS
+				1 - FAIL
+				2 - REFER
+				3 - NOT DONE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:enumeration value="0"/>
+      <xsd:enumeration value="1"/>
+      <xsd:enumeration value="2"/>
+      <xsd:enumeration value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ruleValidationStringType">
+    <xsd:annotation>
+      <xsd:documentation>String containing the result of the Rule validation.  In the formatXXXXXXXX  where X 0, 1 or 2 for PASS, FAILED or REFER as above</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0123]{9}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="outcomeType">
+    <xsd:annotation>
+      <xsd:documentation>SUCCESSFUL/FAILURE</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SUCCESSFUL"/>
+      <xsd:enumeration value="FAILURE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="chargeToCrossChargeAccountReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The account number unique identifier,
+				as allocated by the requester that the charge is to be put on,
+				It will map to a accountSetReference element.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="creditClassIdType">
+    <xsd:annotation>
+      <xsd:documentation>The credit class to which this account belongs for the purpose of debt escalation [collections].It must be a valid identifier of a credit class that currently exists in the database. It must not be null.
+			The values are:
+			1=Consumer - High Risk
+			2=Consumer - Medium Risk
+			3=Consumer - Low Risk
+			4=Consumer - High Risk
+			5=Consumer - Medium Risk
+			6=Consumer - Low Risk
+			7=Consumer Cheque High Risk
+			8=Consumer Cheque Low Risk
+			9=Consumer DD or CCA
+			10=SME Cheque High Risk
+			11=SME Cheque Low Risk
+			12=SME DD or CCA</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"></xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="companyNameType">
+    <xsd:annotation>
+      <xsd:documentation>For SME's, the Trading Name of the Company. Maps to EAI
+				OIP DB ORDER_PARTY.COMPANY_NAME</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="50"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="partySetReferenceType">
+    <xsd:annotation>
+      <xsd:documentation>The unique identifier for customer details. This is used to allow the same customer details to be associated with multiple products without having to repeat the cutsomer details</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="addressValidationStatusType">
+    <xsd:annotation>
+      <xsd:documentation>The status of the address check performed by Equifax or Capscan. Only applied to a customer address not the delivery address.
+				Valid values are: 0 - EQUIFAX. Verified using Equifax address search
+				 			      1 - BROKEN. Address validation could not be performed for technical reasons
+				 			      2 - PROOF. Customer has provided proof of address documentation
+				 			      3 - NONE. Address not validated
+				 			      4 - CAPSCAN. Verified using CapScan address search.
+				 			      Only applied to a customer address not the delivery address. External systems will hold the textual descriptions for these codes locally.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:short"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="currencyType">
+    <xsd:annotation>
+      <xsd:documentation>Payment currency type. Allowed value is GBP.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="GBP"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="newCardIssuerType">
+    <xsd:annotation>
+      <xsd:documentation>The Bank Card Issuer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MAESTRO"/>
+      <xsd:enumeration value="SOLO"/>
+      <xsd:enumeration value="VISA"/>
+      <xsd:enumeration value="MASTERCARD"/>
+      <xsd:enumeration value="DELTA"/>
+      <xsd:enumeration value="AMEX"/>
+      <xsd:enumeration value="ELECTRON"/>
+      <xsd:enumeration value="SWITCH"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--IVR related-->
+  <xsd:simpleType name="loyaltyPointsBalanceType">
+    <xsd:annotation>
+      <xsd:documentation>The number of Loyalty points the Customer has accumulated.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"></xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="upgradeMatrixIdType">
+    <xsd:annotation>
+      <xsd:documentation>Numeric id of the upgrade matrix id. Used to confirm upgrade eligibility and calculate the upgrade discount where applicable.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="upgradeTenureType">
+    <xsd:annotation>
+      <xsd:documentation>Number of months since the last upgrade date, or if the customer hasn't upgraded  it's the number of months since the phone was activated.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"></xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="tenureAdjustmentType">
+    <xsd:annotation>
+      <xsd:documentation>Number of months adjustment for use against tenure.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer"></xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="numberOfDaysOffStandardUpgradeType">
+    <xsd:annotation>
+      <xsd:documentation>The difference between the standardUpgradeDate and earliestUpgradeDate in days.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractDurationType">
+    <xsd:annotation>
+      <xsd:documentation>The duration of the Contract in months.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string"></xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractStartDateType">
+    <xsd:annotation>
+      <xsd:documentation>The contract start date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractEndDateType">
+    <xsd:annotation>
+      <xsd:documentation>The contract end date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="upgradeEligibilityDateType">
+    <xsd:annotation>
+      <xsd:documentation>The upgrade eligibility date</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date"/>
+  </xsd:simpleType>
+  <!--IVR Ends-->
+  <!--EarlyUpgrade starts-->
+  <xsd:element name="upgradeRejectionCodeType" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Unique AMS Error Code returned when a customer is not
+				eligible for an upgrade</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="upgradeRejectionDescriptionType" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Descriptive Text for a unique AMS Error Code returned
+				when a customer is not eligible for an upgrade</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="eligibleForUpgradeType" type="ccp:typeYesOrNo">
+    <xsd:annotation>
+      <xsd:documentation>Flag to determine whether a customer is eligible for any
+				upgrade on the current date</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="earlyUpgradeReferenceType" type="xsd:long">
+    <xsd:annotation>
+      <xsd:documentation>Unique ID for an early Upgrade Entitlement request
+				(requests only valid for 24 hours).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="earlyUpgradeOfferExpiryType" type="xsd:dateTime">
+    <xsd:annotation>
+      <xsd:documentation>Early Upgrade offers are only valid for 24 hours, this field will indicate the expiry date and time
+				of the returned early upgrade offer.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="earlyUpgradeFeeType" type="ccp:paymentMoneyType">
+    <xsd:annotation>
+      <xsd:documentation>Early upgrade amount paid in pence (inclusive of VAT).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <!--EarlyUpgrade Ends-->
+  <xsd:simpleType name="storeNameType">
+    <xsd:annotation>
+      <xsd:documentation>Store Name like Slough - Curzon Mall</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="255"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="storeNumberType">
+    <xsd:annotation>
+      <xsd:documentation>four character Store Identifier like 0001</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="4"/>
+      <xsd:pattern value="[0-9]{4}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="paymentReferenceNumberType">
+    <xsd:annotation>
+      <xsd:documentation>A unique identifier provided by the payment service provider</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="externalPaymentIdType">
+    <xsd:annotation>
+      <xsd:documentation>A unique identifier provided by the payment service provider to provide refunds.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getInsuranceDetails_1" bindingOperationName="getInsuranceDetails_1" type="Request-Response" outputName="getInsuranceDetails_1Response" inputName="getInsuranceDetails_1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <man:getInsuranceDetails_1>
+         <man:msisdn>?</man:msisdn>
+      </man:getInsuranceDetails_1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soa.o2.co.uk/managepostpayinsuranceservice_1/ManagePostpayInsurancePortType/getInsuranceDetails_1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="ManagePostpayInsurance_1_0"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Success" searchProperties="true"><con:settings/><con:testStep type="request" name="getInsuranceDetails_1_001"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ManagePostpayInsuranceBinding</con:interface><con:operation>getInsuranceDetails_1</con:operation><con:request name="getInsuranceDetails_1_001"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+   <soap:Header xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<cor:debugFlag xmlns:cor="http://soa.o2.co.uk/coredata_1">true</cor:debugFlag>
+<cor:applicationID xmlns:cor="http://soa.o2.co.uk/coredata_1">12</cor:applicationID>
+<cor:SOAConsumerTransactionID xmlns:cor="http://soa.o2.co.uk/coredata_1">1122:white</cor:SOAConsumerTransactionID>
+</soap:Header>
+
+   <soapenv:Body>
+      <man:getInsuranceDetails_1>
+         <man:msisdn>44123123123</man:msisdn>
+      </man:getInsuranceDetails_1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:assertion type="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Failure" searchProperties="true"><con:settings/><con:testStep type="request" name="getInsuranceDetails_1_002"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ManagePostpayInsuranceBinding</con:interface><con:operation>getInsuranceDetails_1</con:operation><con:request name="getInsuranceDetails_1_002"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <man:getInsuranceDetails_1>
+         <man:msisdn></man:msisdn>
+      </man:getInsuranceDetails_1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Not SOAP Fault Assertion"/><con:assertion type="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Fault" searchProperties="true"><con:settings/><con:testStep type="request" name="getInsuranceDetails_1_003"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ManagePostpayInsuranceBinding</con:interface><con:operation>getInsuranceDetails_1</con:operation><con:request name="getInsuranceDetails_1_003"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <man:getInsuranceDetails_1>
+         <man:msisdn>44999999999</man:msisdn>
+      </man:getInsuranceDetails_1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Not SOAP Fault Assertion"/><con:assertion type="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getInsuranceDetails_1_004"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ManagePostpayInsuranceBinding</con:interface><con:operation>getInsuranceDetails_1</con:operation><con:request name="getInsuranceDetails_1_004"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/services/ManagePostpayInsurance_1_0</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:man="http://soa.o2.co.uk/managepostpayinsurancedata_1">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <man:getInsuranceDetails_1>
+         <man:msisdn>44444444444</man:msisdn>
+      </man:getInsuranceDetails_1>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Not SOAP Fault Assertion"/><con:assertion type="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
