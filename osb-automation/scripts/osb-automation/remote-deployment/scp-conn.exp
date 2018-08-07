@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+
+set timeout 10
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set password [lindex $argv 2]
+set src [lindex $argv 3]
+set dest [lindex $argv 4]
+
+spawn /usr/bin/scp $src $user@$ip:$dest
+
+expect { 
+	"*password:*" { send $password\r\n; interact } 
+	eof { exit }
+}

@@ -1,0 +1,49 @@
+#################################
+# DataSource Details
+#
+#total_jdbcDS - total no. of datasource to be created
+#total_servers - total no. of manage servers in a domain
+#targetservers - name of manage server created
+#
+###################################
+
+total_jdbcDS=1  
+total_servers=1
+targetservers=osb_server
+
+#################################
+# DataSource Name - 1
+###################################
+
+datasource.name1=TelemediaCRMXA
+
+#################################
+# DataSource Name - 1 
+# Details
+###################################
+
+TelemediaCRMXA.jndiname=jdbc/TelemediaCRMXA3
+TelemediaCRMXA.driver.class=oracle.jdbc.xa.client.OracleXADataSource
+TelemediaCRMXA.url=jdbc:oracle:thin:@10.14.72.57:1531:BTSDROP11
+TelemediaCRMXA.username=osb_int_user3
+TelemediaCRMXA.password=Opt1L#14
+TelemediaCRMXA.test.query=SQL SELECT 1 FROM DUAL
+TelemediaCRMXA.dbType=Oracle
+TelemediaCRMXA.isXA=true
+
+#################################
+# Number of outbound connection factory to be created in the given datasource 
+# Details
+###################################
+
+TelemediaCRMXA.noofoutboundconn=1
+
+###############################################
+# OUTBOUND CONNECTION FACTORY CONFIGURATION
+# CONFIGURATION -1
+# platformClassName will be different for other than "oracle" dbtype
+###############################################
+
+TelemediaCRMXA.eisName1=eis/AQ/TelemediaCRMXA3
+TelemediaCRMXA.platformClassName1=org.eclipse.persistence.platform.database.Oracle10Platform
+

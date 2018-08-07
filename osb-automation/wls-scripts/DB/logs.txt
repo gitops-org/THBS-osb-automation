@@ -1,0 +1,474 @@
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+domain : DEV2_SYNC
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Total count :2
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Naming the datasource
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDataSourceParams/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1/Properties/user
+OSB_INT_USER
+--> something went wrong, bailing out
+Edit session has been stopped successfully.
+--> about to update the deployment plan for the DbAdapter
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar ...
+<May 24, 2017 12:19:00 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:01 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:01 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:19:01 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan: 14956085371
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/DB/TestP1_JNDIName_14956085371 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956085371   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_DataSourceName_Value_14956085371 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_DataSourceName_Value_14956085371   eis/DB/TestP11
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956085371   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_platformClassName_Value_14956085371 successfully.
+--> saving plan
+<May 24, 2017 12:19:01 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+No stack trace available.
+--> something went wrong, bailing out
+No stack trace available.
+Error Occured Unable to continue
+No stack trace available.
+<May 24, 2017 12:19:01 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+domain : DEV2_SYNC
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Total count :2
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Naming the datasource
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDataSourceParams/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1/Properties/user
+OSB_INT_USER
+--> something went wrong, bailing out
+Edit session has been stopped successfully.
+--> about to update the deployment plan for the DbAdapter
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar ...
+<May 24, 2017 12:21:20 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:20 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:20 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:21:20 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan: 14956086761
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/DB/TestP1_JNDIName_14956086761 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956086761   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_DataSourceName_Value_14956086761 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_DataSourceName_Value_14956086761   eis/DB/TestP11
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956086761   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_platformClassName_Value_14956086761 successfully.
+--> saving plan
+<May 24, 2017 12:21:20 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+No stack trace available.
+--> something went wrong, bailing out
+No stack trace available.
+Error Occured Unable to continue
+No stack trace available.
+<May 24, 2017 12:21:20 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+domain : DEV2_SYNC
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Total count :2
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Naming the datasource
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDataSourceParams/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1/Properties/user
+OSB_INT_USER
+--> something went wrong, bailing out
+Edit session has been stopped successfully.
+--> about to update the deployment plan for the DbAdapter
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar ...
+<May 24, 2017 12:31:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:31:23 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan: 14956092781
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/DB/TestP1_JNDIName_14956092781 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956092781   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_DataSourceName_Value_14956092781 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_DataSourceName_Value_14956092781   eis/DB/TestP11
+ConfigProperty_xADataSourceName_Value_1494409018   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409213   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409376   eis/DB/TestP1
+ConfigProperty_xADataSourceName_Value_1494409604   eis/DB/TestP2
+ConfigProperty_xADataSourceName_Value_1494409866   eis/DB/TestP5
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409018   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409213   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409376   eis/DB/TestP1
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409604   eis/DB/TestP3
+ConnectionInstance_eis/DB/TestP1_JNDIName_1494409866   eis/DB/TestP4
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956092781   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409604   eis/DB/TestP2
+ConnectionInstance_eis/DB/TestP2_JNDIName_1494409866   eis/DB/TestP5
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_platformClassName_Value_14956092781 successfully.
+--> saving plan
+<May 24, 2017 12:31:23 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+No stack trace available.
+--> something went wrong, bailing out
+No stack trace available.
+Error Occured Unable to continue
+No stack trace available.
+<May 24, 2017 12:31:23 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+domain : DEV2_SYNC
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Total count :2
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Naming the datasource
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDataSourceParams/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1/Properties/user
+OSB_INT_USER
+--> something went wrong, bailing out
+Edit session has been stopped successfully.
+--> about to update the deployment plan for the DbAdapter
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar ...
+<May 24, 2017 1:14:57 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:14:57 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 1:14:57 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan: 14956118931
+None of the plan variables have been over-written
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/DB/TestP1_JNDIName_14956118931 successfully.
+Name                                  Value
+-----                                 -----
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956118931   eis/DB/TestP11
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_DataSourceName_Value_14956118931 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_DataSourceName_Value_14956118931   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956118931   eis/DB/TestP11
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_platformClassName_Value_14956118931 successfully.
+--> saving plan
+<May 24, 2017 1:14:57 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+No stack trace available.
+--> something went wrong, bailing out
+No stack trace available.
+Error Occured Unable to continue
+No stack trace available.
+<May 24, 2017 1:14:57 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+domain : DEV2_SYNC
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Total count :2
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Naming the datasource
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDataSourceParams/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1
+/JDBCSystemResources/TestP1/JDBCResource/TestP1/JDBCDriverParams/TestP1/Properties/TestP1/Properties/user
+OSB_INT_USER
+--> something went wrong, bailing out
+Edit session has been stopped successfully.
+--> about to update the deployment plan for the DbAdapter
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+--> Using plan /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar ...
+<May 24, 2017 1:19:34 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:19:34 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'DbAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 1:19:34 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/DbAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/Database/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan: 14956121701
+None of the plan variables have been over-written
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/DB/TestP1_JNDIName_14956121701 successfully.
+Name                                  Value
+-----                                 -----
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956121701   eis/DB/TestP11
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_DataSourceName_Value_14956121701 successfully.
+Name                                  Value
+-----                                 -----
+ConfigProperty_DataSourceName_Value_14956121701   eis/DB/TestP11
+ConnectionInstance_eis/DB/TestP1_JNDIName_14956121701   eis/DB/TestP11
+Creating VariableAssignment for ModuleOverride DbAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_platformClassName_Value_14956121701 successfully.
+--> saving plan
+<May 24, 2017 1:19:34 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+No stack trace available.
+--> something went wrong, bailing out
+No stack trace available.
+Error Occured Unable to continue
+No stack trace available.
+<May 24, 2017 1:19:34 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 

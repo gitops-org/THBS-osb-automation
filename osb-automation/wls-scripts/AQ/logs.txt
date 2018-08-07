@@ -1,0 +1,1772 @@
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495606897
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 11:51:41 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:51:41 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 11:51:41 AM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495606897 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956068971 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 11:51:41 AM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 11:51:45 AM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495606897
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 11:51:49 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:51:49 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:51:49 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 11:51:49 AM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495606897 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956068972 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 11:51:49 AM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 11:51:52 AM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495606897
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 11:51:55 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:51:55 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:51:55 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 11:51:56 AM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495606897 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956068973 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 11:51:56 AM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 11:51:58 AM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495606897
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 11:52:02 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:52:02 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 11:52:02 AM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 11:52:02 AM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495606897 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956068974 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 11:52:02 AM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 11:52:04 AM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 11:52:07 AM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495607887
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:08:10 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:10 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:08:11 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495607887 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956078871 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:08:11 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:08:14 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607887
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:08:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:08:18 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495607887 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956078872 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:08:18 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:08:20 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607887
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:08:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:08:24 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495607887 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956078873 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:08:24 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:08:26 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607887
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:08:29 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:29 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:08:29 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:08:29 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495607887 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956078874 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:08:29 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:08:31 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:08:34 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495607989
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:09:51 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:09:52 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:09:52 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495607989 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956079891 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:09:52 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:09:55 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607989
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:09:59 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:09:59 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:09:59 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:09:59 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495607989 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956079892 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:09:59 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:10:01 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607989
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:10:05 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:10:05 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:10:05 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:10:05 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495607989 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956079893 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:10:05 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:10:07 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495607989
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:10:10 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:10:10 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:10:10 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:10:10 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495607989 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956079894 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:10:10 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:10:12 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:10:15 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495608226
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:13:49 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:13:49 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:13:49 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495608226 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956082261 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:13:49 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:13:52 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608226
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:13:56 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:13:56 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:13:56 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:13:56 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495608226 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956082262 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:13:56 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:13:58 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608226
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:14:02 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:14:02 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:14:02 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:14:02 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495608226 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956082263 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:14:02 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:14:04 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608226
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:14:07 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:14:07 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:14:07 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:14:07 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495608226 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956082264 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:14:07 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:14:09 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:14:12 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495608422
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:17:05 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:06 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:06 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:17:06 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495608422 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956084221 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:17:06 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:17:09 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608422
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:17:12 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:12 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:12 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:17:13 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495608422 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956084222 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:17:13 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:17:15 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608422
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:17:18 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:18 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:18 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:17:18 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495608422 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956084223 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:17:18 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:17:21 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608422
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:17:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:17:24 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:17:24 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495608422 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956084224 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:17:24 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:17:26 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:17:29 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495608545
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:19:08 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:08 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:19:08 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495608545 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956085451 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:19:08 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:19:12 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608545
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:19:15 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:15 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:15 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:19:15 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495608545 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956085452 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:19:15 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:19:18 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608545
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:19:21 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:21 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:21 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:19:21 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495608545 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956085453 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:19:21 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:19:23 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608545
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:19:27 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:27 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:19:27 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:19:27 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495608545 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956085454 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:19:27 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:19:29 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:19:32 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495608684
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:21:27 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:27 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:21:27 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495608684 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956086841 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:21:28 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:21:31 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608684
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:21:34 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:34 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:34 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:21:35 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495608684 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956086842 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:21:35 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:21:37 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608684
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:21:41 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:41 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:41 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:21:41 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495608684 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956086843 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:21:41 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:21:43 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495608684
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:21:46 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:46 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:21:46 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:21:46 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495608684 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956086844 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:21:46 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:21:48 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:21:52 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495609287
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:31:30 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:30 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:31:31 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495609287 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956092871 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:31:31 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:31:34 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495609287
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:31:37 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:37 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:37 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:31:37 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495609287 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956092872 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:31:38 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:31:40 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495609287
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:31:44 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:44 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:44 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:31:44 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495609287 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956092873 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:31:44 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:31:46 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495609287
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 12:31:49 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:49 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 12:31:49 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 12:31:49 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495609287 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956092874 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 12:31:49 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 12:31:51 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 12:31:54 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 
+t3://10.5.213.83:7001
+CLASSPATH=/u01/app/oracle/Middleware/patch_wls1036/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/patch_ocp371/profiles/default/sys_manifest_classpath/weblogic_patch.jar:/u01/app/oracle/Middleware/jdk1.7.0_80/lib/tools.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic_sp.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/Middleware/modules/features/weblogic.server.modules_10.3.6.0.jar:/u01/app/oracle/Middleware/wlserver_10.3/server/lib/webservices.jar:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/lib/ant-all.jar:/u01/app/oracle/Middleware/modules/net.sf.antcontrib_1.1.0.0_1-0b2/lib/ant-contrib.jar:
+
+PATH=/u01/app/oracle/Middleware/wlserver_10.3/server/bin:/u01/app/oracle/Middleware/modules/org.apache.ant_1.7.1/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/jre/bin:/u01/app/oracle/Middleware/jdk1.7.0_80/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/oracle/bin
+
+Your environment has been set.
+
+Initializing WebLogic Scripting Tool (WLST) ...
+
+Welcome to WebLogic Server Administration Scripting Shell
+
+Type help() for help on available commands
+
+1. Validating inputs
+
+Valid arguments. Continuing.
+--> Load properties for AQ :/home/oracle/automation/AQ/AQ_details.property
+JNDI Total :4
+--> about to connect to weblogic
+Connecting to t3://10.5.213.83:7001 with userid wlsdeploy ...
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'DEV2_SYNC'.
+
+Warning: An insecure protocol was used to connect to the 
+server. To ensure on-the-wire security, the SSL port or 
+Admin port should be used instead.
+
+Location changed to edit tree. This is a writable tree with 
+DomainMBean as the root. To make changes you will need to start 
+an edit session via startEdit(). 
+
+For more help, use help(edit)
+
+Successfully connected to : t3://10.5.213.83:7001
+Uniq number :1495611901
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/DTHTMUpdateStatus_New1
+--> about to assign a data source jdbc/DTHCrmXA
+--> about to assign ds property xADataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 1:15:04 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/DTHTMUpdateStatus_New1_JNDIName_1495611901 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956119011 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 1:15:05 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, DbAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 1:15:08 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495611901
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFMOI
+--> about to assign a data source jdbcEventEngineDSOFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 1:15:11 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:11 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:11 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 1:15:12 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFMOI_JNDIName_1495611901 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956119012 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 1:15:12 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 1:15:14 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495611901
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/EventEngineOFM
+--> about to assign a data source jdbcEventEngineDSOFM
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 1:15:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:17 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 1:15:17 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/EventEngineOFM_JNDIName_1495611901 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956119013 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 1:15:17 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 1:15:20 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+Uniq number :1495611901
+--> about to update the deployment plan for the AqAdapter
+--> about to create a Adapter JNDI eis/AQ/OFMOI
+--> about to assign a data source jdbcOFMAQDS_OFMOI
+--> about to assign ds property DataSourceName
+Starting an edit session ...
+Started edit session, please be sure to save and activate your 
+changes once you are done.
+Using plan :/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+Loading application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar ...
+<May 24, 2017 1:15:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-ra.xml'. The plan was merged.> 
+<May 24, 2017 1:15:23 PM IST> <Info> <J2EE> <BEA-160166> <References were found in deployment plan for module 'AqAdapter.rar' with uri, 'META-INF/weblogic-diagnostics.xml'. The plan was merged.> 
+<May 24, 2017 1:15:23 PM IST> <Info> <J2EE Deployment SPI> <BEA-260071> <Restored configuration for application, DbAdapter> 
+Loaded application from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar and the deployment plan from /u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/aq/Plan.xml
+The WLSTPlan object is assigned to variable wlstPlan_DbAdapter.
+--> adding variables to plan index 
+___ BEGIN change plan
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConnectionInstance_eis/AQ/OFMOI_JNDIName_1495611901 successfully.
+Creating VariableAssignment for ModuleOverride AqAdapter.rar and ModuleDescriptor with URI META-INF/weblogic-ra.xml.
+Created VariableAssignment with name ConfigProperty_ConnectionFactoryLocation_Value_14956119014 successfully.
+___ DONE change plan
+--> saving plan
+<May 24, 2017 1:15:23 PM IST> <Info> <J2EE Deployment SPI> <BEA-260072> <Saved configuration for application, AqAdapter.rar> 
+Saving all your changes ...
+Saved all your changes successfully.
+--> activating changes
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released 
+once the activation is completed.
+Activation completed
+--> redeploying the AqAdapter
+Redeploying application AqAdapter ...
+<May 24, 2017 1:15:25 PM IST> <Info> <J2EE Deployment SPI> <BEA-260121> <Initiating redeploy operation for application, AqAdapter [archive: null], to AdminServer DEV2_SYNC_Cluster1 .> 
+.Completed the redeployment of Application with status completed
+Current Status of your Deployment:
+Deployment command type: redeploy
+Deployment State       : completed
+Deployment Message     : [Deployer:149194]Operation 'redeploy' on application 'AqAdapter' has succeeded on 'AdminServer'
+--> done
+<May 24, 2017 1:15:28 PM IST> <Warning> <JNDI> <BEA-050001> <WLContext.close() was called in a different thread than the one in which it was created.> 

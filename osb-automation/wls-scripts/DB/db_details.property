@@ -1,0 +1,122 @@
+#################################
+# DataSource Details
+#
+#total_jdbcDS - total no. of datasource to be created
+#total_servers - total no. of manage servers in a domain
+#targetservers - name of manage server created
+#
+###################################
+
+total_jdbcDS=3  
+total_servers=1
+targetservers=osb_server
+
+#################################
+# DataSource Name - 1
+###################################
+
+datasource.name1=FXPRDCAT_NONXA
+
+#################################
+# DataSource Name - 1 
+# Details
+###################################
+
+FXPRDCAT_NONXA.jndiname=jdbc/FXPRDCAT_NONXA
+FXPRDCAT_NONXA.driver.class=oracle.jdbc.OracleDriver
+FXPRDCAT_NONXA.url=jdbc:oracle:thin:@10.5.198.50:1521:SIT2CAT
+FXPRDCAT_NONXA.username=ESBUSER
+FXPRDCAT_NONXA.password=ESBUSER123
+FXPRDCAT_NONXA.test.query=SQL SELECT 1 FROM DUAL
+FXPRDCAT_NONXA.dbType=Oracle
+FXPRDCAT_NONXA.isXA=true
+
+#################################
+# Number of outbound connection factory to be created in the given datasource 
+# Details
+###################################
+
+FXPRDCAT_NONXA.noofoutboundconn=2
+
+###############################################
+# OUTBOUND CONNECTION FACTORY CONFIGURATION
+# CONFIGURATION -1
+# platformClassName will be different for other than "oracle" dbtype
+###############################################
+
+FXPRDCAT_NONXA.eisName1=eis/DB/SIT_CatalogueFxServer
+FXPRDCAT_NONXA.platformClassName1=org.eclipse.persistence.platform.database.Oracle10Platform
+
+###############################################
+## CONFIGURATION -2
+###############################################
+FXPRDCAT_NONXA.eisName2=eis/DB/SIT_CatalogueFxServer2
+FXPRDCAT_NONXA.platformClassName2=org.eclipse.persistence.platform.database.Oracle10Platform
+
+#################################
+# DataSource Name - 2
+###################################
+
+datasource.name2=FX_SIT_CU1_NONXA
+
+#################################
+# DataSource Name - 2
+# Details
+###################################
+FX_SIT_CU1_NONXA.jndiname=jdbc/FX_SIT_CU1
+FX_SIT_CU1_NONXA.driver.class=oracle.jdbc.OracleDriver
+FX_SIT_CU1_NONXA.url=jdbc:oracle:thin:@10.5.198.50:1521:SIT2CU1
+FX_SIT_CU1_NONXA.username=ESBUSER
+FX_SIT_CU1_NONXA.password=ESBUSER123
+FX_SIT_CU1_NONXA.test.query=SQL SELECT 1 FROM DUAL
+FX_SIT_CU1_NONXA.dbType=Oracle
+FX_SIT_CU1_NONXA.isXA=true
+
+#################################
+# Number of outbound connection factory to be created in the given datasource 
+# Details
+###################################
+
+FX_SIT_CU1_NONXA.noofoutboundconn=1
+
+###############################################
+# OUTBOUND CONNECTION FACTORY CONFIGURATION
+# CONFIGURATION -1
+###############################################
+
+FX_SIT_CU1_NONXA.eisName1=eis/DB/FX_SIT_CU1
+FX_SIT_CU1_NONXA.platformClassName1=org.eclipse.persistence.platform.database.Oracle10Platform
+
+#################################
+# DataSource Name - 3
+###################################
+
+datasource.name3=FX_TEST
+
+#################################
+# DataSource Name - 3
+# Details
+###################################
+
+FX_TEST.jndiname=jdbc/FX_TEST
+FX_TEST.driver.class=oracle.jdbc.OracleDriver
+FX_TEST.url=jdbc:oracle:thin:@10.5.198.50:1521:SIT2CU1
+FX_TEST.username=ESBUSER
+FX_TEST.password=ESBUSER123
+FX_TEST.test.query=SQL SELECT 1 FROM DUAL
+FX_TEST.dbType=Oracle
+FX_TEST.isXA=true
+
+#################################
+# Number of outbound connection factory to be created in the given datasource 
+# Details
+###################################
+FX_TEST.noofoutboundconn=1
+
+###############################################
+# OUTBOUND CONNECTION FACTORY CONFIGURATION
+# CONFIGURATION -1
+###############################################
+
+FX_TEST.eisName1=eis/DB/FXTEST
+FX_TEST.platformClassName1=org.eclipse.persistence.platform.database.Oracle10Platform

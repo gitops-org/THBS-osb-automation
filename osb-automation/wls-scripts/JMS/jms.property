@@ -1,0 +1,121 @@
+###############################################
+# Common properties
+###############################################
+
+total_servers=1
+total_jmsmodules=2
+
+jms_targetManageServerName=osb_server
+
+###############################################
+# Manage servers IP with UN and pWD for Filestore dir creation
+###############################################
+targetserver1=10.5.213.83,oracle,oracle_user
+
+
+###############################################
+# JMSModule - 2
+###############################################
+
+jms_mod_name1=ECRM_B2B_JMSModule
+
+###############################################
+# JMSServer
+###############################################
+
+ECRM_B2B_JMSModule.jms_srvr_name=ECRM_B2B_JMSServer
+ECRM_B2B_JMSModule.jms_srvr_target=osb_server1
+ECRM_B2B_JMSModule.jms_srvr_persis_store_name=ECRM_B2B_FileStore
+ECRM_B2B_JMSModule.jms_srvr_pag_dir1=/u01/app/oracle/Airtel_Domains/domains/DEV2_SYNC/servers/
+ECRM_B2B_JMSModule.jms_srvr_pag_dir2=/data/store
+ECRM_B2B_JMSModule.jms_srvr_by_threshold_high=-1
+ECRM_B2B_JMSModule.jms_srvr_by_threshold_low=-1
+ECRM_B2B_JMSModule.jms_srvr_max_msg_size=2147483647
+
+###############################################
+# Provide no. of queue and connectionfactory to be created for a JMSModule
+###############################################
+
+ECRM_B2B_JMSModule.queue_topics=1
+ECRM_B2B_JMSModule.connectionfactory=1
+
+###############################################
+# SubDeployment
+###############################################
+
+ECRM_B2B_JMSModule.jms_sub_mod_name=ECRM_B2B_SubDeployment
+
+
+###############################################
+# Queue
+# Queue Type : Distributed/Topics/NormalQueue
+###############################################
+
+ECRM_B2B_JMSModule.jms_queue_name1=B2BCustomerAccount_Topic
+ECRM_B2B_JMSModule.jms_jndi_name1=jms/B2BCustomerAccount_Topic
+ECRM_B2B_JMSModule.jms_queuetype1=Topics
+ECRM_B2B_JMSModule.jms_setRedeliveryDelay1=50
+ECRM_B2B_JMSModule.jms_setRedeliveryLimit1=5
+ECRM_B2B_JMSModule.jms_setExpirationPolicy1=Log
+
+
+###############################################
+# JMSConnectionFactory
+###############################################
+
+ECRM_B2B_JMSModule.jmsCF1=B2BCustomerAccount_TopicConnectionFactory
+ECRM_B2B_JMSModule.jmsCFJNDI1=jms/B2BCustomerAccount_TopicConnectionFactory
+
+
+###############################################
+# JMSModule - 2
+###############################################
+
+jms_mod_name2=ECRM_B2B_JMSModule1
+
+###############################################
+# JMSServer
+###############################################
+
+ECRM_B2B_JMSModule1.jms_srvr_name=ECRM_B2B_JMSServer1
+ECRM_B2B_JMSModule1.jms_srvr_target=osb_server1
+ECRM_B2B_JMSModule1.jms_srvr_persis_store_name=ECRM_B2B_FileStore1
+ECRM_B2B_JMSModule1.jms_srvr_pag_dir1=/u01/app/oracle/Airtel_Domains/domains/DEV2_SYNC/servers/
+ECRM_B2B_JMSModule1.jms_srvr_pag_dir2=/data/store
+ECRM_B2B_JMSModule1.jms_srvr_by_threshold_high=-1
+ECRM_B2B_JMSModule1.jms_srvr_by_threshold_low=-1
+ECRM_B2B_JMSModule1.jms_srvr_max_msg_size=2147483647
+
+###############################################
+# Provide no. of queue and connectionfactory to be created for a JMSModule
+###############################################
+
+ECRM_B2B_JMSModule1.queue_topics=1
+ECRM_B2B_JMSModule1.connectionfactory=1
+
+###############################################
+# SubDeployment
+###############################################
+
+ECRM_B2B_JMSModule1.jms_sub_mod_name=ECRM_B2B_SubDeployment1
+
+
+###############################################
+# Queue
+# Queue Type : Distributed/Topics/NormalQueue
+###############################################
+
+ECRM_B2B_JMSModule1.jms_queue_name1=B2BCustomerAccount_Topic1
+ECRM_B2B_JMSModule1.jms_jndi_name1=jms/B2BCustomerAccount_Topic1
+ECRM_B2B_JMSModule1.jms_queuetype1=Topics
+ECRM_B2B_JMSModule1.jms_setRedeliveryDelay1=50
+ECRM_B2B_JMSModule1.jms_setRedeliveryLimit1=5
+ECRM_B2B_JMSModule1.jms_setExpirationPolicy1=Log
+
+
+###############################################
+# JMSConnectionFactory
+###############################################
+
+ECRM_B2B_JMSModule1.jmsCF1=B2BCustomerAccount_TopicConnectionFactory1
+ECRM_B2B_JMSModule1.jmsCFJNDI1=jms/B2BCustomerAccount_TopicConnectionFactory1

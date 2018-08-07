@@ -1,0 +1,21 @@
+#!/usr/bin/expect
+#!/bin/bash
+
+set timeout 1
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set password [lindex $argv 2]
+set wlsun [lindex $argv 3]
+set wlsps [lindex $argv 4]
+set wlsurl [lindex $argv 5]
+
+spawn ssh -q -o StrictHostKeyChecking=no "$user\@$ip"
+
+expect "Password:"
+
+send "$password\r";
+expect "$ "
+send "cd ~/automation/AQ\r"
+expect "$ "
+send "sh aq_create.sh $wlsun $wlsps $wlsurl \r exit \r"
+interact
