@@ -280,10 +280,16 @@
       <releases>
         <updatePolicy>never</updatePolicy>
       </releases>
-</pluginRepository>
+    </pluginRepository>
+	    
+	    
+</pluginRepositories>
 	
-
-
+	
+	
+	
+	
+	
 	<distributionManagement>
 		<repository>
 			<id>release</id>
