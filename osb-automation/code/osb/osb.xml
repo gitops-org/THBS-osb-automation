@@ -1,0 +1,6 @@
+<configjarSettings xmlns="http://www.bea.com/alsb/tools/configjar/config">
+   <source>
+      <project dir="/home/automation/deploymentAutomation/code/osb/services/OSB/ManageProspect_V1_2/" /></source>
+   <configjar jar="$BUILDDIR$/$ARTIFACTID$-$VERSION$.jar">
+<projectLevel includeSystem="false" /></configjar>
+</configjarSettings>

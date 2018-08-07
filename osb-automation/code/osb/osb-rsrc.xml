@@ -1,0 +1,13 @@
+<configjarSettings xmlns="http://www.bea.com/alsb/tools/configjar/config">
+	<source>
+		<project dir="/home/automation/deploymentAutomation/code/osb/perf-checkout/codebase/AggregateQoSPerformanceAnalysis"/>
+	</source>
+	<configjar jar="$BUILDDIR$/$ARTIFACTID$-$VERSION$.jar">
+		<resourceLevel>
+			<resources>
+			<include name="**/*.biz"/>
+			<include name="**/*.xq"/>
+			</resources>
+		</resourceLevel>
+	</configjar>
+</configjarSettings>

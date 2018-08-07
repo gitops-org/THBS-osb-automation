@@ -1,0 +1,4 @@
+aqAdapterName=AqAdapter
+aqAdapterPath=/u01/app/oracle/Middleware/Oracle_OSB1/soa/connectors/AqAdapter.rar
+aq.connectioninstance.value=eis/DB/TestAQ1
+aq.datasource.value=jdbc/TestDS1
