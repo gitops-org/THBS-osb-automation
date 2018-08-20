@@ -1,0 +1,44 @@
+<project name="configjar" default="usage" basedir=".">
+    <description>
+        Ant script to create An Oracle Service Bus Config Jar from file system.
+    </description>
+
+
+    <!--    Usages  -->
+    <target name="usage">
+    </target>
+
+
+    <!--    Environment values  -->
+    <property environment="env"/>
+    <property name="mw.home"            location="${env.MW_HOME}"/>
+    <property name="wl.home"            location="${env.WL_HOME}"/>
+    <property name="osb.home"           location="${env.OSB_HOME}"/>
+
+
+    <!--    Task Definition     -->
+    <taskdef name="configjar"
+             classname="com.bea.alsb.tools.configjar.ant.ConfigJarTask"/>
+
+
+    <!--    Initialize the default values -->
+    <target name="init">
+        <property name="task.debug"                     value="false" />
+        <property name="task.failonerror"               value="true" />
+        <property name="task.errorproperty"             value="" />
+    </target>
+
+
+    <!--
+            Create the config Jar
+    -->
+    <target name="run" depends="init">
+        <fail unless="settingsFile"/>
+        <configjar debug="${task.debug}"
+                   failonerror="${task.failonerror}"
+                   errorProperty="${task.errorproperty}"
+                   settingsFile="${settingsFile}">
+        </configjar>
+    </target>
+
+</project>
