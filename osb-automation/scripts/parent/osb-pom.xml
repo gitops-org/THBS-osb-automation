@@ -23,15 +23,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>    
 		<buildDirectory>${project.basedir}/../target</buildDirectory>
-		<mw.home>/opt/Oracle/Middleware</mw.home>
+		<mw.home>ftp://root:thbs123)@172.30.64.98/opt/Oracle/Middleware</mw.home>
 		<bea.home>${mw.home}/wlserver_10.3</bea.home>
 		<osb.home>${mw.home}/Oracle_OSB1</osb.home>      
 		<buildOsbBase>${project.basedir}</buildOsbBase>
 		<weblogic.home>${bea.home}</weblogic.home>
 		<common.components.home>${mw.home}/oracle_common</common.components.home>
 		<modules.dir>${mw.home}/modules</modules.dir>
-		<script.home>/opt/Oracle/Middleware/osb-automation</script.home>
-		<configjar.home>/opt/Oracle/Middleware/osb-automation/configjar</configjar.home>
+		<script.home>ftp://root:thbs123)@172.30.64.98/opt/Oracle/Middleware/osb-automation</script.home>
+		<configjar.home>ftp://root:thbs123)@172.30.64.98/opt/Oracle/Middleware/osb-automation/configjar</configjar.home>
 		<osb.all.import.projects>None</osb.all.import.projects>
 		<import.script>${script.home}/scripts/import</import.script>
 		<customization.script>${script.home}/scripts/customization</customization.script>
