@@ -163,7 +163,8 @@
 							<includePluginDependencies>true</includePluginDependencies>
 							<!--workingDirectory>${buildOsbBase}/plans</workingDirectory-->
 							<executable>java</executable>
-							<commandlineArgs>-Dwlst.offline.log=/tmp/osb_project.log -classpath ${osb.deploy.classpath} weblogic.WLST -skipWLSModuleScanning ${import.script}/import.py ${wls.username} ${wls.password} ${wls.server} ${osb.all.import.projects} ${buildOsbBase}/osb-releases/${project.artifactId}-${project.version}-${buildnumber}.jar ${osb.all.import.plan} -Dpython.verbose=debug
+							<commandlineArgs>-Dwlst.offline.log=/tmp/osb_project.log -classpath ${osb.deploy.classpath} weblogic.WLST -skipWLSModuleScanning ${import.script}/import.py ${wls.username} ${wls.password} ${wls.server} ${osb.all.import.projects} ${buildOsbBase}/target/${project.artifactId}-${project.version}.jar ${osb.all.import.plan} -Dpython.verbose=debug
+							</commandlineArgs>
 							</commandlineArgs>
 						</configuration>
 					</execution>
