@@ -295,25 +295,22 @@
 	    
 </pluginRepositories>
 	
-	
-	
-	
-	
-	
 	<distributionManagement>
+	
 		<repository>
-			<id>release</id>
+			<id>nexusT</id>
 			<name>releases</name>
-			<url>file:///home/automation/tmp/repository/services/osb/</url>
+			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</repository>
 		<snapshotRepository>
-			<id>snapshot</id>
+			<id>nexusT</id>
 			<name>snapshots</name>
-			<url>file:///home/automation/tmp/repository/services/osb/</url>
+			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
+	
 
 </project>
 
