@@ -9,10 +9,10 @@
   <packaging>pom</packaging>
   
   <properties>
-    <fmw.home>C:\Oracle\Middleware</fmw.home>
-    <eclipse.home>C:\Oracle\Middleware\oepe_11gR1PS4</eclipse.home>
-    <weblogic.home>C:\Oracle\Middleware\wlserver_10.3</weblogic.home>
-    <osb.home>C:\Oracle\Middleware\Oracle_OSB1</osb.home>
+    <fmw.home/opt/Oracle/Middleware</fmw.home>
+    <eclipse.home>/opt/Oracle/Middleware/oepe_11gR1PS4</eclipse.home>
+    <weblogic.home>/opt/Oracle/Middleware/wlserver_10.3</weblogic.home>
+    <osb.home>/opt/Oracle/Middleware/Oracle_OSB1</osb.home>
    <wls.username>weblogic</wls.username>
     <wls.password>weblogic1</wls.password>
     <wls.server>t3://172.30.64.98:7045</wls.server>
