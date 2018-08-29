@@ -9,7 +9,7 @@
   <packaging>pom</packaging>
   
   <properties>
-    <fmw.home/opt/Oracle/Middleware</fmw.home>
+    <fmw.home>/opt/Oracle/Middleware</fmw.home>
     <eclipse.home>/opt/Oracle/Middleware/oepe_11gR1PS4</eclipse.home>
     <weblogic.home>/opt/Oracle/Middleware/wlserver_10.3</weblogic.home>
     <osb.home>/opt/Oracle/Middleware/Oracle_OSB1</osb.home>
