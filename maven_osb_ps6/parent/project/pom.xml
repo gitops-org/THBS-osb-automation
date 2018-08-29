@@ -40,7 +40,7 @@
 						<configuration>
 							<tasks>
 								<echo>Displaying value of property files</echo>
-								<echo>${osb.home}  ${eclipse.home} </echo>
+								<echo>${osb.home}  ${eclipse.home} ${eclipse.home} </echo>
 
 							</tasks>
 						</configuration>
