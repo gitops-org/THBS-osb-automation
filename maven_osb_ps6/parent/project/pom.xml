@@ -14,8 +14,8 @@
     <weblogic.home>C:\Oracle\Middleware\wlserver_10.3</weblogic.home>
     <osb.home>C:\Oracle\Middleware\Oracle_OSB1</osb.home>
    <wls.username>weblogic</wls.username>
-    <wls.password>welcome1</wls.password>
-    <wls.server>t3://172.30.64.28:7001</wls.server>
+    <wls.password>weblogic1</wls.password>
+    <wls.server>t3://172.30.64.98:7045</wls.server>
     <osb.all.import.projects>None</osb.all.import.projects>
     <osb.all.import.plan>None</osb.all.import.plan>
     <osb.all.export.projects>None</osb.all.export.projects>
@@ -105,13 +105,13 @@
 		<repository>
 			<id>nexusT</id>
 			<name>releases</name>
-			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
+			<url>http://172.30.64.37:3000/nexus/content/repositories/osb11g/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</repository>
 		<snapshotRepository>
 			<id>nexusT</id>
 			<name>snapshots</name>
-			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
+			<url>http://172.30.64.37:3000/nexus/content/repositories/osb11g/</url>
 			<uniqueVersion>false</uniqueVersion>
 		</snapshotRepository>
 	</distributionManagement>
