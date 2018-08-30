@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>nl.amis.core.osb</groupId>
+  <artifactId>tool</artifactId>
+  <version>1.0</version>
+  <description>Core POM for OSB project</description>
+  <packaging>pom</packaging>
+  
+   <properties>
+        <mw.home>/opt/Oracle/Middleware</mw.home>
+        <bea.home>${mw.home}</bea.home>
+        <osb.home>${mw.home}/Oracle_OSB1</osb.home>        
+        <wl.home>${mw.home}/wlserver_10.3</wl.home>
+        <common.components.home>${mw.home}/oracle_common</common.components.home>
+        <modules.dir>${mw.home}/modules</modules.dir>
+        <configjar.home>/opt/Oracle/Middleware/Oracle_OSB1/tools/configjar</configjar.home>
+		 <wls.username>weblogic</wls.username>
+        <wls.password>weblogic123</wls.password>
+        <wls.server>t3://172.30.64.98:7045</wls.server>
+        <osb.all.import.projects>None</osb.all.import.projects>
+        <osb.all.import.plan>None</osb.all.import.plan>
+        <osb.all.export.projects>None</osb.all.export.projects>
+        <osb.all.export.plan>all_plan.xml</osb.all.export.plan>
+	<osb.tool.classpath>${mw.home}/modules/features/weblogic.server.modules_10.3.6.0.jar:${wl.home}/server/lib/weblogic.jar:${common.components.home}/modules/oracle.http_client_11.1.1.jar:${common.components.home}/modules/oracle.xdk_11.1.0/xmlparserv2.jar:${common.components.home}/modules/oracle.webservices_11.1.1/orawsdl.jar:${common.components.home}/modules/oracle.wsm.common_11.1.1/wsm-dependencies.jar:${osb.home}/modules/features/osb.server.modules_11.1.1.6.jar:${osb.home}/soa/modules/oracle.soa.common.adapters_11.1.1/oracle.soa.common.adapters.jar:${osb.home}/lib/external/log4j_1.2.8.jar:${osb.home}/lib/alsb.jar:${configjar.home}/configjar.jar:${configjar.home}/L10N:${configjar.home}/configjar.jar/com.bea.tools.configjar.config.configjar.jar</osb.tool.classpath>	
+	<osb.deploy.classpath>${wl.home}/server/lib/weblogic.jar:${osb.home}/lib/alsb.jar:${osb.home}/lib/sb-kernel-wls.jar:${osb.home}/lib/sb-kernel-impl.jar:${osb.home}/lib/sb-kernel-api.jar:${osb.home}/modules/com.bea.common.configfwk_1.7.0.0.jar</osb.deploy.classpath>	
+      </properties>
+  
+		
+
+  <build>
+    <directory>${buildDirectory}</directory>
+    <plugins>
+     <plugin>
+        <groupId>com.google.code.maven-replacer-plugin</groupId>
+        <artifactId>replacer</artifactId>
+        <version>1.5.2</version>
+        <executions>
+           <execution>
+              <phase>prepare-package</phase>
+                <goals>
+                   <goal>replace</goal>
+                </goals>                    
+           </execution>
+         </executions>
+         <configuration>
+            <ignoreMissingFile>true</ignoreMissingFile>
+            <file>${project.basedir}/osb.xml</file>
+            <outputFile>${buildDirectory}/osb.xml</outputFile>
+            <regex>false</regex>
+            <replacements>
+               <replacement>
+                  <token>$WORKSPACE_HOME$</token>
+                  <value>${osbProjectBase}</value>
+               </replacement>
+               <replacement>
+                  <token>$OSBINCLUDESYSTEM$</token>
+                  <value>${osbIncludeSystem}</value>
+               </replacement>
+               <replacement>
+                  <token>$BUILDDIR$</token>
+                  <value>${buildDirectory}</value>
+               </replacement>
+               <replacement>
+                  <token>$ARTIFACTID$</token>
+                  <value>${project.artifactId}</value>
+               </replacement>
+               <replacement>
+                  <token>$VERSION$</token>
+                  <value>${project.version}</value>
+               </replacement>               
+            </replacements>    
+         </configuration>
+      </plugin>
+     <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>1.2.1</version>
+      <executions>
+       <execution>
+        <id>buildProjectWithConfigJar</id> 
+        <phase>package</phase>
+        <goals>
+          <goal>exec</goal>
+        </goals>
+        <configuration>
+         <includeProjectDependencies>false</includeProjectDependencies>
+         <includePluginDependencies>false</includePluginDependencies>
+         <workingDirectory>${buildOsbBase}</workingDirectory>
+         <executable>java</executable>
+         <commandlineArgs>-Dosb.home=${osb.home} -Dweblogic.home=${wl.home} -classpath ${osb.tool.classpath} com.bea.alsb.tools.configjar.ConfigJar -settingsfile ${buildDirectory}/osb.xml</commandlineArgs>
+         <removeAll>true</removeAll>
+        </configuration>
+       </execution>
+
+       <execution>
+        <id>deployAllToOSBwithNoPlan</id>
+        <phase>deploy</phase>
+        <goals>
+          <goal>exec</goal>
+        </goals>
+        <configuration>
+         <includeProjectDependencies>false</includeProjectDependencies>
+         <includePluginDependencies>false</includePluginDependencies>
+         <workingDirectory>${buildOsbBase}/plans</workingDirectory>
+         <executable>java</executable>
+         <commandlineArgs>-Dwlst.offline.log=/tmp/osb_project.log -classpath ${osb.deploy.classpath} weblogic.WLST -skipWLSModuleScanning ${buildOsbBase}/import.py ${wls.username} ${wls.password} ${wls.server} ${osb.all.import.projects} ${buildOsbBase}/target/${project.artifactId}-${project.version}.jar ${osb.all.import.plan}
+         </commandlineArgs>
+        </configuration>
+       </execution>
+
+      </executions>
+     </plugin>
+     <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4</version>
+     </plugin>
+    </plugins>
+  </build>
+
+ 
+<distributionManagement>
+	
+		<repository>
+			<id>nexusT</id>
+			<name>releases</name>
+			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</repository>
+		<snapshotRepository>
+			<id>nexusT</id>
+			<name>snapshots</name>
+			<url>http://172.30.64.60:3000/nexus/content/repositories/osb11g/</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+	
+
+</project>

@@ -1,0 +1,9 @@
+<configjarSettings xmlns="http://www.bea.com/alsb/tools/configjar/config">
+    <source>
+        <project dir="D:\tool\maven_osb_ps6_tool\source\ReliableMessageWS/..//ReliableMessageWS"/>
+        <system  dir="D:\tool\maven_osb_ps6_tool\source\ReliableMessageWS/..//OSB Configuration"/>
+    </source>
+    <configjar jar="D:\tool\maven_osb_ps6_tool\source\ReliableMessageWS/../../target/osb.source.reliablemessagews-1.4.1.jar">
+         <projectLevel includeSystem="true"/>
+    </configjar>
+</configjarSettings>
