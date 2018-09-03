@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>nl.amis.core.osb</groupId>
+    <artifactId>tool</artifactId>
+    <version>1.0</version>
+    <relativePath>../../parent/pom.xml</relativePath>
+  </parent>
+  <groupId>nl.amis</groupId>
+  <artifactId>com.o2.ManageCreditScore_1_0</artifactId>
+  <version>1.4.1</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>    
+    <buildDirectory>${project.basedir}/../../target</buildDirectory>
+    <buildOsbBase>${project.basedir}/../../</buildOsbBase>
+    <osbProjectBase>${project.basedir}/../</osbProjectBase>
+    <osbIncludeSystem>true</osbIncludeSystem>
+  </properties>
+
+ <!--  <scm>
+    <connection>scm:git:git@github.com:biemond/soa_tools.git</connection>
+    <developerConnection>scm:git:git@github.com:biemond/soa_tools.git</developerConnection>
+    <url>https://github.com/biemond/soa_tools/tree/master/maven_osb_ps6_tool</url>
+    <tag>HEAD</tag>
+  </scm>   -->
+  
+  
+   <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </pluginRepository>
+  </pluginRepositories>
+  
+
+</project>

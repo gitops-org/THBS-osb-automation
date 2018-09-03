@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="NorthBoundInterfaces/managecreditscore"/>
+      <con:port>
+        <con:name>managecreditscore_1_0SOAPPort</con:name>
+        <con:namespace>http://soa.three.ie/managecreditscore_1_0/</con:namespace>
+      </con:port>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>http</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:URI>
+      <env:value>/services/managecreditscore_1_0</env:value>
+    </tran:URI>
+    <tran:inbound-properties/>
+    <tran:all-headers>false</tran:all-headers>
+    <tran:provider-specific>
+      <http:inbound-properties/>
+    </tran:provider-specific>
+  </ser:endpointConfig>
+  <ser:router errorHandler="_onErrorHandler-2735924137246977291-6c0b529d.163cf24ca11.-75be">
+    <con:pipeline type="request" name="PipelinePairNode1_request">
+      <con:stage name="Logging_ManageContract_Request">
+        <con:comment>Logs ManageAccount request body and header details by invoking the O2Framework jar-logEntry method.</con:comment>
+        <con:context xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config"/>
+        <con:actions xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
+          <con1:javaCallout varName="header">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7eea</con2:id>
+            <con1:archive ref="Utility/o2framework/o2framework"/>
+            <con1:className>ie.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+            <con1:method>public static org.apache.xmlbeans.XmlObject logEntry(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con2:xqueryText>$inbound</con2:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con2:xqueryText>$header</con2:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con2:xqueryText>$body</con2:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Retrieve_Config_Data">
+        <con:context/>
+        <con:actions>
+          <con1:javaCallout varName="configData">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7dd0</con2:id>
+            <con1:archive ref="Utility/configdatamanagement/configdatamanagement"/>
+            <con1:className>ie.o2.soa.sf.xmldata.parsing.impl.ConfigFileManager</con1:className>
+            <con1:method>public static java.lang.String retreiveServiceData(org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con2:xqueryText>$inbound</con2:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+          <con1:assign varName="configXML">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7db0</con2:id>
+            <con1:expr>
+              <con2:xqueryText>fn-bea:inlinedXML($configData)/service-config-data/ManageCreditScore_1_0</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Replace Namespace">
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="header">
+            <con2:id>_ActionId-3767132201895163807-5d89d60f.163ed8af1bf.-7d88</con2:id>
+            <con1:expr>
+              <con2:xqueryText>fn-bea:inlinedXML(fn:replace(fn-bea:serialize($header),$configXML/threeNamespace,$configXML/o2ieNamespace))</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Capture_Header">
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="incomingHeader">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7d56</con2:id>
+            <con1:expr>
+              <con2:xqueryText>$header</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Capture_Request">
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="incomingRequest">
+            <con2:id>_ActionId-8778972376693137314--2de43b98.163d4bf2ac2.-7f8f</con2:id>
+            <con1:expr>
+              <con2:xqueryText>$body</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairNode1_response">
+      <con:stage name="Logging_ManageContract_Response">
+        <con:comment>Logs the ManageAccount Response body and header details by invoking the
+ O2framework jar-logExit method.</con:comment>
+        <con:context xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config"/>
+        <con:actions xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config">
+          <con1:javaCallout varName="header">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7703</con2:id>
+            <con1:archive ref="Utility/o2framework/o2framework"/>
+            <con1:className>ie.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+            <con1:method>public static org.apache.xmlbeans.XmlObject logExit(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+            <con1:expr>
+              <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">$inbound</con5:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">$header</con5:xqueryText>
+            </con1:expr>
+            <con1:expr>
+              <con5:xqueryText xmlns:con5="http://www.bea.com/wli/sb/stages/config">$body</con5:xqueryText>
+            </con1:expr>
+          </con1:javaCallout>
+        </con:actions>
+      </con:stage>
+      <con:stage name="Replace Namespace">
+        <con:context/>
+        <con:actions>
+          <con1:assign varName="header">
+            <con2:id>_ActionId-3767132201895163807-5d89d60f.163ed8af1bf.-7ce4</con2:id>
+            <con1:expr>
+              <con2:xqueryText>fn-bea:inlinedXML(fn:replace(fn-bea:serialize($header),$configXML/o2ieNamespace,$configXML/threeNamespace))</con2:xqueryText>
+            </con1:expr>
+          </con1:assign>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="request" name="ManageCreditScore_Gateway_request">
+      <con:stage name="ValidateCreditScore">
+        <con:context>
+          <con2:varNsDecl namespace="http://soa.three.ie/managecreditscoredata_1_0" prefix="man"/>
+        </con:context>
+        <con:actions>
+          <con1:validate>
+            <con2:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7dfe</con2:id>
+            <con1:schema ref="NorthBoundInterfaces/managecreditscoredata_1_0"/>
+            <con1:schemaElement xmlns:man="http://soa.three.ie/managecreditscoredata_1_0">man:updateCreditScore</con1:schemaElement>
+            <con1:varName>body</con1:varName>
+            <con1:location>
+              <con2:xpathText>./man:updateCreditScore</con2:xpathText>
+            </con1:location>
+          </con1:validate>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="ManageCreditScore_Gateway_response">
+      <con:stage name="ConstructCreditScore_Response">
+        <con:context>
+          <con2:varNsDecl namespace="http://soa.three.ie/managecreditscoredata_1_0" prefix="man"/>
+        </con:context>
+        <con:actions>
+          <con1:replace varName="body" contents-only="true">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7773</con2:id>
+            <con1:location>
+              <con2:xpathText>.</con2:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con2:xqueryTransform>
+                <con2:resource ref="ManageCreditScore_1_0/transformations/dfdgdfg"/>
+                <con2:param name="incomingRequest">
+                  <con2:path>$incomingRequest</con2:path>
+                </con2:param>
+              </con2:xqueryTransform>
+            </con1:expr>
+          </con1:replace>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="error" name="_onErrorHandler-2735924137246977291-6c0b529d.163cf24ca11.-75be">
+      <con:stage name="Generic_Exception_Handler">
+        <con:comment>Handles all the backend faults and the OSB fault.</con:comment>
+        <con:context xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+          <con1:userNsDecl namespace="http://soa.o2.ie/coredata_1_0" prefix="xcore"/>
+          <con1:userNsDecl namespace="http://exception.topup.service.middleware.o2.com" prefix="mw"/>
+          <con1:userNsDecl namespace="http://www.bea.com/wli/sb/stages/transform/config" prefix="con"/>
+          <con1:userNsDecl namespace="http://exception.topup.service.middleware.o2.com" prefix="mid"/>
+          <con1:userNsDecl namespace="http://soa.o2.ie/coredata_1" prefix="cor"/>
+          <con1:userNsDecl namespace="http://soa.o2.ie/adapter/services/manageaccountdata_1_0" prefix="mad"/>
+          <con1:userNsDecl namespace="http://soa.o2.ie/adapter/services/amdocsdata_1_0" prefix="amd"/>
+          <con1:userNsDecl namespace="http://soa.o2.ie/adapter/services/managecreditscoredata_1_0" prefix="mcd"/>
+          <con1:varNsDecl namespace="http://soa.o2.ie/managetopupdata_1_0" prefix="man"/>
+        </con:context>
+        <con:actions xmlns:con4="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+          <con5:ifThenElse xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+            <con2:comment>The fault type, either Osb Fault or Backend fault is identified and handled</con2:comment>
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7541</con2:id>
+            <con5:case>
+              <con5:condition>
+                <con2:xqueryText>fn:local-name($body/*[1])='Fault'</con2:xqueryText>
+              </con5:condition>
+              <con5:actions>
+                <con4:log>
+                  <con2:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7d8d</con2:id>
+                  <con4:logLevel>error</con4:logLevel>
+                  <con4:expr>
+                    <con2:xqueryText>&lt;e>True&lt;/e></con2:xqueryText>
+                  </con4:expr>
+                  <con4:message>###############</con4:message>
+                </con4:log>
+                <con5:javaCallout varName="">
+                  <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7540</con2:id>
+                  <con5:archive ref="Utility/o2framework/o2framework"/>
+                  <con5:className>ie.o2.soa.sf.logging.impl.Logging</con5:className>
+                  <con5:method>public static void logInbound(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con5:method>
+                  <con5:expr>
+                    <con2:xqueryText>$inbound</con2:xqueryText>
+                  </con5:expr>
+                  <con5:expr>
+                    <con2:xqueryText>$outbound</con2:xqueryText>
+                  </con5:expr>
+                  <con5:expr>
+                    <con2:xqueryText>$incomingHeader</con2:xqueryText>
+                  </con5:expr>
+                  <con5:expr>
+                    <con2:xqueryText>$body</con2:xqueryText>
+                  </con5:expr>
+                </con5:javaCallout>
+                <con4:log>
+                  <con2:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7d39</con2:id>
+                  <con4:logLevel>error</con4:logLevel>
+                  <con4:expr>
+                    <con2:xqueryText>&lt;a>trueee&lt;/a></con2:xqueryText>
+                  </con4:expr>
+                  <con4:message>$$$$$$$$$$</con4:message>
+                </con4:log>
+                <con5:javaCallout varName="errorData">
+                  <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-753f</con2:id>
+                  <con5:archive ref="Utility/errormaphandling/errormaphandling"/>
+                  <con5:className>ie.o2.soa.sf.errormap.impl.FaultManagement</con5:className>
+                  <con5:method>public static java.lang.String retreiveDestErrorMessage(org.apache.xmlbeans.XmlObject, java.lang.String)</con5:method>
+                  <con5:expr>
+                    <con2:xqueryText>$inbound</con2:xqueryText>
+                  </con5:expr>
+                  <con5:expr>
+                    <con2:xqueryText>if(fn:local-name($body/*[1])='Fault')then
+data($body/soap-env:Fault/detail/*/mcd:SOAFaultCode)
+else " "</con2:xqueryText>
+                  </con5:expr>
+                </con5:javaCallout>
+                <con4:log>
+                  <con2:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7d1c</con2:id>
+                  <con4:logLevel>error</con4:logLevel>
+                  <con4:expr>
+                    <con2:xqueryText>data($body/soap-env:Fault/detail/*/mcd:SOAFaultCode)</con2:xqueryText>
+                  </con4:expr>
+                  <con4:message>----------------------------------$fault</con4:message>
+                </con4:log>
+              </con5:actions>
+            </con5:case>
+            <con5:default>
+              <con5:javaCallout varName="errorData">
+                <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-753e</con2:id>
+                <con5:archive ref="Utility/errormaphandling/errormaphandling"/>
+                <con5:className>ie.o2.soa.sf.errormap.impl.FaultManagement</con5:className>
+                <con5:method>public static java.lang.String retreiveDestErrorMessage(org.apache.xmlbeans.XmlObject, java.lang.String)</con5:method>
+                <con5:expr>
+                  <con2:xqueryText>$inbound</con2:xqueryText>
+                </con5:expr>
+                <con5:expr>
+                  <con2:xqueryText>data($fault/ctx:errorCode)</con2:xqueryText>
+                </con5:expr>
+              </con5:javaCallout>
+              <con4:log>
+                <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-753d</con2:id>
+                <con4:logLevel>error</con4:logLevel>
+                <con4:expr>
+                  <con2:xqueryText>$errorMap</con2:xqueryText>
+                </con4:expr>
+                <con4:message>errormap:</con4:message>
+              </con4:log>
+            </con5:default>
+          </con5:ifThenElse>
+          <con4:log>
+            <con1:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7ce0</con1:id>
+            <con4:logLevel>error</con4:logLevel>
+            <con4:expr>
+              <con1:xqueryText>$errorData</con1:xqueryText>
+            </con4:expr>
+            <con4:message>-----------------------------------------errorMap</con4:message>
+          </con4:log>
+          <con1:replace varName="body" contents-only="true" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+            <con5:id xmlns:con5="http://www.bea.com/wli/sb/stages/config">_ActionId-3767132201895163807-5d89d60f.163ed8af1bf.-7fc8</con5:id>
+            <con1:location>
+              <con5:xpathText xmlns:con5="http://www.bea.com/wli/sb/stages/config">.</con5:xpathText>
+            </con1:location>
+            <con1:expr>
+              <con5:xqueryTransform xmlns:con5="http://www.bea.com/wli/sb/stages/config">
+                <con5:resource ref="CommonResources/transformations/ConstructGenericServiceFault"/>
+                <con5:param name="faultTrace">
+                  <con5:path>if(data($fault/ctx:errorCode) and data($fault/ctx:details/con:ValidationFailureDetail/con:message)) then
+fn:concat(data($fault/ctx:errorCode),':',data($fault/ctx:details/con:ValidationFailureDetail/con:message))
+
+else if(data($body/soap-env:Fault/detail/*/mcd:SOAFaultCode)) then
+data($body/soap-env:Fault/detail/*/mcd:faultDescription)
+
+
+else
+	if(data($body/soap-env:Fault/detail/*/mcd:SOAFaultCode) and data($body/soap-env:Fault/detail/*/mcd:faultDescription)) then
+		fn:concat(data($body/soap-env:Fault/detail/*/mcd:SOAFaultCode),':', data($body/soap-env:Fault/detail/*/mcd:faultDescription))
+	else 
+		if(data($fault/ctx:errorCode) and data($fault/ctx:details/con:ValidationFailureDetail/con:message)) then
+			fn:concat(data($fault/ctx:errorCode),':',data($fault/ctx:details/con:ValidationFailureDetail/con:message))
+		else if(data($fault/ctx:errorCode) and data($body/soap-env:Fault/faultstring)) then
+			fn:concat(data($fault/ctx:errorCode),':',data($body/soap-env:Fault/faultstring))
+			
+	else if((data($fault/ctx:errorCode))=(data($configXML/serviceTimeOut/value)) and data($fault/ctx:reason)) then
+		if(data(fn:substring-before(fn-bea:trim(data($fault/ctx:reason/text())),'&amp;#10;'))) then
+			fn:concat(data($fault/ctx:errorCode),':',fn:substring-before(fn-bea:trim(data($fault/ctx:reason/text())),'&amp;#10;'))
+		else
+			fn:concat(data($fault/ctx:errorCode),':',data($fault/ctx:reason))
+   
+   else if(data($fault/ctx:errorCode) and data($fault/ctx:reason)) then
+        fn:concat(data($fault/ctx:errorCode),':',data($fault/ctx:reason))
+	
+	else if (data($fault/ctx:errorCode)) then
+		data($fault/ctx:errorCode)
+		
+	else ''</con5:path>
+                </con5:param>
+                <con5:param name="errorMap">
+                  <con5:path>fn-bea:inlinedXML($errorData)</con5:path>
+                </con5:param>
+                <con5:param name="namespace">
+                  <con5:path>"http://soa.three.ie/managecreditscoredata_1_0"</con5:path>
+                </con5:param>
+                <con5:param name="faultOriginator">
+                  <con5:path>if($body) then
+$operation
+else if(data($body/soap-env:Fault/detail/*/mcd:SOAFaultOriginator))then
+data($body/soap-env:Fault/detail/*/mcd:SOAFaultOriginator)
+else if($fault/ctx:location/ctx:stage)then
+data($fault/ctx:location/ctx:stage)
+else if($fault/ctx:location/ctx:node)then
+data($fault/ctx:location/ctx:node)
+else ''</con5:path>
+                </con5:param>
+                <con5:param name="transactionId">
+                  <con5:path>if(data($header/xcore:SOATransactionID))then
+data($header/xcore:SOATransactionID)
+else if(data($incomingHeader/xcore:SOATransactionID))then
+data($incomingHeader/xcore:SOATransactionID)
+else ''</con5:path>
+                </con5:param>
+                <con5:param name="operationName">
+                  <con5:path>$operation</con5:path>
+                </con5:param>
+              </con5:xqueryTransform>
+            </con1:expr>
+          </con1:replace>
+          <con4:log>
+            <con1:id>_ActionId-5577748403888543447-47d07844.163de9de4c4.-7ce2</con1:id>
+            <con4:logLevel>error</con4:logLevel>
+            <con4:expr>
+              <con1:xqueryText>&lt;d>trueee&lt;/d></con1:xqueryText>
+            </con4:expr>
+            <con4:message>&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;</con4:message>
+          </con4:log>
+          <con5:javaCallout varName="header" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+            <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-753b</con2:id>
+            <con5:archive ref="Utility/o2framework/o2framework"/>
+            <con5:className>ie.o2.soa.sf.logging.impl.Logging</con5:className>
+            <con5:method>public static org.apache.xmlbeans.XmlObject logFault(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, java.lang.String)</con5:method>
+            <con5:expr>
+              <con2:xqueryText>$inbound</con2:xqueryText>
+            </con5:expr>
+            <con5:expr>
+              <con2:xqueryText>$incomingHeader</con2:xqueryText>
+            </con5:expr>
+            <con5:expr>
+              <con2:xqueryText>$body</con2:xqueryText>
+            </con5:expr>
+            <con5:expr>
+              <con2:xqueryText>data($body/soap-env:Fault/detail/*/xcore:SOAFaultCode)</con2:xqueryText>
+            </con5:expr>
+          </con5:javaCallout>
+          <con5:assign varName="body" xmlns:con5="http://www.bea.com/wli/sb/stages/transform/config">
+            <con1:id>_ActionId-3767132201895163807-5d89d60f.163ed8af1bf.-7b9e</con1:id>
+            <con5:expr>
+              <con1:xqueryText>fn-bea:inlinedXML(fn:replace(fn-bea:serialize($body),"http://soa.o2.ie/coredata_1_0","http://soa.three.ie/coredata_2_0"))</con1:xqueryText>
+            </con5:expr>
+          </con5:assign>
+          <con1:reply isError="true">
+            <con1:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-753a</con1:id>
+          </con1:reply>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="PipelinePairNode1">
+        <con:request>PipelinePairNode1_request</con:request>
+        <con:response>PipelinePairNode1_response</con:response>
+      </con:pipeline-node>
+      <con:branch-node type="operation" name="ManageCreditScore_Branch">
+        <con:context/>
+        <con:branch-table>
+          <con:branch name="updateCreditScore">
+            <con:operator>equals</con:operator>
+            <con:value/>
+            <con:flow>
+              <con:pipeline-node name="ManageCreditScore_Gateway">
+                <con:request>ManageCreditScore_Gateway_request</con:request>
+                <con:response>ManageCreditScore_Gateway_response</con:response>
+              </con:pipeline-node>
+              <con:route-node name="Route To ManageCreditScoreEnabler.updateCreditScore">
+                <con:context>
+                  <con2:varNsDecl namespace="http://soa.three.ie/managecreditscoredata_1_0" prefix="man"/>
+                </con:context>
+                <con:actions>
+                  <con3:route>
+                    <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7ac4</con2:id>
+                    <con3:service ref="ManageCreditScore_1_0/businessservices/ManageCreditScore_1_0" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                    <con3:operation>updateCreditScore</con3:operation>
+                    <con3:outboundTransform>
+                      <con1:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7a9d</con2:id>
+                        <con1:location>
+                          <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                          <con2:xqueryTransform>
+                            <con2:resource ref="ManageCreditScore_1_0/transformations/ManageCreditScoreRequest"/>
+                            <con2:param name="updateCreditScore1">
+                              <con2:path>$body/man:updateCreditScore</con2:path>
+                            </con2:param>
+                          </con2:xqueryTransform>
+                        </con1:expr>
+                      </con1:replace>
+                      <con1:javaCallout varName="">
+                        <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7a7b</con2:id>
+                        <con1:archive ref="Utility/o2framework/o2framework"/>
+                        <con1:className>ie.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+                        <con1:method>public static void logOutbound(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+                        <con1:expr>
+                          <con2:xqueryText>$inbound</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$outbound</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$header</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                      </con1:javaCallout>
+                    </con3:outboundTransform>
+                    <con3:responseTransform>
+                      <con1:replace varName="header">
+                        <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7a21</con2:id>
+                        <con1:location>
+                          <con2:xpathText>.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                          <con2:xqueryText>$incomingHeader</con2:xqueryText>
+                        </con1:expr>
+                      </con1:replace>
+                      <con1:javaCallout varName="">
+                        <con2:id>_ActionId-2735924137246977291-6c0b529d.163cf24ca11.-7a08</con2:id>
+                        <con1:archive ref="Utility/o2framework/o2framework"/>
+                        <con1:className>ie.o2.soa.sf.o2fwk.impl.O2Framework</con1:className>
+                        <con1:method>public static void logInbound(org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject, org.apache.xmlbeans.XmlObject)</con1:method>
+                        <con1:expr>
+                          <con2:xqueryText>$inbound</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$outbound</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$header</con2:xqueryText>
+                        </con1:expr>
+                        <con1:expr>
+                          <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                      </con1:javaCallout>
+                    </con3:responseTransform>
+                  </con3:route>
+                </con:actions>
+              </con:route-node>
+            </con:flow>
+          </con:branch>
+          <con:default-branch>
+            <con:flow/>
+          </con:default-branch>
+        </con:branch-table>
+      </con:branch-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>
