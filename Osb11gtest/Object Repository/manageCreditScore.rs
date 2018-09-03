@@ -44,5 +44,5 @@ import com.kms.katalon.core.webservice.verification.WSResponseManager
 import groovy.json.JsonSlurper
 import internal.GlobalVariable as GlobalVariable
 </verificationScript>
-   <wsdlAddress>http://localhost:7001/services/managecreditscore_1_0?wsdl</wsdlAddress>
+   <wsdlAddress>http://172.30.64.28:7001/services/managecreditscore_1_0?wsdl</wsdlAddress>
 </WebServiceRequestEntity>
