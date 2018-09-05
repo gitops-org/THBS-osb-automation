@@ -12,7 +12,7 @@ project XSDvalidation pom ( /source/XSDvalidation/pom.xml )
 project ReliableMessageWS pom ( /source/ReliableMessageWS/pom.xml )  
 
 
-Usage
+Usageeeee
 -----
 
 __. osb.sh__  ( sets maven, java environment variables )
