@@ -4,7 +4,7 @@ pipeline {
         maven "Maven 3.3.9"
         jdk "jdk8"
     }
-    ss
+
     
      environment {
     PATH = "C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
