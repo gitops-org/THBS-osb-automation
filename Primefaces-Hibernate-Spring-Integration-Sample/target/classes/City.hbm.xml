@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 24, 2018 3:55:54 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.City" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="city">
+        <id name="cityId" type="int">
+            <column name="city_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.State" embed-xml="true" fetch="select" insert="true" name="state" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="state_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="string" unique="false">
+            <column name="city" not-null="true" unique="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

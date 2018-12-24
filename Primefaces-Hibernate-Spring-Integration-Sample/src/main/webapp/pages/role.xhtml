@@ -1,0 +1,167 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+    .label {
+        width:20%;
+        padding:4px;
+    }
+ 
+    .value {
+        width:80%;
+        padding:4px;
+    }
+ 
+    .grid {
+        width:100%;
+    }
+ 
+    .error {
+        color: red;
+    }
+ 
+    .outputLabel {
+        font-weight: bold;
+    }
+ 
+    .grid {
+        width:33%;
+        padding:4px;
+    }
+    
+    .home{
+	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-019.jpg);
+	background-size: cover;
+	-webkit-filter: brightness(100%);
+
+}
+
+
+ .panelColor {
+        color: #cd0ac5 !important;
+        background-color: #facc5359 !important;
+    }
+   .tabColor {
+        color: #c8cd0a !important;
+        background-color: #facc5359 !important;
+    }
+    
+    
+   .ui-panel .ui-panel-titlebar {
+     background-color:#facc5359 !important;
+}
+    
+	   .ui-datatable .ui-paginator, .ui-datatable .ui-paginator
+	    {
+	    background-color: #facc5359 !important;
+	    }
+    
+    
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+    {
+     background-color: #facc5359 !important;
+    }
+    
+      .old {
+        background-color: #cda10ae3 !important;
+        background-image: none !important;
+        color: #000000 !important;
+    }
+    
+</style>
+ 
+ </h:head>
+ <h:body>
+ <ui:composition>
+ <ui:include src="header.xhtml" />
+<h:form id="homerole">
+<p:growl id="display" showDetail="true" sticky="false" />
+<p:panel id="h11" header="ROLE INFORMATION" styleClass="panelColor">
+ <p:dataTable id="tbl" var="role" value="#{roleController.rolesList}"   rowStyleClass="old" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+
+
+
+<p:column style="width:1px">
+        <p:commandButton icon="ui-icon-trash"  update="@form" 
+                        actionListener="#{roleController.deleteRole(role)}"
+                         process="@this"/>
+                </p:column>
+                
+                
+                          <p:column style="width:1px">
+        <p:commandButton icon="ui-icon-pencil"  update="@form" 
+                        actionListener="#{roleController.editRole(role)}"
+                         process="@this"/>
+                </p:column>
+                
+                
+                   <p:column style="width:1px">
+        <p:commandButton icon="ui-icon-plus"  update="@form" 
+                        actionListener="#{roleController.addRole()}"
+                         process="@this"/>
+                </p:column>
+                
+                
+                
+
+        <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Role ID" />
+            </f:facet>
+            <h:outputText value="#{role.roleId}" />
+        </p:column>
+        
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Role Name" />
+            </f:facet>
+            <h:outputText value="#{role.roleName}" />
+        </p:column>
+
+    </p:dataTable>
+
+ 
+<p:panel id="toggleablecreation" header="ADD ROLE DETAILS" toggleable="true" rendered="#{!userWizardController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px"
+styleClass="panelColor">
+        <p:tab id="roledtl" title="RoLe Info" styleClass="tabColor">
+            <p:panel header="Role Details" styleClass="panelColor">
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Role Name: *" />
+                    <p:inputText value="#{roleController.role.roleName}" required="true" label="RoleName"/>
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{roleController.saveRole()}" update="h11" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    
+    <!-- edit Role -->
+    <p:panel id="roletoggleablecreation" header="EDIT ROLE DETAILS" toggleable="true" rendered="#{userWizardController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px"
+styleClass="panelColor">
+        <p:tab id="editroledtl" title="RoLe Info" styleClass="tabColor">
+            <p:panel header="Role Details" styleClass="panelColor">
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Role Name: *" />
+                    <p:inputText value="#{roleController.role.roleName}" required="true" label="RoleName"/>
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{roleController.saveRole()}" update="h11" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    </p:panel>
+
+</h:form>
+</ui:composition>
+</h:body>
+</html>

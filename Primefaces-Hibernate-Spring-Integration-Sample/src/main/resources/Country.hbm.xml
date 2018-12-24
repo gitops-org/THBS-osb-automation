@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 24, 2018 3:55:54 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.Country" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="country">
+        <id name="countryId" type="int">
+            <column name="country_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="country" optimistic-lock="true" type="string" unique="false">
+            <column name="country" not-null="true" unique="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="states" optimistic-lock="true" sort="unsorted" table="state">
+            <key on-delete="noaction">
+                <column name="country_id"/>
+            </key>
+            <one-to-many class="com.State" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
