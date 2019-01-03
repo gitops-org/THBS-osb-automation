@@ -1,0 +1,168 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+
+ .panelColor  {
+  background-image:url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-027.jpg) !important;
+  background-repeat: repeat-x; 
+}
+
+
+</style>
+
+</h:head>
+<h:body>
+		<ui:include src="header.xhtml" />
+		<h:form id="hometag">
+			<p:growl id="display" showDetail="true" sticky="false" />
+			<p:panel id="h11" header="TAGGING" styleClass="panelColor">
+				<p:dataTable id="tbltag" var="tagging"  
+					value="#{taggingController.taggingsList}" rowStyleClass="old"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					paginator="true" rows="10" style="margin-bottom:20px">
+
+<p:column style="width:1px">
+<f:facet name="header">
+		<h:outputText value="Select For Association" />
+						</f:facet>
+             <p:selectBooleanCheckbox value="#{tagging.selectedTag}" valueChangeListener="#{taggingController.selectedList(tagging)}">
+            <p:ajax  update="tbltag" process="@this"/>
+        </p:selectBooleanCheckbox>
+       </p:column>
+
+
+					<p:column style="width:1px">
+
+						<p:menubar value="Actions">
+							<p:menuitem value="Edit"
+								actionListener="#{taggingController.editTagging(tagging)}"
+								update="@form" icon="ui-icon-pencil" process="@this" />
+							<p:menuitem value="Delete"
+								actionListener="#{taggingController.deleteTagging(tagging)}"
+								update="@form" icon="ui-icon-trash" process="@this" />
+						</p:menubar>
+					</p:column>
+
+					<p:column style="width:35px">
+						<f:facet name="header">
+							<h:outputText value="Tagging ID" />
+						</f:facet>
+						<h:outputText value="#{tagging.tagId}" />
+					</p:column>
+
+					<p:column style="width:35px">
+						<f:facet name="header">
+							<h:outputText value="Tagging Name" />
+						</f:facet>
+						<h:outputText value="#{tagging.tagName}" />
+					</p:column>
+
+				</p:dataTable>
+
+				<p:panel id="h1" header="USER INFORMATION" styleClass="panelColor" toggleable="true">
+					<p:dataTable id="tbl" var="user"
+						value="#{userWizardController.usersList}" rowStyleClass="old"
+						paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						paginator="true" rows="10" style="margin-bottom:20px">
+						
+						
+						
+		<p:column style="width:1px">
+            <f:facet name="header">
+                <h:selectBooleanCheckbox value="#{userWizardController.multiSelectedUser}" 
+                    valueChangeListener="#{userWizardController.multiSelectedList(userWizardController.usersList)}">
+                     <p:ajax update="tbl"  process="@this"/>
+                </h:selectBooleanCheckbox>
+            </f:facet>
+             <p:selectBooleanCheckbox value="#{user.selectedUser}" label="Ajax">
+            <p:ajax  listener="#{userWizardController.selectedList(user)}" update="tbl" process="@this"/>
+        </p:selectBooleanCheckbox>
+       </p:column>
+						
+
+						<p:column style="width:3px" filterBy="username">
+							<f:facet name="header">
+								<h:outputText value="User Name" />
+							</f:facet>
+							<h:outputText value="#{user.username}" />
+						</p:column>
+
+						
+						<p:column style="width:3px"  filterBy="tagging.tagName">
+							<f:facet name="header">
+								<h:outputText value="Tag Name" />
+							</f:facet>
+							<h:outputText value="#{user.tagging.tagName}" />
+						</p:column>
+
+						<p:column style="width:3px">
+							<f:facet name="header">
+								<h:outputText value="email" />
+							</f:facet>
+							<h:outputText value="#{user.email}" />
+						</p:column>
+					</p:dataTable>
+
+				</p:panel>
+
+				<p:commandButton value="Create Tagging"
+					actionListener="#{taggingController.addTagging()}" update="@form"
+					icon="ui-icon-plus" process="@this" />
+					
+					
+					<p:commandButton value="Customer Association Tag"
+					actionListener="#{taggingController.associateCustomers()}" update="@form"
+					icon="ui-icon-plus" process="@this" />
+
+				<p:panel id="toggleablecreationtag" header="ADD TAG DETAILS"
+					toggleable="true" rendered="#{!taggingController.editflag}"
+					closable="false" toggleSpeed="500" closeSpeed="500"
+					widgetVar="panel" style="margin-bottom:20px"
+					styleClass="panelColor">
+					<p:tab id="tagdtl" title="TAG Info" styleClass="tabColor">
+						<p:panel header="TAG Details" styleClass="panelColor">
+							<h:panelGrid columns="2" columnClasses="label, value"
+								style="color:black">
+								<h:outputText value="TAG Name: *" />
+								<p:inputText value="#{taggingController.tag.tagName}"
+									required="true" label="TagNmae" />
+							</h:panelGrid>
+							<p:commandButton value="Submit"
+								action="#{taggingController.saveTagging()}" update="h11" />
+						</p:panel>
+					</p:tab>
+				</p:panel>
+
+
+
+				<!-- edit Tag -->
+				<p:panel id="tagtoggleableEdit" header="EDIT TAG DETAILS"
+					toggleable="true" rendered="#{taggingController.editflag}"
+					closable="false" toggleSpeed="500" closeSpeed="500"
+					widgetVar="panel" style="margin-bottom:20px"
+					styleClass="panelColor">
+					<p:tab id="editTaggingdtl" title="Tag Info" styleClass="tabColor">
+						<p:panel header="Tag Details" styleClass="panelColor">
+							<h:panelGrid columns="2" columnClasses="label, value"
+								style="color:black">
+								<h:outputText value="Tag Name: *" />
+								<p:inputText value="#{taggingController.tag.tagName}"
+									required="true" label="Tag Name" />
+							</h:panelGrid>
+							<p:commandButton value="Submit"
+								action="#{taggingController.saveTagging()}" update="h11" />
+						</p:panel>
+					</p:tab>
+				</p:panel>
+
+
+			</p:panel>
+
+		</h:form>
+</h:body>
+</html>
