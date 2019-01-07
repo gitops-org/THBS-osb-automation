@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+     .panelColor 
+  {
+  background-image:url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-027.jpg) !important;
+  background-repeat: repeat-x; 
+}
+    
+</style>
+ 
+ </h:head>
+ <h:body>
+ <ui:include src="header.xhtml" />
+<h:form id="homerole">
+<p:growl id="display" showDetail="true" sticky="false" />
+<p:panel id="h11" header="ROLE INFORMATION" styleClass="panelColor">
+ <p:dataTable id="tbl" var="role" value="#{roleController.rolesList}"   rowStyleClass="old" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+
+
+
+
+ <p:column style="width:1px">
+
+          <p:menubar value="Actions">
+            <p:menuitem value="Edit"  actionListener="#{roleController.editRole(role)}" update="@form"  icon="ui-icon-pencil"  process="@this"/>
+            <p:menuitem  value="Delete"  actionListener="#{roleController.deleteRole(role)}" update="@form"  icon="ui-icon-trash"  process="@this" />
+            </p:menubar>
+        </p:column> 
+
+        <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Role ID" />
+            </f:facet>
+            <h:outputText value="#{role.roleId}" />
+        </p:column>
+        
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Role Name" />
+            </f:facet>
+            <h:outputText value="#{role.roleName}" />
+        </p:column>
+
+    </p:dataTable>
+    
+   <p:commandButton  value="Create Role"  actionListener="#{roleController.addRole()}" update="@form"  icon="ui-icon-plus" process="@this" />  
+
+ 
+<p:panel id="toggleablecreation" header="ADD ROLE DETAILS" toggleable="true" rendered="#{!userWizardController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+        <p:tab id="roledtl" title="RoLe Info" styleClass="tabColor">
+            <p:panel header="Role Details" styleClass="panelColor">
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Role Name: *" />
+                    <p:inputText value="#{roleController.role.roleName}" required="true" label="RoleName"/>
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{roleController.saveRole()}" update="h11" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    
+    <!-- edit Role -->
+    <p:panel id="roletoggleablecreation" header="EDIT ROLE DETAILS" toggleable="true" rendered="#{userWizardController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+        <p:tab id="editroledtl" title="RoLe Info" styleClass="tabColor">
+            <p:panel header="Role Details" styleClass="panelColor">
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Role Name: *" />
+                    <p:inputText value="#{roleController.role.roleName}" required="true" label="RoleName"/>
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{roleController.saveRole()}" update="h11" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    </p:panel>
+
+</h:form>
+</h:body>
+</html>
