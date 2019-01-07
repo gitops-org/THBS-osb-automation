@@ -1,0 +1,305 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+   
+
+ .panelColor  {
+  background-image:url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-027.jpg) !important;
+  background-repeat: repeat-x; 
+}
+   
+   
+
+</style>
+ 
+ </h:head>
+ <h:body>
+ <ui:include src="header.xhtml" />
+ 
+<h:form id="home">
+<p:growl id="hgrowl" sticky="true" showDetail="true" life="3000" />
+<p:panel id="h1" header="USER INFORMATION" styleClass="panelColor">
+
+ <p:dataTable id="tbl" var="user" value="#{userWizardController.usersList}"   rowStyleClass="old"  
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+                 
+          <p:column style="width:2px">
+         <p:menubar>
+           <p:menuitem  value="Delete"  actionListener="#{userWizardController.deleteUser(user)}" update="@form"  icon="ui-icon-trash"  process="@this" />
+            <p:menuitem value="Edit" actionListener="#{userWizardController.editUser(user)}" update="@form"  icon="ui-icon-pencil"  process="@this"/>
+            </p:menubar>	
+        </p:column>
+      
+        <p:column style="width:3px"	>
+            <f:facet name="header">
+                <h:outputText value="First Name" />
+            </f:facet>
+             <h:outputText value="#{user.firstname}" />
+        </p:column>
+ 
+ 		<p:column style="width:3px">
+            <f:facet name="header">
+                <h:outputText value="User Name" />
+            </f:facet>
+            <h:outputText value="#{user.username}" />
+        </p:column>
+ 		
+        <p:column style="width:3px">
+            <f:facet name="header">
+                <h:outputText value="Last Name"/>
+            </f:facet>
+            <h:outputText value="#{user.lastname}" />
+        </p:column>
+ 
+        <p:column style="width:3px">
+            <f:facet name="header">
+                <h:outputText value="Age" />
+            </f:facet>
+            <h:outputText value="#{user.age}" />
+        </p:column>
+        
+         <p:column style="width:3px">
+            <f:facet name="header">
+                <h:outputText value="email" />
+            </f:facet>
+            <h:outputText value="#{user.email}" />
+        </p:column>
+    </p:dataTable>
+   <p:commandButton  value="Create User"  actionListener="#{userWizardController.addUser()}" update="@form" styleClass="buttonColor"
+     icon="ui-icon-plus" process="@this" />
+           
+  
+<p:panel id="toggleablecreation" header="ADD USER DETAILS" toggleable="true" rendered="#{!userWizardController.editflag}" styleClass="addtab"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+	
+ <p:growl id="display" showDetail="true" sticky="false" />
+    <p:wizard flowListener="#{userWizardController.onFlowProcess}" styleClass="tabColor">
+        <p:tab id="personal" title="Personal" styleClass="tabColor">
+            <p:panel header="Personal Details" >
+     
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="First Name: *" />
+                    <p:inputText value="#{userWizardController.user.firstname}" required="true" label="Firstname"/>
+ 
+                    <h:outputText value="Last Name: *" />
+                    <p:inputText value="#{userWizardController.user.lastname}" required="true" label="Lastname"/>
+                    
+                    <h:outputText value="User Name: *" />
+                    <p:inputText value="#{userWizardController.user.username}" required="true" label="username"/>
+                    
+                    <h:outputText value="password: *" />
+                    <p:password value="#{userWizardController.user.password}" required="true" label="password"/>
+ 
+                    <h:outputText value="Age: " />
+                    <p:inputText value="#{userWizardController.user.age}" />
+ 
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizardController.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="address" title="Address" styleClass="tabColor">
+            <p:panel header="Address Details" >
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="Street: " />
+                    <p:inputText value="#{userWizardController.user.street}" />
+ 
+ 
+                    <h:outputText value="City: " />
+                    <p:inputText value="#{userWizardController.user.city}" />
+ 
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizardController.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="contact" title="Contact" styleClass="tabColor">
+            <p:panel header="Contact Information" >
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="Email: *" />
+                    <p:inputText value="#{userWizardController.user.email}" required="true" label="Email"/>
+ 
+                    <h:outputText value="Phone: " />
+                    <p:inputText value="#{userWizardController.user.phone}"/>
+ 
+                    <h:outputText value="Additional Info: " />
+                    <p:inputText value="#{userWizardController.user.info}"/>
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="confirm" title="Confirmation" styleClass="tabColor">
+            <p:panel header="Confirmation" >
+                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Firstname: "  style="color:black"/>
+                        <h:outputText value="#{userWizardController.user.firstname}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Lastname: " />
+                        <h:outputText value="#{userWizardController.user.lastname}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Age: " />
+                        <h:outputText value="#{userWizardController.user.age}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Street: " />
+                        <h:outputText value="#{userWizardController.user.street}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="City: " />
+                        <h:outputText value="#{userWizardController.user.city}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Email: " />
+                        <h:outputText value="#{userWizardController.user.email}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Phone " />
+                        <h:outputText value="#{userWizardController.user.phone}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Info: " />
+                        <h:outputText value="#{userWizardController.user.info}" styleClass="outputLabel"/>
+ 
+                        <h:outputText />
+                        <h:outputText />
+                    </h:panelGrid>
+                </h:panelGrid>
+ 
+                <p:commandButton value="Submit" action="#{userWizardController.save}" update="display h1" process="@this" />
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+    </p:panel>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- the edit panel -->
+    
+ <p:panel id="edittoggleablecreation" header="EDIT USER DETAILS" toggleable="true"  rendered="#{userWizardController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px"
+styleClass="panelColor">
+ <p:growl id="editdisplay" showDetail="true" sticky="false" />
+    <p:wizard flowListener="#{userWizardController.onFlowProcess}" styleClass="tabColor">
+        <p:tab id="editpersonal" title="Personal" styleClass="tabColor">
+            <p:panel header="Personal Details" styleClass="panelColor">
+     
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="First Name: *" />
+                    <p:inputText value="#{userWizardController.user.firstname}" required="true" label="Firstname"  readonly="true"/>
+ 
+                    <h:outputText value="Last Name: *" />
+                    <p:inputText value="#{userWizardController.user.lastname}" required="true" label="Lastname" readonly="true"/>
+                    
+                    <h:outputText value="User Name: *" />
+                    <p:inputText value="#{userWizardController.user.username}" required="true" label="username" readonly="true"/>
+                    
+                    <h:outputText value="password: *" />
+                    <p:password value="#{userWizardController.user.password}" required="true" label="password" />
+ 
+                    <h:outputText value="Age: " />
+                    <p:inputText value="#{userWizardController.user.age}" />
+ 
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizardController.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="editaddress" title="Address" styleClass="tabColor">
+            <p:panel header="Address Details" styleClass="panelColor">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="Street: " />
+                    <p:inputText value="#{userWizardController.user.street}" />
+ 
+ 
+                    <h:outputText value="City: " />
+                    <p:inputText value="#{userWizardController.user.city}" />
+ 
+                    <h:outputText value="Skip to last: " />
+                    <h:selectBooleanCheckbox value="#{userWizardController.skip}" />
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="editcontact" title="Contact" styleClass="tabColor">
+            <p:panel header="Contact Information" styleClass="panelColor">
+                <p:messages />
+                <h:panelGrid columns="2" columnClasses="label, value">
+                    <h:outputText value="Email: *" />
+                    <p:inputText value="#{userWizardController.user.email}" required="true" label="Email"/>
+ 
+                    <h:outputText value="Phone: " />
+                    <p:inputText value="#{userWizardController.user.phone}"/>
+ 
+                    <h:outputText value="Additional Info: " />
+                    <p:inputText value="#{userWizardController.user.info}"/>
+                </h:panelGrid>
+            </p:panel>
+        </p:tab>
+ 
+        <p:tab id="editconfirm" title="Confirmation" styleClass="tabColor">
+            <p:panel header="Confirmation" styleClass="panelColor">
+                <h:panelGrid id="editConfirmation" columns="3" columnClasses="grid,grid,grid">
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Firstname: "  style="color:black"/>
+                        <h:outputText value="#{userWizardController.user.firstname}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Lastname: " />
+                        <h:outputText value="#{userWizardController.user.lastname}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Age: " />
+                        <h:outputText value="#{userWizardController.user.age}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Street: " />
+                        <h:outputText value="#{userWizardController.user.street}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="City: " />
+                        <h:outputText value="#{userWizardController.user.city}" styleClass="outputLabel"/>
+                    </h:panelGrid>
+ 
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Email: " />
+                        <h:outputText value="#{userWizardController.user.email}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Phone " />
+                        <h:outputText value="#{userWizardController.user.phone}" styleClass="outputLabel"/>
+ 
+                        <h:outputText value="Info: " />
+                        <h:outputText value="#{userWizardController.user.info}" styleClass="outputLabel"/>
+ 
+                        <h:outputText />
+                        <h:outputText />
+                    </h:panelGrid>
+                </h:panelGrid>
+ 
+                <p:commandButton value="Submit" action="#{userWizardController.save}" update="editdisplay h1" process="@this" />
+            </p:panel>
+        </p:tab>
+    </p:wizard>
+    </p:panel>
+    
+  
+    </p:panel>
+
+</h:form>
+</h:body>
+</html>
