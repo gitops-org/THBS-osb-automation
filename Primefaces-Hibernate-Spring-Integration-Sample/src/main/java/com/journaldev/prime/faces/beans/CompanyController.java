@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -28,7 +29,7 @@ import com.journaldev.hibernate.entity.State;
 import com.journaldev.spring.service.CompanyService;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 @Component
 public class CompanyController implements Serializable {
 
@@ -42,30 +43,7 @@ public class CompanyController implements Serializable {
 	private Map<String,Integer> countries;
     private Map<String,Integer> cities;
     private Map<String,Integer> states;
-	private String month;
-	private Date date;
 	
-	
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getMonth() {
-		return month;
-	}
-
-	public void setMonth(String month) {
-		this.month = month;
-	}
-
-	public Month[] getMonths() {
-        return Month.values();
-    }
     
     
 	@Autowired

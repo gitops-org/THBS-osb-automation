@@ -31,6 +31,7 @@
 				<value>state.hbm.xml</value>
 				<value>city.hbm.xml</value>
 				<value>tagging.hbm.xml</value>
+				<value>report.hbm.xml</value>
 			</list>
 		</property>
 		<property name="configLocation">

@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -20,7 +21,7 @@ import com.journaldev.hibernate.entity.Role;
 import com.journaldev.spring.service.UserWizardService;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 @Component
 public class RoleController implements Serializable {
 

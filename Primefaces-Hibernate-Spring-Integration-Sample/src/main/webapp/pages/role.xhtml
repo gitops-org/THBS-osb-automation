@@ -61,19 +61,6 @@ closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="mar
                 <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
                     <h:outputText value="Role Name: *" />
                     <p:inputText value="#{roleController.role.roleName}" required="true" label="RoleName"/>
-                    
-                    
-                <p:outputLabel for="month" value="MONTH: " />
-            <p:selectOneMenu id="month" value="#{companyController.month}" style="width:150px">
-          
-                <f:selectItem itemLabel="Select Month" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{companyController.months}" />
-            </p:selectOneMenu>
-            
-           
-                    <p:calendar id="test" value="#{companyController.date}" pattern="yyyy" 
-                     navigator="true"  showOn="button" />
-                    
                 </h:panelGrid>
                  <p:commandButton value="Submit" action="#{roleController.saveRole()}" update="h11" />
             </p:panel>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Jan 7, 2019 3:21:56 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.journaldev.hibernate.entity.Report" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="report">
+        <id name="reportId" type="java.lang.Integer">
+            <column name="report_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="oppId" optimistic-lock="true" type="string" unique="false">
+            <column name="oppId"/>
+        </property>
+        <property generated="never" lazy="false" name="campaignName" optimistic-lock="true" type="string" unique="false">
+            <column name="campaignName"/>
+        </property>
+        <property generated="never" lazy="false" name="valueItem" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="valueItem"/>
+        </property>
+        <property generated="never" lazy="false" name="ae" optimistic-lock="true" type="string" unique="false">
+            <column name="AE"/>
+        </property>
+        <property generated="never" lazy="false" name="am" optimistic-lock="true" type="string" unique="false">
+            <column name="AM"/>
+        </property>
+        <property generated="never" lazy="false" name="year" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="year"/>
+        </property>
+        <property generated="never" lazy="false" name="month" optimistic-lock="true" type="string" unique="false">
+            <column name="month"/>
+        </property>
+        <property generated="never" lazy="false" name="finalTotal" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="finalTotal"/>
+        </property>
+        <property generated="never" lazy="false" name="remaining" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="remaining"/>
+        </property>
+        <property generated="never" lazy="false" name="subtotal" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="subtotal"/>
+        </property>
+    </class>
+</hibernate-mapping>
