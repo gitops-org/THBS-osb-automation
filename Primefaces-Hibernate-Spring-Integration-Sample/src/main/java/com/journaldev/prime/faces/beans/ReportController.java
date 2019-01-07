@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -17,6 +19,7 @@ import javax.faces.event.ActionEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.journaldev.hibernate.entity.City;
 import com.journaldev.hibernate.entity.Report;
 import com.journaldev.hibernate.entity.ReportData;
 import com.journaldev.hibernate.entity.Role;
@@ -35,7 +38,8 @@ public class ReportController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private ReportData reportData = new ReportData();
 	private List<Report> reportList = new ArrayList<>();
-
+	private Map<String,Integer> reportNames;
+	
 	@Autowired
 	private ReportService reportService;
 
@@ -45,6 +49,14 @@ public class ReportController implements Serializable {
 
 	public void setReportService(ReportService reportService) {
 		this.reportService = reportService;
+	}
+
+	public Map<String, Integer> getReportNames() {
+		return reportNames;
+	}
+
+	public void setReportNames(Map<String, Integer> reportNames) {
+		this.reportNames = reportNames;
 	}
 
 	public ReportData getReportData() {
@@ -68,6 +80,7 @@ public class ReportController implements Serializable {
 		try {
 			reportList.clear();
 		 reportList = reportService.getReportsList();
+		 reportNames=reportList.stream().collect(Collectors.toMap(Report::getOppId, Report::getReportId));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

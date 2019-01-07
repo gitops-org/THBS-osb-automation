@@ -12,6 +12,12 @@
 		!important;
 	background-repeat: repeat-x;
 }
+
+
+.ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left button {
+	background-color:red !important;
+}
+
 </style>
 
 </h:head>
@@ -113,14 +119,21 @@
 
 			</p:panel>
 
-			<p:commandButton value="Create Tagging"
+			<p:commandButton value="Create Tagging" styleClass="button"
 				actionListener="#{taggingController.addTagging()}" update="@form"
 				icon="ui-icon-plus" process="@this" />
 
 
-			<p:commandButton value="Customer Association Tag"
+			<p:commandButton value="Customer Association Tag" styleClass="button"
 				actionListener="#{taggingController.associateCustomers()}"
 				update="@form" icon="ui-icon-plus" process="@this" />
+				
+				
+				
+				<p:commandButton value="Send Mail" styleClass="button"
+				actionListener="#{taggingController.sendEmail()}"
+				update="@form" icon="ui-icon-plus" process="@this" />
+				<p:spacer></p:spacer>
 
 			<p:panel id="toggleablecreationtag" header="ADD TAG DETAILS"
 				toggleable="true" rendered="#{!taggingController.editflag}"

@@ -272,4 +272,37 @@ public class TaggingController implements Serializable {
 		}
 
 	}
+	
+	
+	public void sendEmail()
+	{
+		try {
+			List<User> selectedUsersList = userWizardController.getSelectedUsersList();
+			if (selectedUsersList.isEmpty()) {
+				msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "No  User is selected",
+						"No Association is possible :" + getSelectedTag().getTagName());
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+			} else if (getSelectedTag() == null) {
+				msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "No  Tag is selected",
+						"No Association is possible atleast select one tag :");
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+			} else {
+				for (User user : selectedUsersList) {
+					user.setTagging(getSelectedTag());
+					userWizardService.register(user);
+				}
+				msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Users Tagging",
+						" Users Association is Succesful :" + getSelectedTag().getTagName());
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+			}
+			selectedTagsList.clear();
+			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+			ec.redirect(ec.getRequestContextPath() + "/pages/tagging.xhtml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
 }

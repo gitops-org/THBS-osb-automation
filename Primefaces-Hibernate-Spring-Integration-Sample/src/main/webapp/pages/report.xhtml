@@ -20,13 +20,13 @@
 <h:form id="homereport">
 <p:growl id="display" showDetail="true" sticky="false" />
 <p:panel id="h11" header="Report" styleClass="panelColor">
-
-<p:outputLabel for="reports" value="Report Name: " />
+  <p:panelGrid columns="2" columnClasses="label, value" style="color:black;width: auto;">
+<p:outputLabel  value="Report Name: " />
                  <p:selectOneMenu id="reportName" value="#{reportController.reportData.reportNameToView}" style="width:150px">
-                <p:ajax  update="h11" process=@this/>
                 <f:selectItem itemLabel="Select Report Name" itemValue="" noSelectionOption="true" />
                 <f:selectItems value="#{reportController.reportList}" />
             </p:selectOneMenu>
+            </p:panelGrid>
  </p:panel>
 </h:form>
 </h:body>
