@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated Dec 28, 2018 3:08:24 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.journaldev.hibernate.entity.Tagging" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tagging">
+    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.ragsInfo.entity.Tagging" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="tagging">
         <id name="tagId" type="java.lang.Integer">
             <column name="tag_id"/>
             <generator class="identity"/>
@@ -13,7 +13,7 @@
             <key on-delete="noaction">
                 <column name="tag_id"/>
             </key>
-            <one-to-many class="com.journaldev.hibernate.entity.User" embed-xml="true" not-found="exception"/>
+            <one-to-many class="com.ragsInfo.entity.User" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated Dec 26, 2018 5:01:43 PM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.journaldev.hibernate.entity.State" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="state">
+    <class catalog="sonar" dynamic-insert="false" dynamic-update="false" mutable="true" name="com.ragsInfo.entity.State" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="state">
         <id name="stateId" type="java.lang.Integer">
             <column name="state_id"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="com.journaldev.hibernate.entity.Country" embed-xml="true" fetch="select" insert="true" name="country" not-found="exception" optimistic-lock="true" unique="false" update="true">
+        <many-to-one class="com.ragsInfo.entity.Country" embed-xml="true" fetch="select" insert="true" name="country" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="country_id"/>
         </many-to-one>
         <property generated="never" lazy="false" name="state" optimistic-lock="true" type="string" unique="false">
@@ -16,13 +16,13 @@
             <key on-delete="noaction">
                 <column name="state_id"/>
             </key>
-            <one-to-many class="com.journaldev.hibernate.entity.Company" embed-xml="true" not-found="exception"/>
+            <one-to-many class="com.ragsInfo.entity.Company" embed-xml="true" not-found="exception"/>
         </set>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="cities" optimistic-lock="true" sort="unsorted" table="city">
             <key on-delete="noaction">
                 <column name="state_id"/>
             </key>
-            <one-to-many class="com.journaldev.hibernate.entity.City" embed-xml="true" not-found="exception"/>
+            <one-to-many class="com.ragsInfo.entity.City" embed-xml="true" not-found="exception"/>
         </set>
     </class>
 </hibernate-mapping>
