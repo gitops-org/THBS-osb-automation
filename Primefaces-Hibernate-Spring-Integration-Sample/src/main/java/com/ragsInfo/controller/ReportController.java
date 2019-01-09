@@ -100,7 +100,7 @@ public class ReportController implements Serializable {
 	public void loadReports(ActionEvent e) {
 		try {
 			init();
-			mailSenderUtils.sendMail();
+			//mailSenderUtils.sendMail();
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/pages/report.xhtml");
 		} catch (IOException e1) {
