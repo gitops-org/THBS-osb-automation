@@ -95,7 +95,11 @@
 			<version>4.0.3.RELEASE</version>
 		</dependency>
 		
-		
+<dependency>
+	<groupId>com.sun.mail</groupId>
+	<artifactId>javax.mail</artifactId>
+	<version>1.5.5</version>
+</dependency>
 
 		
 		<!-- Required By Hibernate -->

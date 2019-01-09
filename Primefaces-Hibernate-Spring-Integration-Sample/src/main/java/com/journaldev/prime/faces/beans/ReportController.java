@@ -8,10 +8,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -19,13 +17,10 @@ import javax.faces.event.ActionEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.journaldev.hibernate.entity.City;
+import com.journaldev.filter.Utility.MailSenderUtils;
 import com.journaldev.hibernate.entity.Report;
 import com.journaldev.hibernate.entity.ReportData;
-import com.journaldev.hibernate.entity.Role;
-import com.journaldev.spring.service.CompanyService;
 import com.journaldev.spring.service.ReportService;
-import com.journaldev.spring.service.UserWizardService;
 
 @ManagedBean
 @RequestScoped
@@ -42,6 +37,17 @@ public class ReportController implements Serializable {
 	
 	@Autowired
 	private ReportService reportService;
+	
+	@Autowired
+	MailSenderUtils mailSenderUtils;
+
+	public MailSenderUtils getMailSenderUtils() {
+		return mailSenderUtils;
+	}
+
+	public void setMailSenderUtils(MailSenderUtils mailSenderUtils) {
+		this.mailSenderUtils = mailSenderUtils;
+	}
 
 	public ReportService getReportService() {
 		return reportService;
@@ -94,6 +100,7 @@ public class ReportController implements Serializable {
 	public void loadReports(ActionEvent e) {
 		try {
 			init();
+			mailSenderUtils.sendMail();
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/pages/report.xhtml");
 		} catch (IOException e1) {

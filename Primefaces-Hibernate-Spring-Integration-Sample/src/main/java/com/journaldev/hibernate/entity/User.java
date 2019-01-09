@@ -27,6 +27,8 @@ public class User implements java.io.Serializable {
 	private String password;
 	private Tagging tagging;
 	private boolean selectedUser;
+	private String confirmPassword;
+	private String newPassword;
 
 	public User() {
 	}
@@ -174,6 +176,22 @@ public class User implements java.io.Serializable {
 
 	public void setTagging(Tagging tagging) {
 		this.tagging = tagging;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 
 }

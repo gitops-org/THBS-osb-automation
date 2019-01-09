@@ -124,6 +124,8 @@ public class UserWizardController implements Serializable {
 			return event.getNewStep();
 		}	
 	}
+	
+	
 
 	/**
 	 * save the user details
@@ -257,6 +259,48 @@ public class UserWizardController implements Serializable {
 		}
 	}
 	
+	
+	public void saveNewPassword()
+	{
+		try {
+			checkConfirmPassword();
+			User user = getUser();
+			user.setPassword(user.getNewPassword());
+			userWizardService.register(user);
+			init();
+			msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login with new credentials",
+					"Password was changed by the user");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+			ec.redirect(ec.getRequestContextPath() + "/pages/login.xhtml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
+	public void checkConfirmPassword()
+	{
+		try {
+		if (getUser().getConfirmPassword() != null && getUser().getPassword() != null) {
+			if (!getUser().getConfirmPassword().equals(getUser().getNewPassword())) {
+				msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Password Mismatch","mismatch");
+				FacesContext.getCurrentInstance().addMessage(null, msg);
+				ExternalContext ec = FacesContext.getCurrentInstance()
+	                    .getExternalContext();
+								ec.redirect(ec.getRequestContextPath()
+								        + "/pages/changePassword.xhtml");
+							}
+			}
+		}
+		 catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
 	
 
 }

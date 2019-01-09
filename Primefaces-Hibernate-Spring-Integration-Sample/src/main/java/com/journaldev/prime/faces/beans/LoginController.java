@@ -69,17 +69,17 @@ public class LoginController{
 	public void init() {
 		  login =new Login();
 		// get uer Information
-					
+		  
 	}
 
-	
+	HttpSession session=null;
 
 
 	public void login() throws Exception {
         FacesMessage message = null;
         boolean loggedIn = false;
 		try {
-
+			userHashMap.clear();
 			List<User> usersList = userWizardController.getUsersList();
 			for (User user : usersList) {
 				userHashMap.put(user.getUsername(), user);
@@ -104,7 +104,7 @@ public class LoginController{
 
 				HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 						.getRequest();
-				HttpSession session = request.getSession();
+				session = request.getSession();
 				session.setMaxInactiveInterval(10 * 60);
 				session.setAttribute("user", login.getUsername());
 				session.setAttribute("password", login.getPassword());
@@ -123,6 +123,20 @@ public class LoginController{
 			e.printStackTrace();
 		}
     } 
+	
+	
+	
+	public void changePassword() {
+		try {
+			User user = userHashMap.get(login.getUsername());
+			getUserWizardController().setUser(user);
+			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+			ec.redirect(ec.getRequestContextPath() + "/pages/changePassword.xhtml");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	public String logout() {
