@@ -84,7 +84,7 @@ public class ReportController implements Serializable {
 	@PostConstruct
 	public void init() {
 		try {
-			reportList.clear();
+		reportList.clear();
 		 reportList = reportService.getReportsList();
 		 reportNames=reportList.stream().collect(Collectors.toMap(Report::getOppId, Report::getReportId));
 		} catch (Exception e) {
