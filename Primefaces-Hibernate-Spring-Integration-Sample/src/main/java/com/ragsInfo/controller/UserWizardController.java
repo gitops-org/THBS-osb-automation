@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -18,6 +20,8 @@ import org.primefaces.event.FlowEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ragsInfo.entity.City;
+import com.ragsInfo.entity.Tagging;
 import com.ragsInfo.entity.User;
 import com.ragsInfo.service.UserWizardService;
 
@@ -37,7 +41,17 @@ public class UserWizardController implements Serializable {
 	FacesMessage msg=null;
 	private List<User> selectedUsersList = new ArrayList<>();
 	private boolean multiSelectedUser;
+	private Map<String,Integer> taggings;
 	
+	
+	public Map<String, Integer> getTaggings() {
+		return taggings;
+	}
+
+	public void setTaggings(Map<String, Integer> taggings) {
+		this.taggings = taggings;
+	}
+
 	public List<User> getUsersList() {
 		return usersList;
 	}
@@ -63,11 +77,6 @@ public class UserWizardController implements Serializable {
 	}
 
 
-
-
-
-
-
 	@Autowired
 	private UserWizardService userWizardService;
 
@@ -78,6 +87,8 @@ public class UserWizardController implements Serializable {
 			usersList.clear();
 			selectedUsersList.clear();
 			usersList = userWizardService.getUsersList();
+			List<Tagging> taggingList = userWizardService.getTaggingList();
+			taggings=taggingList.stream().collect(Collectors.toMap(Tagging::getTagName, Tagging::getTagId));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -162,8 +173,7 @@ public class UserWizardController implements Serializable {
 						e1.printStackTrace();
 					}
 	}
-	
-	
+
 	
 	/**
 	 * @param user
@@ -268,9 +278,9 @@ public class UserWizardController implements Serializable {
 			user.setPassword(user.getNewPassword());
 			userWizardService.register(user);
 			init();
-			msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login with new credentials",
+		FacesMessage msg1 = new FacesMessage(FacesMessage.SEVERITY_INFO, "Login with new credentials",
 					"Password was changed by the user");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			FacesContext.getCurrentInstance().addMessage(null, msg1);
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/pages/login.xhtml");
 		} catch (Exception e) {

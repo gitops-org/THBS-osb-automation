@@ -160,6 +160,7 @@ public class TaggingController implements Serializable {
 		try {
 			init();
 			setEditflag(false);
+			getTag().setTagName(null);
 			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 			ec.redirect(ec.getRequestContextPath() + "/pages/tagging.xhtml");
 		} catch (IOException e1) {

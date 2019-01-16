@@ -25,7 +25,7 @@ public class User implements java.io.Serializable {
 	private byte status;
 	private String username;
 	private String password;
-	private Tagging tagging;
+	private Tagging tagging=new Tagging();
 	private boolean selectedUser;
 	private String confirmPassword;
 	private String newPassword;

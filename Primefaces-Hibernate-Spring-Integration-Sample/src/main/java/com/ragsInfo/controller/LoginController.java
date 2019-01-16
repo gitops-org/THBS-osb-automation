@@ -25,7 +25,7 @@ import com.ragsInfo.entity.User;
 public class LoginController{
 	
 	private Login login;
-    private String thbsVersion="1.0";
+    private String gtpsVersion="1.3";
     private Date buildDate=new Date();
     HashMap<String, User> userHashMap = new HashMap<>();
     @Autowired
@@ -38,14 +38,14 @@ public class LoginController{
 
 	public void setUserWizardController(UserWizardController userWizardController) {
 		this.userWizardController = userWizardController;
+	}	
+
+	public String getGtpsVersion() {
+		return gtpsVersion;
 	}
 
-	public String getThbsVersion() {
-		return thbsVersion;
-	}
-
-	public void setThbsVersion(String thbsVersion) {
-		this.thbsVersion = thbsVersion;
+	public void setGtpsVersion(String gtpsVersion) {
+		this.gtpsVersion = gtpsVersion;
 	}
 
 	public Date getBuildDate() {
