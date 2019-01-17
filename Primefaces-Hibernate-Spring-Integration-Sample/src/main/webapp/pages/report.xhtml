@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+     .panelColor 
+  {
+  background-image:url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-027.jpg) !important;
+  background-repeat: repeat-x; 
+}
+    
+</style>
+ 
+ </h:head>
+ <h:body>
+ <ui:include src="header.xhtml" />
+<h:form id="homereport">
+<p:growl id="display" showDetail="true" sticky="false" />
+<p:panel id="h11" header="Report" styleClass="panelColor">
+  <p:panelGrid columns="2" columnClasses="label, value" style="color:black;width: auto;">
+<p:outputLabel  value="Report Name: " />
+                 <p:selectOneMenu id="reportName" value="#{reportController.reportData.reportNameToView}" style="width:150px">
+                <f:selectItem itemLabel="Select Report Name" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{reportController.reportList}" />
+            </p:selectOneMenu>
+            </p:panelGrid>
+ </p:panel>
+</h:form>
+</h:body>
+<ui:include src="footer.xhtml"/>
+</html>

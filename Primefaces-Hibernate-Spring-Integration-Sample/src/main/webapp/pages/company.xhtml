@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<style type="text/css">
+  
+ .panelColor  {
+  background-image:url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-027.jpg) !important;
+  background-repeat: repeat-x; 
+}
+
+ 
+ 
+ 
+ 
+</style>
+ 
+ </h:head>
+ <h:body>
+ <ui:include src="header.xhtml" />
+<h:form id="homecompany">
+<p:growl id="display" showDetail="true" sticky="false" />
+<p:panel id="hcompany" header="COMPANY INFORMATION" styleClass="panelColor" >
+ <p:dataTable id="tbl" var="company" value="#{companyController.companiesList}"   rowStyleClass="old" 
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+                 
+                
+          <p:column style="width:35px">
+          <p:menubar value="Actions">
+           <p:menuitem  value="Delete" actionListener="#{companyController.deleteCompany(company)}" update="@form"  icon="ui-icon-trash"  process="@this" />
+            <p:menuitem value="Edit" actionListener="#{companyController.editCompany(company)}" update="@form"  icon="ui-icon-pencil"  process="@this"/>
+          </p:menubar>
+        </p:column> 
+
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Company Name" />
+            </f:facet>
+            <h:outputText value="#{company.companyName}" />
+        </p:column>
+        
+        
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="TIN Number" />
+            </f:facet>
+            <h:outputText value="#{company.tinNumber}" />
+        </p:column>
+        
+        
+          <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Street" />
+            </f:facet>
+            <h:outputText value="#{company.street}" />
+        </p:column>
+        
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Country" />
+            </f:facet>
+            <h:outputText value="#{company.country.country}" />
+        </p:column>
+        
+        
+        
+          <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="City" />
+            </f:facet>
+            <h:outputText value="#{company.city.city}" />
+        </p:column>
+        
+        
+         <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="State" />
+            </f:facet>
+            <h:outputText value="#{company.state.state}" />
+        </p:column>
+        
+        <p:column  style="width:35px">
+            <f:facet name="header">
+                <h:outputText value="Address" />
+            </f:facet>
+            <h:outputText value="#{company.address}" />
+        </p:column> 
+
+    </p:dataTable>
+    
+    
+     <p:commandButton  value="Create Company"  actionListener="#{companyController.addCompany()}" update="@form"  icon="ui-icon-plus" process="@this" />
+    
+    <p:panel id="toggleableCompanyCreation" header="ADD COMPANY DETAILS" toggleable="true" rendered="#{!companyController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px"
+>
+        <p:tab id="companydtl" title="RoLe Info" styleClass="tabColor">
+            <p:panel header="Company  Details" >
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Company Name:" />
+                    <p:inputText value="#{companyController.company.companyName}" required="true" label="companyName"/>
+                    
+                     <h:outputText value="Tin Number:" />
+                    <p:inputText value="#{companyController.company.tinNumber}" required="true" label="tinNumber"/>
+                    
+                     <h:outputText value="street:" />
+                    <p:inputText value="#{companyController.company.street}" required="true" label="street"/>
+                    
+                    
+                     <p:outputLabel for="country" value="Country: " />
+                 <p:selectOneMenu id="country" value="#{companyController.company.countryName}" style="width:150px">
+                <p:ajax listener="#{companyController.onCountryChange}" update="state" />
+                <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.countries}" />
+            </p:selectOneMenu>
+ 
+            <p:outputLabel for="state" value="State: " />
+            <p:selectOneMenu id="state" value="#{companyController.company.stateName}" style="width:150px">
+            <p:ajax listener="#{companyController.onStateChange}" update="city" />
+                <f:selectItem itemLabel="Select State" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.states}" />
+            </p:selectOneMenu>
+                          
+             <p:outputLabel for="city" value="City: " />
+            <p:selectOneMenu id="city" value="#{companyController.company.cityName}" style="width:150px">
+                <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.cities}" />
+            </p:selectOneMenu>
+                    
+                     <h:outputText value="Address : *" />
+                    <p:inputTextarea value="#{companyController.company.address}" required="true" label="address"/>
+                     
+                    
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{companyController.saveCompany()}" update="hcompany tbl" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    
+    <!-- edit Role -->
+   <p:panel id="toggleableCompanyEditCreation" header="EDIT COMPANY DETAILS" toggleable="true" rendered="#{companyController.editflag}"
+closable="false" toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px"
+>
+        <p:tab id="editcmpanydtl" title="Company Info" styleClass="tabColor">
+            <p:panel header="Company Details" >
+                <h:panelGrid columns="2" columnClasses="label, value" style="color:black">
+                    <h:outputText value="Company Name :" />
+                    <p:inputText value="#{companyController.company.companyName}" required="true" label="companyName"/>
+                    
+                     <h:outputText value="Tin Number:" />
+                    <p:inputText value="#{companyController.company.tinNumber}" required="true" label="tinNumber"/>
+                    
+                     <h:outputText value="street:" />
+                    <p:inputText value="#{companyController.company.street}" required="true" label="street"/>
+                    
+                      
+                       <p:outputLabel for="editcountry" value="Country: " />
+                 <p:selectOneMenu id="editcountry" value="#{companyController.company.countryName}" style="width:150px">
+                <p:ajax listener="#{companyController.onCountryChange}" update="editstate" />
+                <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.countries}" />
+            </p:selectOneMenu>
+ 
+            <p:outputLabel for="editstate" value="State: " />
+            <p:selectOneMenu id="editstate" value="#{companyController.company.stateName}" style="width:150px">
+            <p:ajax listener="#{companyController.onStateChange}" update="editcity" />
+                <f:selectItem itemLabel="Select State" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.states}" />
+            </p:selectOneMenu>
+                          
+             <p:outputLabel for="editcity" value="City: " />
+            <p:selectOneMenu id="editcity" value="#{companyController.company.cityName}" style="width:150px">
+                <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{companyController.cities}" />
+            </p:selectOneMenu>
+            
+            
+                     <h:outputText value="Address : *" />
+                    <p:inputTextarea value="#{companyController.company.address}" required="true" label="address"/>
+                     
+                </h:panelGrid>
+                 <p:commandButton value="Submit" action="#{companyController.saveCompany()}" update="hcompany" />
+            </p:panel>
+        </p:tab>
+    </p:panel>
+    
+    
+    </p:panel>
+
+</h:form>
+</h:body>
+<ui:include src="footer.xhtml"/>
+</html>
