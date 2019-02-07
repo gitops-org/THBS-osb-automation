@@ -1,0 +1,36 @@
+operating System-Redhat linux,Centos and windows
+
+scripting languages--bash,python,UnixShell,Ruby
+
+Cloud technologies--AWS(EC2,S3,Cloud watch,RDS,Elasticcache,IAM)
+
+BigData--Kafka,Zookeeper,Confluent Kafka,ElasticSearch
+
+Automation/build tools--Jenkins,chef,ansible
+
+monitoring tool--splunk,cloudwatch,datadog,wireshark
+
+http://www.javacreed.com/java-fork-join-example/
+
+http://www.tutorialsteacher.com/angularjs/angularjs-development-environment
+
+http://www.tutorialsteacher.com/angularjs/angularjs-development-environment
+
+ESB 2 - Filebeat - 10.246.180.217
+Elasticsearch - data (slave) - 10.246.180.71
+Elasticsearch - Master - 10.246.179.147
+'/app/wso2/wso2esb-5.0.0/repository/logs/wso2carbon.log'
+
+
+
+scp username@remote_1:/file/to/send username@remote_2:/where/to/put
+
+
+scp /home/elkuser  10.246.180.217:cd /tmp
+
+
+
+scp /app/filebeat-5.6.8-linux-x86_64.tar.gz elkuser@34.246.16.214:/app/wso2/wso2esb-5.0.0/repository/logs
+
+cp wso2carbon.log /app/wso2/wso2esb-5.0.0/repository/logs/wso2carbon.log
+
